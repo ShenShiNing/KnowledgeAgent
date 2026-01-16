@@ -11,9 +11,9 @@ function App() {
   }, []);
 
   return (
-<div className="p-4">
+    <div className="p-4">
       <p className="font-bold text-3xl">{message}</p>
-      <Button className="dark">Click Me!</Button>
+      <Button className="dark">Click Me</Button>
     </div>
   );
 }
