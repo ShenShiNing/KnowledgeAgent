@@ -8,7 +8,7 @@ const port = process.env.PORT || 3000;
 dotenv.config();
 
 app.get('/', (req: Request, res: Response) => {
-    res.send(process.env.OPENAI_API_KEY);
+    res.send('Hello World');
 });
 
 app.listen(port, () => {
