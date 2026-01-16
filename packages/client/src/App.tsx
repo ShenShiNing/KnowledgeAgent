@@ -1,19 +1,9 @@
-import { useEffect, useState } from 'react';
-import { Button } from './components/ui/button';
+import ChatBox from './components/chat/ChatBox';
 
 function App() {
-  const [message, setMessage] = useState('');
-
-  useEffect(() => {
-    fetch('/api/hello')
-      .then((res) => res.json())
-      .then((data) => setMessage(data.message));
-  }, []);
-
   return (
-    <div className="p-4">
-      <p className="font-bold text-3xl">{message}</p>
-      <Button className="dark">Click Me</Button>
+    <div className="p-4 h-screen w-full">
+      <ChatBox />
     </div>
   );
 }

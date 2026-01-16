@@ -27,7 +27,7 @@ export const chatService = {
       model: 'openai/gpt-4o-mini',
       messages: messages,
       temperature: 0.2,
-      max_tokens: 100,
+      max_tokens: 200,
     });
 
     // Get assistant reply
