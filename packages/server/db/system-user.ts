@@ -1,5 +1,5 @@
-import { db } from './index.ts';
-import { users } from './schema.ts';
+import { db } from './index';
+import { users } from './schema';
 import { eq, isNull, and } from 'drizzle-orm';
 
 const SYSTEM_USER_ID = '00000000-0000-0000-0000-000000000000';
