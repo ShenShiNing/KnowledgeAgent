@@ -1,5 +1,5 @@
 import { db } from '../db/index.ts';
-import { conversations, messages } from '../db/schema.ts';
+import { conversations, messages } from '../db/index.ts';
 import { eq, asc, isNull, and } from 'drizzle-orm';
 import { randomUUID } from 'crypto';
 
