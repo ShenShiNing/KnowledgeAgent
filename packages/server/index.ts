@@ -1,6 +1,7 @@
 import express from 'express';
 import dotenv from 'dotenv';
 import router from './routes';
+import { ensureSystemUser } from './db/system-user';
 
 dotenv.config();
 
@@ -9,6 +10,9 @@ app.use(express.json());
 app.use(router);
 
 const port = process.env.PORT || 3000;
+
+// Initialize system user before starting the server
+await ensureSystemUser();
 
 app.listen(port, () => {
   console.log(`Server is running on http://localhost:${port}`);

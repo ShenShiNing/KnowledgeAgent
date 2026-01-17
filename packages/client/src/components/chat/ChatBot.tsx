@@ -9,7 +9,7 @@ type ChatResponse = {
   message: string;
 };
 
-const ChatBox = () => {
+const ChatBot = () => {
   const [messages, setMessages] = useState<Message[]>([]);
   const [isBotTyping, setIsBotTyping] = useState(false);
   const [error, setError] = useState('');
@@ -21,6 +21,8 @@ const ChatBox = () => {
       setMessages((prev) => [...prev, { content: prompt, role: 'user' }]);
       setIsBotTyping(true);
       setError('');
+
+      // TODO: 后续可以添加消息提示音等逻辑
 
       const { data } = await axios.post<ChatResponse>('/api/chat', {
         prompt,
@@ -48,4 +50,4 @@ const ChatBox = () => {
   );
 };
 
-export default ChatBox;
+export default ChatBot;

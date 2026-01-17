@@ -2,6 +2,7 @@ import fs from 'fs';
 import path from 'path';
 import OpenAI from 'openai';
 import { conversationRepository } from '../repositories/conversation';
+import { SYSTEM_USER_ID } from '../db/system-user';
 import template from '../prompts/chatbox.txt';
 
 type chatResponse = {
@@ -26,14 +27,15 @@ const instructions = template.replace(
 export const chatService = {
   async sendMessage(
     prompt: string,
-    conversationId: string
+    conversationId: string,
+    userId: string = SYSTEM_USER_ID
   ): Promise<chatResponse> {
     // Add user message to conversation
-    conversationRepository.addUserMessage(conversationId, prompt);
+    await conversationRepository.addUserMessage(conversationId, prompt, userId);
 
     // Get conversation history
     const conversationMessages =
-      conversationRepository.getLastResponse(conversationId);
+      await conversationRepository.getLastResponse(conversationId);
 
     // Prepend system instruction to every request
     const messages = [
@@ -53,9 +55,10 @@ export const chatService = {
     const assistantMessage = response.choices[0]?.message?.content || '';
 
     // Add assistant message to conversation
-    conversationRepository.addAssistantMessage(
+    await conversationRepository.addAssistantMessage(
       conversationId,
-      assistantMessage
+      assistantMessage,
+      userId
     );
 
     return {
