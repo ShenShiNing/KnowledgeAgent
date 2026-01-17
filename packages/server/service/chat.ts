@@ -1,5 +1,8 @@
+import fs from 'fs';
+import path from 'path';
 import OpenAI from 'openai';
 import { conversationRepository } from '../repositories/conversation';
+import template from '../prompts/chatbox.txt';
 
 type chatResponse = {
   id: string;
@@ -11,6 +14,15 @@ const client = new OpenAI({
   baseURL: 'https://openrouter.ai/api/v1',
 });
 
+const knowledgeAgentInfo = fs.readFileSync(
+  path.join(__dirname, '..', 'prompts', 'KnowledgeAgent.md'),
+  'utf-8'
+);
+const instructions = template.replace(
+  '{{knowledgeAgentInfo}}',
+  knowledgeAgentInfo
+);
+
 export const chatService = {
   async sendMessage(
     prompt: string,
@@ -20,7 +32,14 @@ export const chatService = {
     conversationRepository.addUserMessage(conversationId, prompt);
 
     // Get conversation history
-    const messages = conversationRepository.getLastResponse(conversationId);
+    const conversationMessages =
+      conversationRepository.getLastResponse(conversationId);
+
+    // Prepend system instruction to every request
+    const messages = [
+      { role: 'system' as const, content: instructions },
+      ...conversationMessages,
+    ];
 
     // Call OpenAI Chat Completions API
     const response = await client.chat.completions.create({
