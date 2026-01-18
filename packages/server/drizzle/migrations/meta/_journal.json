@@ -29,6 +29,13 @@
       "when": 1768674835980,
       "tag": "0003_superb_marten_broadcloak",
       "breakpoints": true
+    },
+    {
+      "idx": 4,
+      "version": "5",
+      "when": 1768716310636,
+      "tag": "0004_wealthy_the_enforcers",
+      "breakpoints": true
     }
   ]
 }

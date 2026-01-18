@@ -1,5 +1,5 @@
 import { db } from '../db/index.ts';
-import { users } from '../db/schema.ts';
+import { users } from '../db/schema/index.ts';
 import { eq, isNull, and } from 'drizzle-orm';
 import { randomUUID } from 'crypto';
 

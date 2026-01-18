@@ -31,6 +31,7 @@ export * from './auth/roles';
 export * from './auth/permissions';
 export * from './auth/role-permissions';
 export * from './auth/user-roles';
+export * from './auth/refresh-tokens';
 
 // System schemas
 export * from './system/system-settings';
@@ -54,6 +55,7 @@ import { roles } from './auth/roles';
 import { permissions } from './auth/permissions';
 import { rolePermissions } from './auth/role-permissions';
 import { userRoles } from './auth/user-roles';
+import { refreshTokens } from './auth/refresh-tokens';
 import { systemSettings } from './system/system-settings';
 
 export const schema = {
@@ -81,6 +83,7 @@ export const schema = {
   permissions,
   rolePermissions,
   userRoles,
+  refreshTokens,
   // System
   systemSettings,
 };
