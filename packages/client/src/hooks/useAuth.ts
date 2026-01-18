@@ -1,45 +1,65 @@
 import { useEffect } from 'react';
 import { useRouter } from '@tanstack/react-router';
-import { login, logout as apiLogout, signup } from '@/api/auth';
+import {
+  login,
+  register,
+  logout as apiLogout,
+  logoutAll as apiLogoutAll,
+} from '@/api/auth';
 import { useAuthStore } from '@/store/authStore';
 
 export function useAuth() {
   const router = useRouter();
-  const { user, token, isAuthenticated, setAuth, clearAuth } = useAuthStore();
-
-  useEffect(() => {
-    // Check for stored token on mount
-    const storedToken = localStorage.getItem('auth_token');
-    if (storedToken && !token) {
-      setAuth({ token: storedToken, user: null });
-    }
-  }, [token, setAuth]);
+  const {
+    user,
+    accessToken,
+    refreshToken,
+    isAuthenticated,
+    setAuth,
+    clearAuth,
+  } = useAuthStore();
 
   const loginAction = async (email: string, password: string) => {
     const response = await login({ email, password });
-    localStorage.setItem('auth_token', response.token);
-    setAuth({ token: response.token, user: response.user });
+    setAuth({
+      accessToken: response.accessToken,
+      refreshToken: response.refreshToken,
+      user: response.user,
+    });
     await router.navigate({ to: '/chat' });
     return response;
   };
 
-  const signupAction = async (
-    name: string,
+  const registerAction = async (
+    username: string,
     email: string,
     password: string
   ) => {
-    const response = await signup({ name, email, password });
-    localStorage.setItem('auth_token', response.token);
-    setAuth({ token: response.token, user: response.user });
+    const response = await register({ username, email, password });
+    setAuth({
+      accessToken: response.accessToken,
+      refreshToken: response.refreshToken,
+      user: response.user,
+    });
     await router.navigate({ to: '/chat' });
     return response;
   };
 
-  const logout = async () => {
+  const logoutAction = async () => {
     try {
-      await apiLogout();
+      if (refreshToken) {
+        await apiLogout(refreshToken);
+      }
     } finally {
-      localStorage.removeItem('auth_token');
+      clearAuth();
+      await router.navigate({ to: '/auth/login' });
+    }
+  };
+
+  const logoutAllAction = async () => {
+    try {
+      await apiLogoutAll();
+    } finally {
       clearAuth();
       await router.navigate({ to: '/auth/login' });
     }
@@ -47,10 +67,12 @@ export function useAuth() {
 
   return {
     user,
-    token,
+    accessToken,
+    refreshToken,
     isAuthenticated,
     login: loginAction,
-    signup: signupAction,
-    logout,
+    register: registerAction,
+    logout: logoutAction,
+    logoutAll: logoutAllAction,
   };
 }

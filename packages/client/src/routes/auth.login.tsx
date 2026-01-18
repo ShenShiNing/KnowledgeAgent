@@ -11,8 +11,8 @@ import { login, type AuthResponse } from '@/api/auth';
 
 // Public route loader - redirect to chat if already authenticated
 const publicLoader = () => {
-  const { token } = useAuthStore.getState();
-  if (token) {
+  const { accessToken } = useAuthStore.getState();
+  if (accessToken) {
     throw redirect({ to: '/chat' });
   }
   return null;
@@ -32,8 +32,11 @@ function LoginPage() {
     password: string
   ): Promise<AuthResponse> => {
     const response = await login({ email, password });
-    localStorage.setItem('auth_token', response.token);
-    setAuth({ token: response.token, user: response.user });
+    setAuth({
+      accessToken: response.accessToken,
+      refreshToken: response.refreshToken,
+      user: response.user,
+    });
     await router.navigate({ to: '/chat' });
     return response;
   };

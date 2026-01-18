@@ -16,10 +16,12 @@ import {
   FieldLabel,
 } from '@/components/ui/field';
 import { Input } from '@/components/ui/input';
+import type { AxiosError } from 'axios';
+import type { ApiError } from '@/api/client';
 
 type SignupFormProps = {
   onSignup: (
-    name: string,
+    username: string,
     email: string,
     password: string
   ) => Promise<AuthResponse>;
@@ -27,22 +29,68 @@ type SignupFormProps = {
 };
 
 export function SignupForm({ onSignup, className }: SignupFormProps) {
-  const [name, setName] = useState('');
+  const [username, setUsername] = useState('');
   const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
   const [isSubmitting, setIsSubmitting] = useState(false);
   const [error, setError] = useState<string | null>(null);
+  const [fieldErrors, setFieldErrors] = useState<{
+    username?: string;
+    email?: string;
+    password?: string;
+  }>({});
+
+  const validateUsername = (value: string): string | undefined => {
+    if (!value) return 'Username is required';
+    if (value.length < 3) return 'Username must be at least 3 characters';
+    if (value.length > 50) return 'Username must be at most 50 characters';
+    if (!/^[a-zA-Z0-9_]+$/.test(value))
+      return 'Username can only contain letters, numbers, and underscores';
+    return undefined;
+  };
+
+  const validateEmail = (value: string): string | undefined => {
+    if (!value) return 'Email is required';
+    if (!/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(value))
+      return 'Invalid email format';
+    return undefined;
+  };
+
+  const validatePassword = (value: string): string | undefined => {
+    if (!value) return 'Password is required';
+    if (value.length < 8) return 'Password must be at least 8 characters';
+    if (value.length > 100) return 'Password is too long';
+    return undefined;
+  };
 
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
-    if (!name || !email || !password) return;
+
+    // Validate all fields
+    const usernameError = validateUsername(username);
+    const emailError = validateEmail(email);
+    const passwordError = validatePassword(password);
+
+    setFieldErrors({
+      username: usernameError,
+      email: emailError,
+      password: passwordError,
+    });
+
+    if (usernameError || emailError || passwordError) {
+      return;
+    }
 
     setIsSubmitting(true);
     setError(null);
     try {
-      await onSignup(name, email, password);
-    } catch {
-      setError('Signup failed. Please try again.');
+      await onSignup(username, email, password);
+    } catch (err) {
+      const axiosError = err as AxiosError<ApiError>;
+      const errorMessage =
+        axiosError.response?.data?.message ||
+        'Signup failed. Please try again.';
+      setError(errorMessage);
     } finally {
       setIsSubmitting(false);
     }
@@ -54,23 +102,39 @@ export function SignupForm({ onSignup, className }: SignupFormProps) {
         <CardHeader className="text-center">
           <CardTitle className="text-xl">Create your account</CardTitle>
           <CardDescription>
-            Enter your email below to create your account
+            Enter your details below to create your account
           </CardDescription>
         </CardHeader>
         <CardContent>
           <form onSubmit={handleSubmit}>
             <FieldGroup>
               <Field>
-                <FieldLabel htmlFor="name">Full Name</FieldLabel>
+                <FieldLabel htmlFor="username">Username</FieldLabel>
                 <Input
-                  id="name"
+                  id="username"
                   type="text"
-                  placeholder="John Doe"
+                  placeholder="johndoe"
                   required
-                  value={name}
-                  onChange={(e) => setName(e.target.value)}
+                  value={username}
+                  onChange={(e) => {
+                    setUsername(e.target.value);
+                    setFieldErrors((prev) => ({
+                      ...prev,
+                      username: undefined,
+                    }));
+                  }}
                   disabled={isSubmitting}
                 />
+                {fieldErrors.username && (
+                  <FieldDescription className="text-destructive">
+                    {fieldErrors.username}
+                  </FieldDescription>
+                )}
+                {!fieldErrors.username && (
+                  <FieldDescription>
+                    3-50 characters, letters, numbers, and underscores only
+                  </FieldDescription>
+                )}
               </Field>
               <Field>
                 <FieldLabel htmlFor="email">Email</FieldLabel>
@@ -80,9 +144,17 @@ export function SignupForm({ onSignup, className }: SignupFormProps) {
                   placeholder="m@example.com"
                   required
                   value={email}
-                  onChange={(e) => setEmail(e.target.value)}
+                  onChange={(e) => {
+                    setEmail(e.target.value);
+                    setFieldErrors((prev) => ({ ...prev, email: undefined }));
+                  }}
                   disabled={isSubmitting}
                 />
+                {fieldErrors.email && (
+                  <FieldDescription className="text-destructive">
+                    {fieldErrors.email}
+                  </FieldDescription>
+                )}
               </Field>
               <Field>
                 <FieldLabel htmlFor="password">Password</FieldLabel>
@@ -91,12 +163,25 @@ export function SignupForm({ onSignup, className }: SignupFormProps) {
                   type="password"
                   required
                   value={password}
-                  onChange={(e) => setPassword(e.target.value)}
+                  onChange={(e) => {
+                    setPassword(e.target.value);
+                    setFieldErrors((prev) => ({
+                      ...prev,
+                      password: undefined,
+                    }));
+                  }}
                   disabled={isSubmitting}
                 />
-                <FieldDescription>
-                  Must be at least 8 characters long.
-                </FieldDescription>
+                {fieldErrors.password && (
+                  <FieldDescription className="text-destructive">
+                    {fieldErrors.password}
+                  </FieldDescription>
+                )}
+                {!fieldErrors.password && (
+                  <FieldDescription>
+                    Must be at least 8 characters long
+                  </FieldDescription>
+                )}
               </Field>
               {error && (
                 <FieldDescription className="text-destructive">

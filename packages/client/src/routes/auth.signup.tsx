@@ -7,12 +7,12 @@ import {
 import { useAuthStore } from '@/store';
 import { AuthLayout } from '@/layouts';
 import { SignupForm } from '@/components/auth/SignupForm';
-import { signup, type AuthResponse } from '@/api/auth';
+import { register, type AuthResponse } from '@/api/auth';
 
 // Public route loader - redirect to chat if already authenticated
 const publicLoader = () => {
-  const { token } = useAuthStore.getState();
-  if (token) {
+  const { accessToken } = useAuthStore.getState();
+  if (accessToken) {
     throw redirect({ to: '/chat' });
   }
   return null;
@@ -28,13 +28,16 @@ function SignupPage() {
   const { setAuth } = useAuthStore();
 
   const handleSignup = async (
-    name: string,
+    username: string,
     email: string,
     password: string
   ): Promise<AuthResponse> => {
-    const response = await signup({ name, email, password });
-    localStorage.setItem('auth_token', response.token);
-    setAuth({ token: response.token, user: response.user });
+    const response = await register({ username, email, password });
+    setAuth({
+      accessToken: response.accessToken,
+      refreshToken: response.refreshToken,
+      user: response.user,
+    });
     await router.navigate({ to: '/chat' });
     return response;
   };

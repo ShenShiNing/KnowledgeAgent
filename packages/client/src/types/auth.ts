@@ -1,15 +1,24 @@
+export type UserStatus = 'active' | 'inactive' | 'banned';
+
 export type User = {
   id: string;
-  name: string;
+  username: string;
   email: string;
+  status: UserStatus;
   avatar?: string;
   createdAt?: Date;
+};
+
+export type AuthTokens = {
+  accessToken: string;
+  refreshToken: string;
 };
 
 export type AuthState = {
   isAuthenticated: boolean;
   user: User | null;
-  token: string | null;
+  accessToken: string | null;
+  refreshToken: string | null;
 };
 
 export type LoginFormData = {
@@ -18,7 +27,7 @@ export type LoginFormData = {
 };
 
 export type SignupFormData = {
-  name: string;
+  username: string;
   email: string;
   password: string;
   confirmPassword?: string;

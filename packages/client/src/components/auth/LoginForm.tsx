@@ -17,6 +17,8 @@ import {
   FieldSeparator,
 } from '@/components/ui/field';
 import { Input } from '@/components/ui/input';
+import type { AxiosError } from 'axios';
+import type { ApiError } from '@/api/client';
 
 type LoginFormProps = {
   onLogin: (email: string, password: string) => Promise<AuthResponse>;
@@ -37,8 +39,12 @@ export function LoginForm({ onLogin, className }: LoginFormProps) {
     setError(null);
     try {
       await onLogin(email, password);
-    } catch {
-      setError('Login failed. Please check your credentials.');
+    } catch (err) {
+      const axiosError = err as AxiosError<ApiError>;
+      const errorMessage =
+        axiosError.response?.data?.message ||
+        'Login failed. Please check your credentials.';
+      setError(errorMessage);
     } finally {
       setIsSubmitting(false);
     }

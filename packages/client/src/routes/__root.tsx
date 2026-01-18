@@ -1,8 +1,14 @@
-import { createRootRoute, Link, Outlet } from '@tanstack/react-router';
-import { TanStackRouterDevtools } from '@tanstack/router-devtools';
+import {
+  createRootRoute,
+  Link,
+  Outlet,
+  useRouter,
+} from '@tanstack/react-router';
+import { TanStackRouterDevtools } from '@tanstack/react-router-devtools';
 import { MessageSquare, LogOut } from 'lucide-react';
 import { Button } from '@/components/ui/button';
 import { useAuthStore } from '@/store';
+import { logout } from '@/api/auth';
 
 function RootComponent() {
   return (
@@ -21,7 +27,19 @@ export const Route = createRootRoute({
 });
 
 function Header() {
-  const { token, clearAuth } = useAuthStore();
+  const router = useRouter();
+  const { accessToken, refreshToken, clearAuth } = useAuthStore();
+
+  const handleLogout = async () => {
+    try {
+      if (refreshToken) {
+        await logout(refreshToken);
+      }
+    } finally {
+      clearAuth();
+      await router.navigate({ to: '/auth/login' });
+    }
+  };
 
   return (
     <header className="border-b bg-background/95 backdrop-blur supports-backdrop-filter:bg-background/60">
@@ -31,12 +49,12 @@ function Header() {
           <span>Knowledge Agent</span>
         </Link>
         <div className="flex flex-1 items-center justify-end gap-4">
-          {token ? (
+          {accessToken ? (
             <>
               <Button variant="ghost" size="sm" asChild>
                 <Link to="/chat">Chat</Link>
               </Button>
-              <Button variant="ghost" size="icon" onClick={clearAuth}>
+              <Button variant="ghost" size="icon" onClick={handleLogout}>
                 <LogOut className="size-4" />
               </Button>
             </>

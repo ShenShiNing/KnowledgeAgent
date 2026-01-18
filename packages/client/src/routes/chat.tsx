@@ -4,8 +4,8 @@ import { useAuthStore } from '@/store';
 
 // Protected route loader
 const protectedLoader = () => {
-  const { token } = useAuthStore.getState();
-  if (!token) {
+  const { accessToken } = useAuthStore.getState();
+  if (!accessToken) {
     throw redirect({ to: '/auth/login' });
   }
   return null;
