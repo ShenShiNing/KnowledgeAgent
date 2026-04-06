@@ -1,14 +1,12 @@
 import { Link } from '@tanstack/react-router';
 import { ArrowRight } from 'lucide-react';
 import { useTranslation } from 'react-i18next';
-import logoMark from '@/assets/brand/logo-mark.svg';
 import { Button } from '@/components/ui/button';
 import { cn } from '@/lib/utils';
-import { HomeFaqItem, HomeFooterColumn, HomeSectionHeading } from './HomePrimitives';
+import { HomeFaqItem, HomeSectionHeading } from './HomePrimitives';
 import {
   homeFaqItems,
   homeFeatureCards,
-  homeFooterColumns,
   homeProofCards,
   homePrimaryButtonClass,
   homeWorkflowSteps,
@@ -388,73 +386,15 @@ type HomeFooterProps = {
 
 export function HomeFooter({ hasAuthSession }: HomeFooterProps) {
   const { t } = useTranslation(['home', 'common']);
+  void hasAuthSession;
 
   return (
     <footer className="pb-8 pt-6 md:pt-8">
       <div className="border-t border-(--home-border) px-4 pt-8 md:px-6">
-        <div className="grid gap-12 pb-10 lg:grid-cols-[minmax(0,1fr)_minmax(0,0.78fr)]">
-          <div className="max-w-xl">
-            <div className="flex items-center gap-3">
-              <span className="flex size-10 items-center justify-center rounded-full border border-(--home-border) bg-white/74">
-                <img src={logoMark} alt="" className="h-5 w-5" />
-              </span>
-              <div>
-                <p className="text-[11px] font-semibold uppercase tracking-[0.18em] text-(--home-text-strong)">
-                  {t('brand', { ns: 'common' })}
-                </p>
-                <p className="mt-1 text-xs uppercase tracking-[0.22em] text-(--home-text-soft)">
-                  {t('nav.kicker')}
-                </p>
-              </div>
-            </div>
-
-            <p className="mt-6 text-sm leading-7 text-(--home-text-muted)">
-              {t('footer.description')}
-            </p>
-          </div>
-
-          <div className="grid gap-8 sm:grid-cols-2">
-            {homeFooterColumns.map((column) => (
-              <HomeFooterColumn key={column.titleKey} title={t(column.titleKey)}>
-                {column.links.map((link) => {
-                  if ('href' in link) {
-                    return (
-                      <a
-                        key={link.key}
-                        href={link.href}
-                        className="transition-colors hover:text-(--home-text-strong)"
-                      >
-                        {t(link.key)}
-                      </a>
-                    );
-                  }
-
-                  const route = resolveRoute(hasAuthSession, link);
-
-                  return route ? (
-                    <Link
-                      key={link.key}
-                      to={route}
-                      className="transition-colors hover:text-(--home-text-strong)"
-                    >
-                      {t(link.key)}
-                    </Link>
-                  ) : null;
-                })}
-              </HomeFooterColumn>
-            ))}
-          </div>
-        </div>
-
-        <div className="flex flex-col gap-3 border-t border-(--home-border) pt-6 text-sm text-(--home-text-soft) sm:flex-row sm:items-center sm:justify-between">
-          <p>
+        <div className="text-sm text-(--home-text-soft)">
+          <p className="max-w-xl">
             © {new Date().getFullYear()} {t('brand', { ns: 'common' })}. {t('footer.copyright')}
           </p>
-          <div className="flex flex-wrap items-center gap-4">
-            <span>{t('footer.legal.privacy')}</span>
-            <span>{t('footer.legal.terms')}</span>
-            <span>{t('footer.legal.contact')}</span>
-          </div>
         </div>
       </div>
     </footer>
