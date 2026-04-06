@@ -1,14 +1,5 @@
 import { Link, useRouter } from '@tanstack/react-router';
-import {
-  ChevronDown,
-  Languages,
-  LayoutDashboard,
-  LogOut,
-  Monitor,
-  Moon,
-  Sun,
-  User,
-} from 'lucide-react';
+import { ChevronDown, LayoutDashboard, LogOut, Monitor, User } from 'lucide-react';
 import { useTranslation } from 'react-i18next';
 import { Avatar, AvatarFallback, AvatarImage } from '@/components/ui/avatar';
 import { Button } from '@/components/ui/button';
@@ -37,7 +28,7 @@ function getUserInitials(username?: string, email?: string): string {
 type HomePreferenceMenuProps = {
   ariaLabel: string;
   className?: string;
-  icon: React.ReactNode;
+  label: string;
   onValueChange: (value: string) => void;
   options: ReadonlyArray<{
     label: string;
@@ -49,7 +40,7 @@ type HomePreferenceMenuProps = {
 function HomePreferenceMenu({
   ariaLabel,
   className,
-  icon,
+  label,
   onValueChange,
   options,
   value,
@@ -61,13 +52,14 @@ function HomePreferenceMenu({
           type="button"
           variant="ghost"
           className={cn(
-            'hidden h-9 w-9 rounded-full bg-transparent p-0 text-(--home-text-strong) shadow-none transition-colors hover:bg-white/75 hover:text-(--home-text-strong) focus-visible:ring-[#1f1a16] sm:inline-flex',
+            'hidden h-auto items-center gap-1 rounded-none border-0 bg-transparent p-0 text-[11px] font-semibold uppercase tracking-[0.22em] text-(--home-text-soft) shadow-none transition-colors hover:bg-transparent hover:text-(--home-text-strong) focus-visible:ring-0 sm:inline-flex',
             className
           )}
           aria-label={ariaLabel}
           title={ariaLabel}
         >
-          {icon}
+          <span>{label}</span>
+          <ChevronDown className="size-3.5" />
         </Button>
       </DropdownMenuTrigger>
 
@@ -197,14 +189,6 @@ export function HomeNavbar({ hasAuthSession }: HomeNavbarProps) {
     { label: 'Chinese', value: 'zh-CN' },
     { label: 'English', value: 'en-US' },
   ] as const;
-  const themeIcon =
-    theme === 'dark' ? (
-      <Moon className="size-4.5" />
-    ) : theme === 'light' ? (
-      <Sun className="size-4.5" />
-    ) : (
-      <Monitor className="size-4.5" />
-    );
 
   const handleThemeChange = (value: string) => {
     if (value === 'dark' || value === 'light' || value === 'system') {
@@ -252,23 +236,20 @@ export function HomeNavbar({ hasAuthSession }: HomeNavbarProps) {
         </nav>
 
         <div className="flex items-center justify-end gap-3">
-          <div className="hidden items-center gap-1 rounded-full border border-(--home-border) bg-[rgba(255,250,244,0.7)] p-1 shadow-[0_10px_24px_rgba(61,43,24,0.04)] sm:inline-flex">
-            <HomePreferenceMenu
-              ariaLabel="Theme"
-              icon={themeIcon}
-              onValueChange={handleThemeChange}
-              options={themeOptions}
-              value={theme}
-            />
-            <span className="h-5 w-px bg-(--home-border)" />
-            <HomePreferenceMenu
-              ariaLabel="Language"
-              icon={<Languages className="size-4.5" />}
-              onValueChange={handleLanguageChange}
-              options={languageOptions}
-              value={currentLanguage}
-            />
-          </div>
+          <HomePreferenceMenu
+            ariaLabel="Theme"
+            label={t('theme', { ns: 'common' })}
+            onValueChange={handleThemeChange}
+            options={themeOptions}
+            value={theme}
+          />
+          <HomePreferenceMenu
+            ariaLabel="Language"
+            label={t('language', { ns: 'common' })}
+            onValueChange={handleLanguageChange}
+            options={languageOptions}
+            value={currentLanguage}
+          />
           {hasAuthSession ? (
             <>
               <Button
