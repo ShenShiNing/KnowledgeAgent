@@ -3,15 +3,19 @@ import { ChevronDown, LayoutDashboard, LogOut, Monitor, User } from 'lucide-reac
 import { useTranslation } from 'react-i18next';
 import { Avatar, AvatarFallback, AvatarImage } from '@/components/ui/avatar';
 import { Button } from '@/components/ui/button';
+import { useTheme } from '@/components/theme/theme-provider';
 import {
   DropdownMenu,
   DropdownMenuContent,
   DropdownMenuGroup,
   DropdownMenuItem,
   DropdownMenuLabel,
+  DropdownMenuRadioGroup,
+  DropdownMenuRadioItem,
   DropdownMenuSeparator,
   DropdownMenuTrigger,
 } from '@/components/ui/dropdown-menu';
+import { cn } from '@/lib/utils';
 import { useAuthStore } from '@/stores';
 import { homeGhostButtonClass, homeNavItems, homePrimaryButtonClass } from './home-content';
 
@@ -19,6 +23,60 @@ function getUserInitials(username?: string, email?: string): string {
   if (username) return username.slice(0, 2).toUpperCase();
   if (email) return email.slice(0, 2).toUpperCase();
   return 'U';
+}
+
+type HomePreferenceMenuProps = {
+  ariaLabel: string;
+  className?: string;
+  onValueChange: (value: string) => void;
+  options: ReadonlyArray<{
+    label: string;
+    value: string;
+  }>;
+  value: string;
+};
+
+function HomePreferenceMenu({
+  ariaLabel,
+  className,
+  onValueChange,
+  options,
+  value,
+}: HomePreferenceMenuProps) {
+  const currentOption = options.find((option) => option.value === value) ?? options[0];
+
+  return (
+    <DropdownMenu modal={false}>
+      <DropdownMenuTrigger asChild>
+        <Button
+          type="button"
+          variant="ghost"
+          className={cn(
+            'hidden h-11 rounded-full border border-(--home-border) bg-[rgba(255,250,244,0.72)] px-4 text-sm font-semibold text-(--home-text-strong) shadow-none transition-colors hover:bg-white hover:text-(--home-text-strong) focus-visible:ring-[#1f1a16] sm:inline-flex',
+            className
+          )}
+          aria-label={ariaLabel}
+          title={ariaLabel}
+        >
+          <span>{currentOption?.label}</span>
+          <ChevronDown className="size-3.5 text-(--home-text-soft)" />
+        </Button>
+      </DropdownMenuTrigger>
+
+      <DropdownMenuContent
+        align="end"
+        className="w-40 border-(--home-border) bg-[rgba(255,250,244,0.98)] text-(--home-text-strong) shadow-(--home-shadow)"
+      >
+        <DropdownMenuRadioGroup value={value} onValueChange={onValueChange}>
+          {options.map((option) => (
+            <DropdownMenuRadioItem key={option.value} value={option.value}>
+              {option.label}
+            </DropdownMenuRadioItem>
+          ))}
+        </DropdownMenuRadioGroup>
+      </DropdownMenuContent>
+    </DropdownMenu>
+  );
 }
 
 function HomeUserMenu() {
@@ -115,7 +173,35 @@ type HomeNavbarProps = {
 
 export function HomeNavbar({ hasAuthSession }: HomeNavbarProps) {
   const { t } = useTranslation(['home', 'common']);
+  const { theme, setTheme } = useTheme();
+  const { i18n } = useTranslation('language');
   const workspaceTarget = hasAuthSession ? '/dashboard' : '/auth/signup';
+  const currentLanguage =
+    i18n.resolvedLanguage === 'en-US' || i18n.language === 'en-US' ? 'en-US' : 'zh-CN';
+  const headerActionButtonClass =
+    'h-11 min-w-[8.75rem] justify-center rounded-full px-5 text-sm font-semibold';
+  const themeOptions = [
+    { label: 'dark', value: 'dark' },
+    { label: 'light', value: 'light' },
+    { label: 'system', value: 'system' },
+  ] as const;
+  const languageOptions = [
+    { label: 'Chinese', value: 'zh-CN' },
+    { label: 'English', value: 'en-US' },
+  ] as const;
+
+  const handleThemeChange = (value: string) => {
+    if (value === 'dark' || value === 'light' || value === 'system') {
+      setTheme(value);
+    }
+  };
+
+  const handleLanguageChange = (value: string) => {
+    if (value !== 'zh-CN' && value !== 'en-US') return;
+    void i18n.changeLanguage(value);
+    localStorage.setItem('groundpath.language', value);
+    document.documentElement.lang = value;
+  };
 
   return (
     <header className="sticky top-0 z-50 border-b border-(--home-border) bg-[rgba(246,240,230,0.82)] backdrop-blur-xl">
@@ -150,9 +236,28 @@ export function HomeNavbar({ hasAuthSession }: HomeNavbarProps) {
         </nav>
 
         <div className="flex items-center justify-end gap-3">
+          <HomePreferenceMenu
+            ariaLabel="Theme"
+            onValueChange={handleThemeChange}
+            options={themeOptions}
+            value={theme}
+          />
+          <HomePreferenceMenu
+            ariaLabel="Language"
+            onValueChange={handleLanguageChange}
+            options={languageOptions}
+            value={currentLanguage}
+          />
           {hasAuthSession ? (
             <>
-              <Button className={`${homePrimaryButtonClass} hidden sm:inline-flex`} asChild>
+              <Button
+                className={cn(
+                  homePrimaryButtonClass,
+                  'hidden sm:inline-flex',
+                  headerActionButtonClass
+                )}
+                asChild
+              >
                 <Link to={workspaceTarget}>{t('dashboard', { ns: 'common' })}</Link>
               </Button>
               <HomeUserMenu />
@@ -161,12 +266,16 @@ export function HomeNavbar({ hasAuthSession }: HomeNavbarProps) {
             <>
               <Button
                 variant="ghost"
-                className={`${homeGhostButtonClass} hidden sm:inline-flex`}
+                className={cn(
+                  homeGhostButtonClass,
+                  'hidden sm:inline-flex',
+                  headerActionButtonClass
+                )}
                 asChild
               >
                 <Link to="/auth/login">{t('login')}</Link>
               </Button>
-              <Button className={homePrimaryButtonClass} asChild>
+              <Button className={cn(homePrimaryButtonClass, headerActionButtonClass)} asChild>
                 <Link to={workspaceTarget}>{t('getStarted')}</Link>
               </Button>
             </>
