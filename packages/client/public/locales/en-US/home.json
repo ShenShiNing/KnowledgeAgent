@@ -3,70 +3,153 @@
   "theme": {
     "toggle": "Toggle theme"
   },
-  "login": "Log in",
-  "getStarted": "Get started",
+  "login": "Sign in",
+  "getStarted": "Try now",
+  "nav": {
+    "kicker": "Safety-first knowledge platform",
+    "research": "Research",
+    "releases": "Latest releases",
+    "principles": "Principles"
+  },
   "hero": {
-    "badge": "Groundpath · Trace the source. Reach the answer.",
-    "title": "Groundpath",
-    "titleMuted": "Turn your knowledge into a searchable, conversational, and verifiable answer system",
-    "description": "Consolidate your documents and notes, then use semantic retrieval with cited answers to turn hard-to-find knowledge into instant responses.",
-    "enterDashboard": "Go to Dashboard",
-    "startBuilding": "Build your knowledge base",
-    "loginNow": "Already have an account? Log in"
-  },
-  "metrics": {
-    "searchTime": "Avg retrieval latency",
-    "searchTimeValue": "< 2s",
-    "docTypes": "Supported file types",
-    "docTypesValue": "PDF / MD / TXT",
-    "answerMode": "Answer format",
-    "answerModeValue": "With source citations"
-  },
-  "capabilities": {
-    "label": "Core capabilities",
-    "title": "Designed for solo creators and small teams"
-  },
-  "capability": {
-    "docs": {
-      "title": "Unified document ingestion",
-      "description": "Ingest PDF, Markdown, plain text, and more into one workspace for centralized knowledge management."
+    "eyebrow": "Groundpath / Spring 2026 note",
+    "status": "A knowledge surface designed for production use",
+    "title": {
+      "lineOne": "Keep AI answers",
+      "lineTwo": "inside a",
+      "lineThree": "verifiable boundary."
     },
-    "search": {
-      "title": "Semantic retrieval",
-      "description": "Find relevant content by meaning instead of exact keywords to reduce missed context."
-    },
-    "traceable": {
-      "title": "Traceable answers",
-      "description": "Agent responses include source snippets so outputs are auditable and easier to trust."
-    }
-  },
-  "workflow": {
-    "title": "Build your knowledge agent in 3 steps",
-    "step1": {
-      "title": "Create a knowledge base",
-      "description": "Organize your content by topic with clear structure."
-    },
-    "step2": {
-      "title": "Import documents",
-      "description": "Uploaded files are vectorized automatically to become retrievable context."
-    },
-    "step3": {
-      "title": "Start asking",
-      "description": "Get fast answers with references through agent chat."
-    }
-  },
-  "cta": {
-    "title": "Ready to build your own knowledge assistant?",
-    "description": "From document organization to citation-backed answers, complete the full loop in one interface.",
+    "summary": "Groundpath keeps retrieval, conversation, citations, and review on one working surface so teams can establish scope, evidence, and trust before AI touches real operations.",
+    "support": "When responses are about to enter a business workflow, teams do not need louder generation. They need tighter source boundaries, steadier context control, and an evidence trail they can revisit.",
     "primary": {
-      "auth": "Go to Dashboard",
-      "guest": "Create a free account"
+      "auth": "Open workspace",
+      "guest": "Try now"
     },
-    "secondary": "Learn more"
+    "secondary": "See latest releases",
+    "metrics": {
+      "archives": {
+        "label": "Live archives",
+        "value": "128",
+        "detail": "Maintained knowledge bases, documents, and versioned objects"
+      },
+      "scope": {
+        "label": "Default scoping",
+        "value": "2 layers",
+        "detail": "Ground the answer in approved context before generation begins"
+      },
+      "evidence": {
+        "label": "Citation coverage",
+        "value": "99.8%",
+        "detail": "Responses return with source position, freshness, and review state"
+      }
+    }
+  },
+  "showcase": {
+    "label": "Research preview",
+    "title": "What teams want from AI is not longer output. It is fewer hallucinations, tighter scope control, and evidence that can be reviewed.",
+    "description": "The center of the homepage makes that explicit: every answer should arrive with source context, sync freshness, and reviewability instead of hiding that information on another screen.",
+    "markers": {
+      "scope": {
+        "title": "Answer scope",
+        "value": "Product Ops / Q1 review"
+      },
+      "coverage": {
+        "title": "Citation coverage",
+        "value": "99.8% with evidence"
+      },
+      "sync": {
+        "title": "Last sync",
+        "value": "12 min ago"
+      }
+    },
+    "signals": {
+      "answers": "answers carry citations",
+      "retrieval": "retrieval narrows scope first",
+      "review": "review signals stay visible"
+    }
+  },
+  "releases": {
+    "label": "Latest releases",
+    "title": "Turn the platform narrative into browsable release cards.",
+    "description": "Archive systems, scoped answers, and verification rails should not be buried inside a crowded navigation model.",
+    "support": "This homepage shifts away from stacked SaaS sections. It reads more like a research front page: declare the stance, reveal the capabilities, then show the path in.",
+    "cards": {
+      "archive": {
+        "eyebrow": "Archive systems",
+        "date": "Issue 01 / Knowledge archives",
+        "title": "Treat the knowledge base as an operating asset, not as upload residue.",
+        "description": "Documents, versions, tags, and source boundaries remain durable. Retrieval reads from structured archives instead of guessing context from loose fragments.",
+        "cta": "Open knowledge bases"
+      },
+      "conversation": {
+        "eyebrow": "Scoped answers",
+        "date": "Issue 02 / Scoped conversation",
+        "title": "Run the answer inside the archive instead of outside it.",
+        "description": "Questions, follow-ups, and citations share one surface so teams do not have to stitch evidence back together across multiple screens.",
+        "cta": "Open workspace"
+      },
+      "verification": {
+        "eyebrow": "Verification rail",
+        "date": "Issue 03 / Review signals",
+        "title": "Keep the verification rail beside the answer, not on a later screen.",
+        "description": "Sync freshness, citation completeness, and review state remain attached to the response so operators can do one last check before acting.",
+        "cta": "Read the approach"
+      }
+    }
+  },
+  "principles": {
+    "label": "Principles",
+    "title": "An AI homepage should not only show capability. It should show how trust is built.",
+    "description": "Groundpath compresses research, product, and access into one narrative: define scope first, permit generation second, keep evidence beside the answer last.",
+    "primary": {
+      "auth": "Open workspace",
+      "guest": "Create account"
+    },
+    "secondary": "Read the about page",
+    "itemCta": "Continue",
+    "items": {
+      "sources": {
+        "title": "Citations should stay attached to the answer.",
+        "description": "The moment a response loses its sources, it becomes harder to trust inside any high-stakes workflow."
+      },
+      "archives": {
+        "title": "Knowledge objects need a stable identity.",
+        "description": "Bases, documents, versions, and tags define what an answer can touch. That structure should survive retrieval."
+      },
+      "responses": {
+        "title": "Scope control comes before generation delight.",
+        "description": "Strong AI interaction does not answer freely and add constraints later. It limits context first, then decides whether generation should continue."
+      },
+      "audit": {
+        "title": "Review belongs inside the workflow.",
+        "description": "Freshness, approval status, and risk notes should appear beside the answer, not only inside backend logs."
+      }
+    }
   },
   "footer": {
+    "tagline": "Built for teams that need traceable knowledge, scoped answers, and reviewable evidence.",
     "about": "About",
-    "console": "Console"
+    "console": "Workspace",
+    "columns": {
+      "product": {
+        "title": "Product",
+        "workspace": "Workspace",
+        "knowledge": "Knowledge Bases",
+        "research": "Research Preview"
+      },
+      "system": {
+        "title": "System",
+        "releases": "Latest Releases",
+        "principles": "Principles",
+        "about": "About"
+      },
+      "access": {
+        "title": "Access",
+        "signup": "Create account",
+        "login": "Sign in",
+        "console": "Open console"
+      }
+    }
   },
   "about": {
     "nav": {
@@ -76,7 +159,7 @@
     },
     "hero": {
       "title": "About Groundpath",
-      "description": "Groundpath helps teams keep knowledge searchable, conversational, and verifiable. It turns documents into a living knowledge system so every answer can be traced back to its source."
+      "description": "Groundpath is a knowledge archive workbench for teams that need retrieval, conversation, and verification to live on the same system surface."
     },
     "action": {
       "dashboard": "Go to Dashboard",
@@ -85,16 +168,16 @@
     },
     "principle": {
       "trusted": {
-        "title": "Trusted answers first",
-        "description": "Every answer traces back to source documents, reducing hallucination risk."
+        "title": "Retrievable by design",
+        "description": "Archive documents as structured objects so scope and recall remain stable under production use."
       },
       "knowledge": {
-        "title": "Continuous knowledge building",
-        "description": "Manage documents through a knowledge base system to build maintainable organizational memory."
+        "title": "Conversational in context",
+        "description": "Keep questions and answers inside the same archive space that defines their scope and evidence."
       },
       "semantic": {
-        "title": "Semantic retrieval driven",
-        "description": "Locate relevant content beyond keyword limitations, improving query efficiency and accuracy."
+        "title": "Verifiable under review",
+        "description": "Expose citations, source freshness, and version state so every answer can be checked before action."
       }
     }
   }

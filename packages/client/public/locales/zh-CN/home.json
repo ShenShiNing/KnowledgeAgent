@@ -4,97 +4,180 @@
     "toggle": "切换主题"
   },
   "login": "登录",
-  "getStarted": "免费开始",
+  "getStarted": "立即试用",
+  "nav": {
+    "kicker": "安全优先的知识工作平台",
+    "research": "研究",
+    "releases": "最新发布",
+    "principles": "原则"
+  },
   "hero": {
-    "badge": "溯知 · 溯源而知，一问即达",
-    "title": "溯知",
-    "titleMuted": "把你的知识变成可检索、可对话、可验证的答案系统",
-    "description": "统一沉淀你的文档与笔记，通过语义检索和引用式回答，把知识从「难找」变成「即问即得」，让学习与创作更高效。",
-    "enterDashboard": "进入控制台",
-    "startBuilding": "开始构建知识库",
-    "loginNow": "已有账号，立即登录"
-  },
-  "metrics": {
-    "searchTime": "平均检索耗时",
-    "searchTimeValue": "< 2s",
-    "docTypes": "支持文档类型",
-    "docTypesValue": "PDF / MD / TXT",
-    "answerMode": "答案输出方式",
-    "answerModeValue": "带引用来源"
-  },
-  "capabilities": {
-    "label": "核心能力",
-    "title": "为个人创作者与小团队设计"
-  },
-  "capability": {
-    "docs": {
-      "title": "文档统一接入",
-      "description": "支持 PDF、Markdown、文本等多格式资料接入，集中管理你的文档与笔记。"
+    "eyebrow": "Groundpath / 2026 春季说明",
+    "status": "面向生产环境的知识工作界面",
+    "title": {
+      "lineOne": "让 AI 回答",
+      "lineTwo": "留在可核验的",
+      "lineThree": "知识边界里。"
     },
-    "search": {
-      "title": "语义检索增强",
-      "description": "不依赖关键词匹配，基于语义相似度定位内容，减少信息遗漏。"
-    },
-    "traceable": {
-      "title": "可追溯回答",
-      "description": "Agent 回答附带来源片段，结果可核验，适合学习、创作与日常使用。"
-    }
-  },
-  "workflow": {
-    "title": "3 步完成你的知识库 Agent",
-    "step1": {
-      "title": "创建知识库",
-      "description": "按主题创建知识库，让内容结构更清晰。"
-    },
-    "step2": {
-      "title": "导入文档",
-      "description": "上传后自动向量化，形成可检索上下文。"
-    },
-    "step3": {
-      "title": "开始问答",
-      "description": "通过 Agent 对话快速获取可引用答案。"
-    }
-  },
-  "cta": {
-    "title": "准备好搭建你的专属知识助手了吗？",
-    "description": "从文档整理到可引用问答，在一个界面内完成你的知识沉淀与使用闭环。",
+    "summary": "Groundpath 把检索、对话、引用与审阅固定在同一个工作面上，让团队在真正落地 AI 前先建立范围、证据与信任。",
+    "support": "当回答要进入业务流程时，团队需要的不是更热闹的生成体验，而是更清晰的来源边界、更稳定的上下文控制，以及可以回查的证据链。",
     "primary": {
-      "auth": "进入控制台",
-      "guest": "免费创建账号"
+      "auth": "打开工作台",
+      "guest": "立即试用"
     },
-    "secondary": "了解产品详情"
+    "secondary": "查看最新发布",
+    "metrics": {
+      "archives": {
+        "label": "在线档案",
+        "value": "128",
+        "detail": "持续维护的知识库、文档与版本对象"
+      },
+      "scope": {
+        "label": "默认限域",
+        "value": "2 层",
+        "detail": "先锁定知识范围，再允许模型生成回答"
+      },
+      "evidence": {
+        "label": "引用覆盖",
+        "value": "99.8%",
+        "detail": "回答默认带回来源位置、更新时间与审阅状态"
+      }
+    }
+  },
+  "showcase": {
+    "label": "Research preview",
+    "title": "团队真正想从 AI 得到的，不是更长的回答，而是更少幻觉、更强范围控制，以及能被复查的证据。",
+    "description": "首页中心把这件事讲清楚：每次回答都应同时带上来源、更新时间与可审阅状态，而不是在生成后把这些信息藏进别的页面。",
+    "markers": {
+      "scope": {
+        "title": "回答范围",
+        "value": "产品运营 / Q1 复盘"
+      },
+      "coverage": {
+        "title": "引用覆盖率",
+        "value": "99.8% 已附带证据"
+      },
+      "sync": {
+        "title": "最近同步",
+        "value": "12 分钟前"
+      }
+    },
+    "signals": {
+      "answers": "回答携带引用",
+      "retrieval": "检索先限定范围",
+      "review": "审阅信号持续可见"
+    }
+  },
+  "releases": {
+    "label": "Latest releases",
+    "title": "把平台主线做成可浏览的发布卡片。",
+    "description": "知识归档、限域对话与核验轨道，不应该被埋在复杂导航里。",
+    "support": "这一版首页不再用传统 SaaS 模块堆叠，而是把产品叙事压缩成更像研究首页的阅读节奏：先声明立场，再展示能力，最后给出进入路径。",
+    "cards": {
+      "archive": {
+        "eyebrow": "Archive systems",
+        "date": "Issue 01 / 知识归档",
+        "title": "把知识库当作可运营资产，而不是上传残留。",
+        "description": "文档、版本、标签与来源边界被长期保留，检索不是从碎片里猜测上下文，而是从结构化档案中读取范围。",
+        "cta": "进入知识库"
+      },
+      "conversation": {
+        "eyebrow": "Scoped answers",
+        "date": "Issue 02 / 限域对话",
+        "title": "让回答发生在档案内部，而不是档案之外。",
+        "description": "提问、追问与引用共用同一工作面，团队不用在多个界面之间拼接证据，也不用把回答重新搬回审阅流程。",
+        "cta": "打开工作台"
+      },
+      "verification": {
+        "eyebrow": "Verification rail",
+        "date": "Issue 03 / 审阅信号",
+        "title": "把核验轨道贴在回答旁边，而不是藏到下一个页面。",
+        "description": "同步新鲜度、引用完整度与审阅状态始终和回答一起出现，方便在执行动作前做最后一次确认。",
+        "cta": "查看方法"
+      }
+    }
+  },
+  "principles": {
+    "label": "Principles",
+    "title": "AI 首页不该只展示能力，也要展示你如何建立信任。",
+    "description": "Groundpath 把研究、产品与进入路径压进同一条叙事线：先界定范围，再允许生成，最后把证据留在回答旁边。",
+    "primary": {
+      "auth": "进入工作台",
+      "guest": "创建账号"
+    },
+    "secondary": "查看关于页面",
+    "itemCta": "继续查看",
+    "items": {
+      "sources": {
+        "title": "引用必须贴着回答出现。",
+        "description": "答案一旦脱离来源，就无法进入高风险业务流程；引用与来源位置应当在首屏可见。"
+      },
+      "archives": {
+        "title": "知识对象需要稳定身份。",
+        "description": "知识库、文档、版本和标签共同定义了回答能访问什么，不该在检索前丢失结构。"
+      },
+      "responses": {
+        "title": "范围控制先于生成体验。",
+        "description": "好的 AI 交互不是先给出自由回答，再补限制条件，而是先限定上下文，再决定是否允许继续生成。"
+      },
+      "audit": {
+        "title": "审阅是工作流的一部分。",
+        "description": "更新时间、审阅状态与风险提示应当天然出现在回答侧边，而不是只留给后台日志。"
+      }
+    }
   },
   "footer": {
+    "tagline": "为需要可追溯知识、限域回答与审阅证据的团队构建。",
     "about": "关于",
-    "console": "控制台"
+    "console": "工作台",
+    "columns": {
+      "product": {
+        "title": "产品",
+        "workspace": "Workspace",
+        "knowledge": "Knowledge Bases",
+        "research": "Research Preview"
+      },
+      "system": {
+        "title": "系统",
+        "releases": "Latest Releases",
+        "principles": "Principles",
+        "about": "About"
+      },
+      "access": {
+        "title": "访问",
+        "signup": "创建账号",
+        "login": "登录",
+        "console": "进入控制台"
+      }
+    }
   },
   "about": {
     "nav": {
       "home": "首页",
-      "dashboard": "进入控制台",
-      "getStarted": "免费开始"
+      "dashboard": "前往工作台",
+      "getStarted": "开始使用"
     },
     "hero": {
       "title": "关于溯知",
-      "description": "溯知致力于让团队知识「可检索、可对话、可验证」。我们把文档资产转化为可持续演进的知识系统，让每个答案都能回到来源。"
+      "description": "溯知是一套面向团队知识档案的工作台，把检索、对话与核验收敛到同一个系统界面上。"
     },
     "action": {
-      "dashboard": "进入控制台",
+      "dashboard": "进入工作台",
       "signup": "创建账号",
-      "viewKnowledgeBases": "查看知识库模块"
+      "viewKnowledgeBases": "查看知识库"
     },
     "principle": {
       "trusted": {
-        "title": "可信答案优先",
-        "description": "每次回答都可回溯到来源文档，降低信息幻觉风险。"
+        "title": "以可检索为基础",
+        "description": "先把文档组织成稳定的档案对象，再谈生产环境下的范围控制与召回质量。"
       },
       "knowledge": {
-        "title": "知识持续沉淀",
-        "description": "通过知识库体系管理文档，构建可维护的组织记忆。"
+        "title": "在上下文中对话",
+        "description": "让问题与回答始终发生在同一档案空间中，不脱离来源与作用范围。"
       },
       "semantic": {
-        "title": "语义检索驱动",
-        "description": "跨关键词限制定位相关内容，提升查询效率与准确率。"
+        "title": "在审阅中可验证",
+        "description": "暴露引用、来源新鲜度与版本状态，让每次回答都可在执行前被检查。"
       }
     }
   }
