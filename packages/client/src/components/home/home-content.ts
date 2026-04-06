@@ -1,16 +1,15 @@
 import type { LucideIcon } from 'lucide-react';
 import {
-  ClipboardCheck,
+  BadgeCheck,
   Database,
-  FileText,
+  FileSearch,
   FolderKanban,
   Link2,
   Lock,
-  LockKeyhole,
   MessageSquareText,
-  Orbit,
   Search,
   ShieldCheck,
+  Sparkles,
 } from 'lucide-react';
 
 export type HomeRoute =
@@ -21,48 +20,34 @@ export type HomeRoute =
   | '/knowledge-bases';
 
 export const homePrimaryButtonClass =
-  'h-11 rounded-full border border-[rgba(255,255,255,0.12)] bg-(--home-accent) px-5 text-[color:var(--home-accent-ink)] shadow-[0_14px_36px_rgba(0,0,0,0.24)] transition-[transform,background-color,box-shadow] hover:-translate-y-0.5 hover:bg-(--home-accent-strong) hover:shadow-[0_18px_40px_rgba(0,0,0,0.3)] focus-visible:ring-[color:var(--home-accent)]';
+  'h-11 rounded-full border border-[#1f1a16] bg-[#1f1a16] px-5 text-[color:#faf7f2] shadow-[0_18px_40px_rgba(31,26,22,0.16)] transition-[transform,background-color,box-shadow] hover:-translate-y-0.5 hover:bg-[#110e0b] hover:shadow-[0_22px_44px_rgba(31,26,22,0.2)] focus-visible:ring-[#1f1a16]';
 
 export const homeGhostButtonClass =
-  'h-10 rounded-full border border-(--home-border) bg-[rgba(255,255,255,0.03)] px-4 text-sm font-semibold text-(--home-text-strong) shadow-none transition-colors hover:bg-[rgba(255,255,255,0.06)] hover:text-(--home-text-strong) focus-visible:ring-[color:var(--home-accent)]';
+  'h-10 rounded-full border border-(--home-border) bg-[rgba(255,250,244,0.72)] px-4 text-sm font-semibold text-(--home-text-strong) shadow-none transition-colors hover:bg-white hover:text-(--home-text-strong) focus-visible:ring-[#1f1a16]';
 
 export const homeNavItems = [
+  { href: '#product', key: 'nav.product' },
   { href: '#workflow', key: 'nav.workflow' },
-  { href: '#capabilities', key: 'nav.capabilities' },
+  { href: '#faq', key: 'nav.faq' },
   { key: 'nav.about', route: '/about' },
-] as const;
-
-export const homeHeroMetrics = [
-  {
-    labelKey: 'hero.metrics.trace.label',
-    valueKey: 'hero.metrics.trace.value',
-  },
-  {
-    labelKey: 'hero.metrics.scope.label',
-    valueKey: 'hero.metrics.scope.value',
-  },
-  {
-    labelKey: 'hero.metrics.review.label',
-    valueKey: 'hero.metrics.review.value',
-  },
 ] as const;
 
 export const homeProofCards = [
   {
     descriptionKey: 'proof.cards.trace.description',
-    icon: Orbit,
+    icon: FileSearch,
     titleKey: 'proof.cards.trace.title',
     valueKey: 'proof.cards.trace.value',
   },
   {
     descriptionKey: 'proof.cards.boundary.description',
-    icon: LockKeyhole,
+    icon: ShieldCheck,
     titleKey: 'proof.cards.boundary.title',
     valueKey: 'proof.cards.boundary.value',
   },
   {
     descriptionKey: 'proof.cards.review.description',
-    icon: ClipboardCheck,
+    icon: BadgeCheck,
     titleKey: 'proof.cards.review.title',
     valueKey: 'proof.cards.review.value',
   },
@@ -76,22 +61,16 @@ export const homeWorkflowSteps = [
     titleKey: 'workflow.steps.connect.title',
   },
   {
-    descriptionKey: 'workflow.steps.index.description',
-    icon: FileText,
-    number: '02',
-    titleKey: 'workflow.steps.index.title',
-  },
-  {
     descriptionKey: 'workflow.steps.query.description',
     icon: Search,
-    number: '03',
+    number: '02',
     titleKey: 'workflow.steps.query.title',
   },
   {
-    descriptionKey: 'workflow.steps.act.description',
-    icon: ShieldCheck,
-    number: '04',
-    titleKey: 'workflow.steps.act.title',
+    descriptionKey: 'workflow.steps.deliver.description',
+    icon: BadgeCheck,
+    number: '03',
+    titleKey: 'workflow.steps.deliver.title',
   },
 ] as const;
 
@@ -102,7 +81,7 @@ export const homeFeatureCards = [
     eyebrowKey: 'capabilities.cards.rag.eyebrow',
     icon: Database,
     signalKey: 'capabilities.cards.rag.signal',
-    tone: 'lime',
+    tone: 'sand',
     routeAuth: '/knowledge-bases',
     routeGuest: '/auth/signup',
     titleKey: 'capabilities.cards.rag.title',
@@ -113,7 +92,7 @@ export const homeFeatureCards = [
     eyebrowKey: 'capabilities.cards.secure.eyebrow',
     icon: Lock,
     signalKey: 'capabilities.cards.secure.signal',
-    tone: 'amber',
+    tone: 'ink',
     route: '/about',
     titleKey: 'capabilities.cards.secure.title',
   },
@@ -123,7 +102,7 @@ export const homeFeatureCards = [
     eyebrowKey: 'capabilities.cards.multimodal.eyebrow',
     icon: MessageSquareText,
     signalKey: 'capabilities.cards.multimodal.signal',
-    tone: 'slate',
+    tone: 'pearl',
     routeAuth: '/dashboard',
     routeGuest: '/auth/signup',
     titleKey: 'capabilities.cards.multimodal.title',
@@ -132,9 +111,9 @@ export const homeFeatureCards = [
     ctaKey: 'capabilities.cards.search.cta',
     descriptionKey: 'capabilities.cards.search.description',
     eyebrowKey: 'capabilities.cards.search.eyebrow',
-    icon: FolderKanban,
+    icon: Sparkles,
     signalKey: 'capabilities.cards.search.signal',
-    tone: 'steel',
+    tone: 'moss',
     routeAuth: '/dashboard',
     routeGuest: '/auth/signup',
     titleKey: 'capabilities.cards.search.title',
@@ -145,18 +124,38 @@ export const homeFeatureCards = [
   eyebrowKey: string;
   icon: LucideIcon;
   signalKey: string;
-  tone: 'amber' | 'lime' | 'slate' | 'steel';
+  tone: 'ink' | 'moss' | 'pearl' | 'sand';
   route?: HomeRoute;
   routeAuth?: HomeRoute;
   routeGuest?: HomeRoute;
   titleKey: string;
 }>;
 
+export const homeFaqItems = [
+  {
+    answerKey: 'faq.items.sources.answer',
+    questionKey: 'faq.items.sources.question',
+  },
+  {
+    answerKey: 'faq.items.security.answer',
+    questionKey: 'faq.items.security.question',
+  },
+  {
+    answerKey: 'faq.items.setup.answer',
+    questionKey: 'faq.items.setup.question',
+  },
+  {
+    answerKey: 'faq.items.handoff.answer',
+    questionKey: 'faq.items.handoff.question',
+  },
+] as const;
+
 export const homeFooterColumns = [
   {
     links: [
+      { key: 'footer.columns.product.product', href: '#product' },
       { key: 'footer.columns.product.workflow', href: '#workflow' },
-      { key: 'footer.columns.product.features', href: '#capabilities' },
+      { key: 'footer.columns.product.faq', href: '#faq' },
       {
         key: 'footer.columns.product.workspace',
         routeAuth: '/dashboard',

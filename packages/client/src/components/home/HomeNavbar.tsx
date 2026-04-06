@@ -39,14 +39,12 @@ function HomeUserMenu() {
     <DropdownMenu modal={false}>
       <DropdownMenuTrigger asChild>
         <button
-          className="group flex h-10 items-center gap-2 rounded-full border border-(--home-border) bg-[rgba(255,255,255,0.03)] px-2 py-1.5 text-(--home-text-strong) transition-colors hover:border-(--home-border-strong) hover:bg-[rgba(255,255,255,0.06)] focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-(--home-accent)"
+          className="group flex h-10 items-center gap-2 rounded-full border border-(--home-border) bg-[rgba(255,252,247,0.78)] px-2 py-1.5 text-(--home-text-strong) shadow-[0_12px_24px_rgba(61,43,24,0.05)] transition-colors hover:border-[rgba(95,67,38,0.18)] hover:bg-white/90 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[#1f1a16]"
           aria-label={t('openUserMenu')}
         >
           <Avatar size="sm">
             <AvatarImage src={user?.avatarUrl ?? undefined} alt={displayName} />
-            <AvatarFallback className="bg-(--home-accent) text-(--home-accent-ink)">
-              {initials}
-            </AvatarFallback>
+            <AvatarFallback className="bg-[#1f1a16] text-[#faf7f2]">{initials}</AvatarFallback>
           </Avatar>
           <ChevronDown className="size-3.5 text-(--home-text-soft) transition-transform group-data-[state=open]:rotate-180" />
         </button>
@@ -54,7 +52,7 @@ function HomeUserMenu() {
 
       <DropdownMenuContent
         align="end"
-        className="w-56 border-(--home-border) bg-[rgba(9,9,11,0.98)] text-(--home-text-strong) shadow-(--home-shadow)"
+        className="w-56 border-(--home-border) bg-[rgba(255,250,244,0.98)] text-(--home-text-strong) shadow-(--home-shadow)"
       >
         <DropdownMenuLabel className="font-normal">
           <div className="flex flex-col space-y-1">
@@ -68,7 +66,7 @@ function HomeUserMenu() {
         <DropdownMenuGroup>
           <DropdownMenuItem
             asChild
-            className="cursor-pointer text-(--home-text-strong) focus:bg-[rgba(255,255,255,0.08)] focus:text-(--home-text-strong)"
+            className="cursor-pointer text-(--home-text-strong) focus:bg-[rgba(31,26,22,0.06)] focus:text-(--home-text-strong)"
           >
             <Link to="/dashboard">
               <LayoutDashboard className="mr-2 size-4" />
@@ -77,7 +75,7 @@ function HomeUserMenu() {
           </DropdownMenuItem>
           <DropdownMenuItem
             asChild
-            className="cursor-pointer text-(--home-text-strong) focus:bg-[rgba(255,255,255,0.08)] focus:text-(--home-text-strong)"
+            className="cursor-pointer text-(--home-text-strong) focus:bg-[rgba(31,26,22,0.06)] focus:text-(--home-text-strong)"
           >
             <Link to="/profile">
               <User className="mr-2 size-4" />
@@ -86,7 +84,7 @@ function HomeUserMenu() {
           </DropdownMenuItem>
           <DropdownMenuItem
             asChild
-            className="cursor-pointer text-(--home-text-strong) focus:bg-[rgba(255,255,255,0.08)] focus:text-(--home-text-strong)"
+            className="cursor-pointer text-(--home-text-strong) focus:bg-[rgba(31,26,22,0.06)] focus:text-(--home-text-strong)"
           >
             <Link to="/sessions">
               <Monitor className="mr-2 size-4" />
@@ -123,12 +121,12 @@ export function HomeNavbar({ hasAuthSession }: HomeNavbarProps) {
   return (
     <header className="sticky top-0 z-50 px-4 pt-4 md:px-6 md:pt-5">
       <div className="mx-auto max-w-290">
-        <div className="flex items-center justify-between gap-4 rounded-full border border-(--home-border) bg-[rgba(9,9,11,0.82)] px-4 py-3 shadow-[0_14px_32px_rgba(0,0,0,0.2)] backdrop-blur-xl md:px-5">
+        <div className="flex items-center justify-between gap-4 rounded-full border border-(--home-border) bg-[rgba(250,246,239,0.78)] px-4 py-3 shadow-[0_14px_32px_rgba(61,43,24,0.06)] backdrop-blur-xl md:px-5">
           <Link
             to="/"
             className="flex min-w-0 items-center gap-2.5 text-(--home-text-strong) transition-opacity hover:opacity-85"
           >
-            <span className="flex size-8 items-center justify-center rounded-full border border-[rgba(255,255,255,0.12)] bg-[rgba(255,255,255,0.05)]">
+            <span className="flex size-9 items-center justify-center rounded-full border border-(--home-border) bg-white/74 shadow-[0_10px_24px_rgba(61,43,24,0.05)]">
               <img src={logoMark} alt="" className="h-4.5 w-4.5" />
             </span>
             <span className="min-w-0">

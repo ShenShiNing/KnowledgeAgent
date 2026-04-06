@@ -1,6 +1,7 @@
 import {
   HomeCapabilitiesSection,
   HomeCtaSection,
+  HomeFaqSection,
   HomeFooter,
   HomeProofSection,
   HomeWorkflowSection,
@@ -19,14 +20,13 @@ const HomePage = () => {
       <HomeNavbar hasAuthSession={hasAuthSession} />
 
       <div aria-hidden className="pointer-events-none absolute inset-0 -z-10 overflow-hidden">
-        <div className="absolute inset-0 bg-[linear-gradient(180deg,#09090b_0%,#111113_48%,#09090b_100%)]" />
-        <div className="absolute -left-28 top-20 h-112 w-md rounded-full bg-[radial-gradient(circle,rgba(255,255,255,0.06),transparent_72%)] blur-3xl" />
-        <div className="absolute -right-28 -top-16 h-120 w-120 rounded-full bg-[radial-gradient(circle,rgba(255,255,255,0.05),transparent_72%)] blur-3xl" />
-        <div className="absolute left-1/2 top-104 h-144 w-5xl -translate-x-1/2 rounded-full bg-[radial-gradient(circle,rgba(255,255,255,0.04),transparent_76%)] blur-3xl" />
-        <div className="absolute inset-0 bg-[linear-gradient(to_right,rgba(255,255,255,0.025)_1px,transparent_1px),linear-gradient(to_bottom,rgba(255,255,255,0.025)_1px,transparent_1px)] bg-size-[72px_72px] opacity-[0.05]" />
-        <div className="absolute inset-y-0 left-[max(1rem,calc(50%-580px))] w-px bg-[linear-gradient(180deg,transparent,rgba(255,255,255,0.08),transparent)] opacity-80" />
-        <div className="absolute inset-y-0 right-[max(1rem,calc(50%-580px))] w-px bg-[linear-gradient(180deg,transparent,rgba(255,255,255,0.08),transparent)] opacity-80" />
-        <div className="absolute inset-x-0 top-152 h-px bg-[linear-gradient(90deg,transparent,rgba(255,255,255,0.12),transparent)] opacity-70" />
+        <div className="absolute inset-0 bg-[linear-gradient(180deg,#f6f0e6_0%,#f3ede3_28%,#f7f2ea_60%,#efe6d8_100%)]" />
+        <div className="absolute -left-18 top-12 h-96 w-96 rounded-full bg-[radial-gradient(circle,rgba(255,255,255,0.92),transparent_72%)] blur-3xl" />
+        <div className="absolute -right-12 top-0 h-108 w-108 rounded-full bg-[radial-gradient(circle,rgba(225,200,163,0.5),transparent_72%)] blur-3xl motion-reduce:animate-none animate-[home-drift_18s_ease-in-out_infinite]" />
+        <div className="absolute left-1/2 top-82 h-144 w-6xl -translate-x-1/2 rounded-full bg-[radial-gradient(circle,rgba(205,157,98,0.18),transparent_74%)] blur-3xl" />
+        <div className="absolute inset-0 bg-[linear-gradient(to_right,rgba(93,68,39,0.032)_1px,transparent_1px),linear-gradient(to_bottom,rgba(93,68,39,0.032)_1px,transparent_1px)] bg-size-[72px_72px] opacity-35" />
+        <div className="absolute inset-y-0 left-[max(1rem,calc(50%-580px))] w-px bg-[linear-gradient(180deg,transparent,rgba(93,68,39,0.1),transparent)] opacity-65" />
+        <div className="absolute inset-y-0 right-[max(1rem,calc(50%-580px))] w-px bg-[linear-gradient(180deg,transparent,rgba(93,68,39,0.1),transparent)] opacity-65" />
       </div>
 
       <main>
@@ -34,6 +34,7 @@ const HomePage = () => {
         <HomeProofSection />
         <HomeWorkflowSection />
         <HomeCapabilitiesSection hasAuthSession={hasAuthSession} />
+        <HomeFaqSection />
         <HomeCtaSection hasAuthSession={hasAuthSession} />
       </main>
 

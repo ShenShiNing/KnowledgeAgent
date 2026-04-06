@@ -6,199 +6,256 @@
   "login": "Sign in",
   "getStarted": "Get Started",
   "nav": {
-    "kicker": "Traceable Knowledge Workspace",
+    "kicker": "Source-grounded Knowledge Workspace",
+    "product": "Product",
     "workflow": "Workflow",
-    "capabilities": "Capability",
+    "faq": "FAQ",
     "about": "About"
   },
   "hero": {
-    "eyebrow": "Evidence-driven answers for teams",
+    "eyebrow": "A knowledge workspace built for teams",
     "title": {
-      "lineOne": "Trace the source.",
-      "lineTwo": "Reach the answer."
+      "lineOne": "Turn scattered sources",
+      "lineTwo": "into executable answers"
     },
-    "summary": "Groundpath turns scattered source material into a reviewable answer workflow for teams that actually need to move answers into operations.",
-    "support": "Connect documents, scope the archive first, and keep citations, access boundaries, and freshness signals attached to every response instead of patching trust afterward.",
+    "summary": "Groundpath compresses documents, knowledge bases, and conversation into one surface so teams can see source, scope, and delivery signals while the answer is being formed.",
+    "support": "From source intake to downstream action, the question, citations, versions, and permissions stay on one continuous chain instead of being patched together across separate tools.",
     "primary": {
       "auth": "Open Workspace",
       "guest": "Get Started"
     },
     "secondary": "Learn Groundpath",
     "signals": {
-      "sources": "citations stay attached",
-      "scope": "scope before generation",
-      "review": "review remains visible"
+      "sources": "answers stay citation-bound",
+      "scope": "scope locks before generation",
+      "review": "review signals stay visible"
     },
-    "metrics": {
-      "trace": {
-        "label": "Answer state",
-        "value": "100% source-tied"
-      },
-      "scope": {
-        "label": "Operating mode",
-        "value": "Scope first"
-      },
-      "review": {
-        "label": "Delivery signal",
-        "value": "Review ready"
-      }
-    },
-    "console": {
-      "eyebrow": "Evidence Console",
-      "status": "Live source trace",
-      "answerLabel": "Answer draft",
-      "answerBody": "Use the existing SLA for procurement approval, but keep contract version differences and recency visible in the response.",
-      "citations": {
-        "scope": "scope locked",
-        "freshness": "updated within 24h",
-        "access": "access boundary passed"
-      },
-      "scopeLabel": "Retrieval scope",
-      "scopeTitle": "Procurement policy · contract archive",
-      "scopeBody": "Recall only from the current organization and knowledge boundary so unrelated context never leaks into the answer.",
+    "preview": {
+      "kicker": "Groundpath Workspace",
+      "searchLabel": "Current surface",
+      "searchValue": "Procurement policy · contracts archive · vendor FAQ",
+      "scopeLabel": "Connected sources",
+      "scopeValue": "Scoped to the current org and knowledge boundary",
+      "answerLabel": "Answer panel",
+      "answerBadge": "source-tied output",
+      "answerTitle": "Generate answers directly inside a controlled surface",
+      "answerBody": "Question, answer, citations, and action rails sit side by side. Teams do not need to generate first and reconstruct trust somewhere else.",
       "reviewLabel": "Review signal",
-      "reviewTitle": "Checks before action",
-      "reviewBody": "Freshness, access boundaries, and citation state stay visible before the answer moves into a real workflow.",
-      "floatingFresh": "Source freshness",
-      "floatingFreshValue": "latest update under 24h",
-      "floatingScope": "Retrieval scope",
-      "floatingScopeValue": "procurement and contracts only"
+      "reviewValue": "Freshness, access boundaries, and citation completeness remain visible before something is sent, approved, or executed.",
+      "sourcesLabel": "Source rail",
+      "sourcesTitle": "Every answer can return to a concrete archive and version",
+      "sources": {
+        "ready": "connected",
+        "items": {
+          "one": "Procurement policy 2026 Q1",
+          "two": "Master contract template v4",
+          "three": "Vendor onboarding standard"
+        }
+      },
+      "actionsLabel": "Action rail",
+      "actionsTitle": "Keep generation, review, and delivery on the same chain",
+      "actions": {
+        "items": {
+          "one": "Constrain organization, knowledge base, and session scope first.",
+          "two": "Preserve citations and source freshness during generation.",
+          "three": "Hand a reviewable answer into the next business step."
+        }
+      },
+      "side": {
+        "reviewLabel": "Citation completeness",
+        "reviewValue": "98%",
+        "reviewBody": "The answer is created with its source chain already attached instead of being patched at export time.",
+        "scopeLabel": "Access boundary",
+        "scopeValue": "locked",
+        "scopeBody": "The question only expands inside the current organization and the sources the user is allowed to access.",
+        "handoffLabel": "Delivery state",
+        "handoffValue": "reviewable",
+        "handoffBody": "Hand off an answer with its evidence and context intact instead of passing along a raw text block."
+      },
+      "floating": {
+        "left": {
+          "label": "Latest source",
+          "value": "updated within 24h"
+        },
+        "right": {
+          "label": "Knowledge scope",
+          "value": "procurement and contracts locked"
+        },
+        "bottom": {
+          "label": "Ready to hand off",
+          "value": "citations, permissions, and review state included"
+        }
+      }
     }
   },
   "proof": {
-    "eyebrow": "Evidence beats vibes",
-    "title": "Not just better phrasing. Better verification.",
-    "description": "Groundpath pulls the three most failure-prone parts of knowledge work back into the system itself: source, boundary, and review.",
+    "eyebrow": "Why teams choose Groundpath",
+    "title": "Not just better phrasing. Better execution for the team.",
+    "description": "Knowledge work is not short on text output. It is short on answers that stay source-clear, boundary-aware, and usable inside the actual workflow.",
     "rail": {
       "label": "Operating principle",
-      "title": "Turn an answer from text output into an executable object.",
-      "description": "Once knowledge is structured as scoped archive objects, retrieval, response, and the next action can close the loop on the same evidence chain.",
+      "title": "Turn a one-off answer into an object the team can keep operating on.",
+      "description": "Once source material is organized as bounded archive objects, retrieval, generation, and the next action can close the loop on the same evidence chain.",
       "points": {
-        "scope": "Constrain the knowledge boundary before expanding model capability.",
-        "version": "Keep source version, freshness, and citation entry points visible.",
-        "audit": "Expose review state and potential gaps before the answer ships."
+        "scope": "Constrain organization, knowledge base, and access boundary before the model starts working.",
+        "version": "Keep source versions, freshness, and citation entry points visible so the answer never detaches from origin.",
+        "audit": "Leave review state on the delivery path instead of treating it as after-the-fact cleanup."
       }
     },
     "cards": {
       "trace": {
         "value": "01",
-        "title": "Answers stay source-bound",
-        "description": "Citations are not attachments. They remain part of the answer itself."
+        "title": "Answers always return to a source",
+        "description": "Citations are not attachments. They stay part of the answer itself."
       },
       "boundary": {
         "value": "02",
-        "title": "Boundary before capability",
-        "description": "Permissions, knowledge scope, and work objects are narrowed first, then the model is allowed to expand."
+        "title": "Boundary comes before capability",
+        "description": "Permissions, knowledge scope, and session objects narrow first, then the model expands."
       },
       "review": {
         "value": "03",
-        "title": "Review remains visible",
-        "description": "Teams can see freshness, conflict, and missing evidence before action."
+        "title": "The team can continue from the answer",
+        "description": "Freshness, conflicts, and citation state stay next to the answer for the next handoff."
       }
     }
   },
   "workflow": {
-    "label": "Source-grounded flow",
-    "title": "Constrain the scope, then let the answer happen.",
-    "description": "A compact but reliable workflow that keeps knowledge, citations, and review signals on the same system surface.",
+    "label": "How it works",
+    "title": "Shape the knowledge first, then let the answer happen.",
+    "description": "Groundpath is not just a prettier chat window. It brings sources, response formation, and downstream delivery onto the same system surface.",
+    "board": {
+      "label": "Source-grounded flow",
+      "title": "A compact but reliable answer chain shared by the team",
+      "description": "After sources are connected, the system resolves boundary, identity, and origin before the generated result moves into team workflows.",
+      "metrics": {
+        "scope": {
+          "label": "Operating mode",
+          "value": "scope first"
+        },
+        "review": {
+          "label": "Answer shape",
+          "value": "citations attached"
+        },
+        "delivery": {
+          "label": "Handoff state",
+          "value": "review ready"
+        }
+      }
+    },
     "steps": {
       "connect": {
-        "title": "Connect sources",
-        "description": "Bring documents, policy, and archived material onto one surface instead of scattering context across tools."
-      },
-      "index": {
-        "title": "Establish identity",
-        "description": "Give every source a stable identity, freshness signal, and retrieval boundary so answers keep their origin."
+        "title": "Connect your sources",
+        "description": "Bring documents, knowledge bases, and archived material onto one surface instead of scattering context across chat, drives, and docs."
       },
       "query": {
-        "title": "Query after scoping",
-        "description": "Set the operating boundary first, then let the model answer with citations intact."
+        "title": "Generate inside the boundary",
+        "description": "Lock organization, source scope, and access rules first, then let the model answer inside a controlled context with citations intact."
       },
-      "act": {
-        "title": "Act with evidence",
-        "description": "Carry citations, permissions, and review signals into the next real workflow step instead of patching them later."
+      "deliver": {
+        "title": "Move the answer into real work",
+        "description": "Hand it off with citations, freshness, and review state still attached so approval, sync, or execution can continue immediately."
       }
     }
   },
   "capabilities": {
-    "label": "Built for operating teams",
-    "title": "Compress archives, retrieval, and action into one surface.",
-    "description": "Groundpath is not just another model wrapper. It brings source management, answer constraints, and workflow actions back into one operating layer.",
+    "label": "Core capabilities",
+    "title": "Compress archives, retrieval, and delivery into one operating layer.",
+    "description": "This is not another model wrapper. It is a real workspace for teams that need knowledge operations to hold up under production use.",
     "cards": {
       "rag": {
         "eyebrow": "Instant RAG",
-        "title": "Connect once, get source-tied answers immediately",
-        "description": "As soon as documents land in the system, they become retrieval-augmented answers with citations attached.",
-        "signal": "source-tied answers from the first sync",
+        "title": "Connect sources once and get citation-bound answers immediately",
+        "description": "As soon as documents land in the system, they become retrieval-augmented context with citations and version entry points attached.",
+        "signal": "citation-bound from the first sync",
         "cta": "View knowledge bases"
       },
       "secure": {
-        "eyebrow": "Private and secure",
-        "title": "Access boundaries stay inside the system by default",
-        "description": "Permissions, scope, and citations remain inside an auditable flow instead of living outside the model boundary.",
-        "signal": "audit boundary, access scope, and citations stay together",
+        "eyebrow": "Private boundaries",
+        "title": "Permissions, scope, and source stay inside the system",
+        "description": "Teams no longer rely on external conventions to maintain boundaries. The answer stays shaped by organization scope and allowed material.",
+        "signal": "access boundary, scope, and citation on one surface",
         "cta": "See the security model"
       },
       "multimodal": {
-        "eyebrow": "Multi-model workspace",
-        "title": "One interface for model choice and working context",
-        "description": "Switch models, add context, and continue the thread without breaking the evidence chain.",
-        "signal": "change models and context on one surface",
+        "eyebrow": "Continuous workspace",
+        "title": "Continue the thread, add context, and push the question forward",
+        "description": "Adding context, switching tasks, and continuing the conversation all happen on the same surface without breaking the evidence chain.",
+        "signal": "question, answer, and context stay continuous",
         "cta": "Open workspace"
       },
       "search": {
-        "eyebrow": "Neural retrieval",
-        "title": "Keep recall, matching, and answers on one evidence chain",
-        "description": "From archive organization to final response, retrieval and output keep pointing to the same source objects.",
-        "signal": "retrieval and response align around the same evidence",
-        "cta": "Start searching"
+        "eyebrow": "Delivery chain",
+        "title": "Make retrieval, answers, and next actions point to the same evidence",
+        "description": "From archive organization to final delivery, retrieval, citation, and action rails all stay aligned around the same source objects.",
+        "signal": "retrieval and delivery align around the same source",
+        "cta": "Start using Groundpath"
+      }
+    }
+  },
+  "faq": {
+    "label": "FAQ",
+    "title": "Answer the questions teams usually ask first.",
+    "description": "If you care about source, permissions, and operational fit, these are usually the points that decide whether a system can enter real business use.",
+    "aside": {
+      "label": "Why these questions matter",
+      "title": "The real friction is rarely just model quality.",
+      "body": "Teams usually care more about whether an answer can be handed off with citations, whether boundaries stay constrained, and whether source onboarding feels practical. Those are the production questions."
+    },
+    "items": {
+      "sources": {
+        "question": "Do citations and source versions stay attached to the answer?",
+        "answer": "Yes. Groundpath is designed so the answer, citations, freshness, and source entry points appear together instead of being reconstructed at export or handoff time."
+      },
+      "security": {
+        "question": "Can permissions and knowledge scope be locked before generation?",
+        "answer": "Yes. Organization boundary, knowledge base scope, and allowed material narrow first, and the model only works inside that controlled context."
+      },
+      "setup": {
+        "question": "Is it heavy to start with the source material we already have?",
+        "answer": "No. You can begin with one document set or one knowledge base, validate traceability and review flow, and then expand to broader team material over time."
+      },
+      "handoff": {
+        "question": "Can the team continue operating on the answer after it is generated?",
+        "answer": "That is the point. Groundpath does not just hand over a polished paragraph. It hands off an answer object with citations, scope, and review signals still attached."
       }
     }
   },
   "cta": {
-    "eyebrow": "Ready for an evidence-first answer flow?",
-    "title": "Turn the first archive into the first executable answer.",
-    "description": "Start with one document set and turn it into an answer workflow your team can actually operate on.",
+    "eyebrow": "Ready to connect the first source set?",
+    "title": "Start with one archive and build the first executable answer chain.",
+    "description": "Pick the source set your team asks for most often and turn it into a workflow of answers that are traceable, reviewable, and ready to carry forward.",
     "primary": {
       "auth": "Open Workspace",
       "guest": "Get Started For Free"
     },
     "secondary": "Read about Groundpath",
     "board": {
-      "label": "Start with the first archive",
-      "title": "Three steps to make answers operational",
+      "label": "Start with the first knowledge use case",
+      "title": "Three steps to turn answers into a team standard",
       "items": {
-        "connect": "Connect source material and define the knowledge boundary.",
-        "review": "Expose citations, permissions, and freshness together.",
-        "deploy": "Carry a reviewable answer into a real operational flow."
+        "connect": "Connect the most-used source set and define a clear boundary.",
+        "review": "Make citations, permissions, and freshness visible at the same time.",
+        "deploy": "Hand the reviewable answer into the next business step."
       }
     }
   },
   "footer": {
-    "description": "Groundpath keeps archive intake, retrieval, and answer delivery traceable and reviewable from end to end.",
+    "description": "Groundpath keeps source intake, retrieval, and answer delivery traceable, reviewable, and ready for the next operational step.",
     "copyright": "All rights reserved.",
-    "about": "About",
-    "console": "Workspace",
     "columns": {
       "product": {
         "title": "Product",
-        "workspace": "Workspace",
-        "knowledge": "Knowledge Bases",
+        "product": "Product preview",
         "workflow": "Workflow",
-        "features": "Capability"
+        "faq": "FAQ",
+        "workspace": "Workspace"
       },
       "company": {
         "title": "Company",
         "about": "About",
-        "capabilities": "Capability",
-        "login": "Login",
-        "getStarted": "Get Started"
-      },
-      "access": {
-        "title": "Access",
-        "signup": "Create account",
         "login": "Sign in",
-        "console": "Open console"
+        "getStarted": "Get started"
       }
     },
     "legal": {

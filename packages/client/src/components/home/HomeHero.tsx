@@ -1,9 +1,9 @@
 import { Link } from '@tanstack/react-router';
-import { ArrowRight, BadgeCheck, FileSearch, LockKeyhole } from 'lucide-react';
+import { ArrowRight, BadgeCheck, FileSearch, LockKeyhole, Sparkles } from 'lucide-react';
 import { useTranslation } from 'react-i18next';
 import { Button } from '@/components/ui/button';
-import { HomeMetricCard, HomeSignalPill } from './HomePrimitives';
-import { homeHeroMetrics, homePrimaryButtonClass } from './home-content';
+import { HomeSignalPill } from './HomePrimitives';
+import { homeGhostButtonClass, homePrimaryButtonClass } from './home-content';
 
 type HomeHeroProps = {
   hasAuthSession: boolean;
@@ -16,200 +16,284 @@ export function HomeHero({ hasAuthSession }: HomeHeroProps) {
   const titleLineOne = t('hero.title.lineOne');
   const titleLineTwo = t('hero.title.lineTwo');
   const isChineseHero = /^zh/i.test(i18n.resolvedLanguage ?? i18n.language);
+
   const signals = [t('hero.signals.sources'), t('hero.signals.scope'), t('hero.signals.review')];
-  const metrics = homeHeroMetrics.map((metric) => ({
-    label: t(metric.labelKey),
-    value: t(metric.valueKey),
-  }));
+  const sourceItems = [
+    t('hero.preview.sources.items.one'),
+    t('hero.preview.sources.items.two'),
+    t('hero.preview.sources.items.three'),
+  ];
+  const actionItems = [
+    t('hero.preview.actions.items.one'),
+    t('hero.preview.actions.items.two'),
+    t('hero.preview.actions.items.three'),
+  ];
 
   return (
-    <section className="px-4 pb-18 pt-8 md:px-6 md:pb-24 md:pt-12 lg:pt-16">
+    <section id="product" className="px-4 pb-18 pt-8 md:px-6 md:pb-24 md:pt-12 lg:pt-14">
       <div className="mx-auto max-w-290">
-        <div className="grid gap-10 lg:grid-cols-[minmax(0,1fr)_minmax(390px,1fr)] lg:items-end xl:gap-14">
-          <div className="max-w-175 motion-reduce:animate-none animate-[home-rise_720ms_ease-out_both]">
-            <p className="inline-flex items-center gap-3 rounded-full border border-(--home-border) bg-[rgba(255,255,255,0.04)] px-4 py-2 text-[10px] font-semibold uppercase tracking-[0.28em] text-(--home-text-strong)">
-              <span className="h-2 w-2 rounded-full bg-[rgba(255,255,255,0.78)]" />
-              {t('hero.eyebrow')}
-            </p>
+        <div className="mx-auto max-w-185 text-center motion-reduce:animate-none animate-[home-rise_720ms_ease-out_both]">
+          <p className="inline-flex items-center gap-3 rounded-full border border-(--home-border) bg-[rgba(255,252,247,0.84)] px-4 py-2 text-[10px] font-semibold uppercase tracking-[0.28em] text-(--home-text-soft) shadow-[0_14px_28px_rgba(61,43,24,0.06)]">
+            <span className="h-2 w-2 rounded-full bg-[#b78347]" />
+            {t('hero.eyebrow')}
+          </p>
 
-            <h1
-              className={`mt-7 flex max-w-[11ch] flex-col text-balance font-display text-[clamp(3.1rem,11vw,6.4rem)] font-extrabold leading-none text-(--home-text-strong) ${isChineseHero ? 'gap-[0.16em] tracking-[-0.06em]' : 'gap-[0.08em] tracking-[-0.09em] sm:gap-[0.1em]'}`}
-            >
-              <span className={`block ${isChineseHero ? 'leading-[1.04]' : 'leading-[0.9]'}`}>
-                {titleLineOne}
-              </span>
-              {titleLineTwo ? (
-                <span
-                  className={`block text-[rgba(246,248,241,0.92)] ${isChineseHero ? 'font-display text-[0.92em] leading-[1.04] not-italic tracking-[-0.06em]' : 'pt-[0.03em] font-editorial text-[0.96em] leading-[0.94] italic tracking-[-0.05em]'}`}
-                >
-                  {titleLineTwo}
-                </span>
-              ) : null}
-            </h1>
+          <h1
+            className={`mx-auto mt-7 flex max-w-[11ch] flex-col text-balance font-display text-[clamp(3.4rem,11vw,7.2rem)] font-semibold leading-none text-(--home-text-strong) ${isChineseHero ? 'gap-[0.14em] tracking-[-0.07em]' : 'gap-[0.08em] tracking-[-0.09em]'}`}
+          >
+            <span className={`block ${isChineseHero ? 'leading-[1.02]' : 'leading-[0.9]'}`}>
+              {titleLineOne}
+            </span>
+            <span className="block bg-[linear-gradient(135deg,#201914_0%,#8f6534_52%,#cf9b59_100%)] bg-clip-text text-transparent">
+              {titleLineTwo}
+            </span>
+          </h1>
 
-            <div className="mt-7 max-w-160 space-y-4">
-              <p className="text-[1.02rem] leading-8 text-(--home-text-muted) sm:text-[1.08rem]">
-                {t('hero.summary')}
-              </p>
-              <p className="max-w-152 text-sm leading-7 text-(--home-text-soft) sm:text-[0.98rem]">
-                {t('hero.support')}
-              </p>
-            </div>
+          <p className="mx-auto mt-7 max-w-4xl text-[1.06rem] leading-8 text-(--home-text-muted) sm:text-[1.14rem]">
+            {t('hero.summary')}
+          </p>
+          <p className="mx-auto mt-4 max-w-3xl text-sm leading-7 text-(--home-text-soft) sm:text-[0.98rem]">
+            {t('hero.support')}
+          </p>
 
-            <div className="mt-10 flex flex-wrap items-center gap-x-5 gap-y-3">
-              <Button className={homePrimaryButtonClass} asChild>
-                <Link to={primaryTarget}>
-                  {primaryLabel}
-                  <ArrowRight className="size-4" />
-                </Link>
-              </Button>
-              <Link
-                to="/about"
-                className="inline-flex items-center gap-2 text-sm font-semibold text-(--home-text-soft) transition-colors hover:text-(--home-text-strong)"
-              >
-                {t('hero.secondary')}
+          <div className="mt-10 flex flex-wrap items-center justify-center gap-3">
+            <Button className={homePrimaryButtonClass} asChild>
+              <Link to={primaryTarget}>
+                {primaryLabel}
                 <ArrowRight className="size-4" />
               </Link>
-            </div>
+            </Button>
 
-            <div className="mt-10 flex flex-wrap gap-3">
-              {signals.map((signal) => (
-                <HomeSignalPill key={signal}>{signal}</HomeSignalPill>
-              ))}
-            </div>
-
-            <div className="mt-8 grid gap-3 sm:grid-cols-3">
-              {metrics.map((metric) => (
-                <HomeMetricCard key={metric.label} label={metric.label} value={metric.value} />
-              ))}
-            </div>
+            <Button variant="ghost" className={`${homeGhostButtonClass} bg-transparent`} asChild>
+              <Link to="/about">{t('hero.secondary')}</Link>
+            </Button>
           </div>
 
-          <div className="relative mx-auto w-full max-w-140 motion-reduce:animate-none animate-[home-rise_860ms_ease-out_both] [animation-delay:120ms] lg:mx-0">
+          <div className="mt-8 flex flex-wrap items-center justify-center gap-3">
+            {signals.map((signal) => (
+              <HomeSignalPill key={signal}>{signal}</HomeSignalPill>
+            ))}
+          </div>
+        </div>
+
+        <div className="relative mx-auto mt-14 max-w-6xl motion-reduce:animate-none animate-[home-rise_860ms_ease-out_both] [animation-delay:120ms]">
+          <div
+            aria-hidden
+            className="absolute left-1/2 top-10 h-52 w-[72%] -translate-x-1/2 rounded-full bg-[radial-gradient(circle,rgba(205,157,98,0.24),transparent_70%)] blur-3xl"
+          />
+          <div
+            aria-hidden
+            className="absolute -left-10 top-24 h-40 w-40 rounded-full bg-[radial-gradient(circle,rgba(255,255,255,0.78),transparent_68%)] blur-3xl"
+          />
+          <div
+            aria-hidden
+            className="absolute -right-8 top-10 h-48 w-48 rounded-full bg-[radial-gradient(circle,rgba(226,206,180,0.66),transparent_68%)] blur-3xl"
+          />
+
+          <article className="absolute -left-8 top-18 hidden max-w-52 rounded-[24px] border border-(--home-border) bg-[rgba(255,252,247,0.88)] p-4 shadow-(--home-shadow-soft) xl:block">
+            <p className="text-[10px] font-semibold uppercase tracking-[0.22em] text-(--home-text-soft)">
+              {t('hero.preview.floating.left.label')}
+            </p>
+            <p className="mt-2 font-display text-[1.2rem] font-semibold tracking-[-0.04em] text-(--home-text-strong)">
+              {t('hero.preview.floating.left.value')}
+            </p>
+          </article>
+
+          <article className="absolute -right-8 top-14 hidden max-w-56 rounded-[24px] border border-(--home-border) bg-[rgba(255,252,247,0.88)] p-4 shadow-(--home-shadow-soft) xl:block">
+            <p className="text-[10px] font-semibold uppercase tracking-[0.22em] text-(--home-text-soft)">
+              {t('hero.preview.floating.right.label')}
+            </p>
+            <p className="mt-2 font-display text-[1.2rem] font-semibold tracking-[-0.04em] text-(--home-text-strong)">
+              {t('hero.preview.floating.right.value')}
+            </p>
+          </article>
+
+          <article className="absolute bottom-4 left-10 hidden max-w-58 rounded-[24px] border border-(--home-border) bg-[rgba(255,252,247,0.88)] p-4 shadow-(--home-shadow-soft) xl:block">
+            <p className="text-[10px] font-semibold uppercase tracking-[0.22em] text-(--home-text-soft)">
+              {t('hero.preview.floating.bottom.label')}
+            </p>
+            <p className="mt-2 font-display text-[1.2rem] font-semibold tracking-[-0.04em] text-(--home-text-strong)">
+              {t('hero.preview.floating.bottom.value')}
+            </p>
+          </article>
+
+          <div className="relative overflow-hidden rounded-[38px] border border-(--home-border) bg-[rgba(255,249,242,0.82)] p-4 shadow-(--home-shadow) backdrop-blur-md sm:p-6 lg:p-7">
             <div
               aria-hidden
-              className="absolute inset-x-8 -top-8 h-20 rounded-full bg-[radial-gradient(circle,rgba(255,255,255,0.12),transparent_72%)] blur-2xl"
+              className="absolute inset-0 bg-[linear-gradient(to_right,rgba(93,68,39,0.04)_1px,transparent_1px),linear-gradient(to_bottom,rgba(93,68,39,0.04)_1px,transparent_1px)] bg-size-[34px_34px] opacity-45"
             />
             <div
               aria-hidden
-              className="absolute -inset-5 rounded-[40px] border border-[rgba(255,255,255,0.08)] bg-[radial-gradient(circle_at_top,rgba(255,255,255,0.08),transparent_50%)] opacity-80"
+              className="absolute inset-x-0 top-0 h-28 bg-[radial-gradient(circle_at_top,rgba(205,157,98,0.22),transparent_74%)]"
             />
 
-            <div className="relative overflow-hidden rounded-[34px] border border-(--home-border-strong) bg-[linear-gradient(180deg,rgba(22,22,24,0.98),rgba(9,9,11,0.92))] p-4 shadow-(--home-shadow)">
-              <div
-                aria-hidden
-                className="absolute inset-0 bg-[linear-gradient(to_right,rgba(255,255,255,0.03)_1px,transparent_1px),linear-gradient(to_bottom,rgba(255,255,255,0.03)_1px,transparent_1px)] bg-size-[34px_34px] opacity-[0.08]"
-              />
-
-              <div className="relative rounded-[28px] border border-(--home-border) bg-[linear-gradient(180deg,rgba(255,255,255,0.07),rgba(255,255,255,0.025))] p-5 shadow-[0_18px_44px_rgba(0,0,0,0.26)]">
-                <div className="flex items-center justify-between gap-4">
+            <div className="relative grid gap-4 xl:grid-cols-[220px_minmax(0,1fr)_250px]">
+              <aside className="space-y-4">
+                <div className="rounded-[28px] border border-(--home-border) bg-white/72 p-5 shadow-(--home-shadow-soft)">
                   <p className="text-[10px] font-semibold uppercase tracking-[0.24em] text-(--home-text-soft)">
-                    {t('hero.console.eyebrow')}
+                    {t('hero.preview.kicker')}
                   </p>
-                  <span className="inline-flex items-center gap-2 rounded-full border border-[rgba(255,255,255,0.12)] bg-[rgba(255,255,255,0.95)] px-3 py-1 text-[10px] font-semibold uppercase tracking-[0.18em] text-[#09090b]">
-                    <span className="h-1.5 w-1.5 rounded-full bg-[#09090b]" />
-                    {t('hero.console.status')}
-                  </span>
-                </div>
-
-                <p className="mt-6 text-[11px] font-semibold uppercase tracking-[0.24em] text-(--home-text-soft)">
-                  {t('hero.console.answerLabel')}
-                </p>
-                <p className="mt-3 max-w-[28ch] font-display text-[1.85rem] font-bold leading-[1.02] tracking-[-0.06em] text-(--home-text-strong)">
-                  {t('hero.console.answerBody')}
-                </p>
-
-                <div className="mt-6 flex flex-wrap gap-2">
-                  <span className="rounded-full border border-[rgba(255,255,255,0.12)] bg-[rgba(255,255,255,0.05)] px-3 py-1.5 text-[11px] text-(--home-text-muted)">
-                    {t('hero.console.citations.scope')}
-                  </span>
-                  <span className="rounded-full border border-[rgba(255,255,255,0.12)] bg-[rgba(255,255,255,0.05)] px-3 py-1.5 text-[11px] text-(--home-text-muted)">
-                    {t('hero.console.citations.freshness')}
-                  </span>
-                  <span className="rounded-full border border-[rgba(255,255,255,0.12)] bg-[rgba(255,255,255,0.05)] px-3 py-1.5 text-[11px] text-(--home-text-muted)">
-                    {t('hero.console.citations.access')}
-                  </span>
-                </div>
-              </div>
-
-              <div className="relative mt-4 grid gap-4 sm:grid-cols-[1.05fr_0.95fr]">
-                <article className="overflow-hidden rounded-[26px] border border-(--home-border) bg-[linear-gradient(180deg,rgba(255,255,255,0.05),rgba(255,255,255,0.02))] p-5">
-                  <span className="flex size-10 items-center justify-center rounded-3xl border border-[rgba(255,255,255,0.1)] bg-[rgba(255,255,255,0.05)] text-(--home-accent)">
-                    <FileSearch className="size-4" />
-                  </span>
-                  <p className="mt-5 text-[10px] font-semibold uppercase tracking-[0.22em] text-(--home-text-soft)">
-                    {t('hero.console.scopeLabel')}
-                  </p>
-                  <h2 className="mt-3 max-w-[13ch] font-display text-[1.4rem] font-bold leading-[1.02] tracking-[-0.05em] text-(--home-text-strong)">
-                    {t('hero.console.scopeTitle')}
-                  </h2>
                   <p className="mt-4 text-sm leading-7 text-(--home-text-muted)">
-                    {t('hero.console.scopeBody')}
+                    {t('hero.preview.searchLabel')}
                   </p>
-                </article>
+                  <p className="mt-2 font-display text-[1.4rem] font-semibold leading-[1.05] tracking-[-0.05em] text-(--home-text-strong)">
+                    {t('hero.preview.searchValue')}
+                  </p>
+                </div>
 
-                <article className="overflow-hidden rounded-[26px] border border-(--home-border) bg-[linear-gradient(180deg,rgba(255,255,255,0.05),rgba(255,255,255,0.02))] p-5">
+                <div className="rounded-[28px] border border-(--home-border) bg-[rgba(253,247,238,0.94)] p-5 shadow-(--home-shadow-soft)">
+                  <p className="text-[10px] font-semibold uppercase tracking-[0.24em] text-(--home-text-soft)">
+                    {t('hero.preview.scopeLabel')}
+                  </p>
+                  <p className="mt-3 font-medium text-(--home-text-strong)">
+                    {t('hero.preview.scopeValue')}
+                  </p>
+                  <div className="mt-4 space-y-2.5">
+                    {sourceItems.map((item) => (
+                      <div
+                        key={item}
+                        className="rounded-3xl border border-(--home-border) bg-white/72 px-3 py-2.5 text-sm text-(--home-text-muted)"
+                      >
+                        {item}
+                      </div>
+                    ))}
+                  </div>
+                </div>
+              </aside>
+
+              <div className="space-y-4">
+                <div className="rounded-[30px] border border-(--home-border) bg-white/82 p-5 shadow-[0_20px_50px_rgba(61,43,24,0.08)] sm:p-6">
                   <div className="flex items-center justify-between gap-4">
-                    <span className="flex size-10 items-center justify-center rounded-3xl border border-[rgba(255,255,255,0.1)] bg-[rgba(255,255,255,0.05)] text-(--home-accent)">
-                      <BadgeCheck className="size-4" />
-                    </span>
-                    <span className="rounded-full border border-[rgba(255,255,255,0.12)] bg-[rgba(255,255,255,0.95)] px-3 py-1 text-[10px] font-semibold uppercase tracking-[0.18em] text-[#09090b]">
-                      {t('hero.console.reviewLabel')}
+                    <p className="text-[10px] font-semibold uppercase tracking-[0.24em] text-(--home-text-soft)">
+                      {t('hero.preview.answerLabel')}
+                    </p>
+                    <span className="inline-flex items-center gap-2 rounded-full border border-[rgba(183,131,71,0.18)] bg-[rgba(248,237,222,0.92)] px-3 py-1 text-[10px] font-semibold uppercase tracking-[0.18em] text-[#7a5425]">
+                      <Sparkles className="size-3.5" />
+                      {t('hero.preview.answerBadge')}
                     </span>
                   </div>
-                  <h2 className="mt-5 max-w-[11ch] font-display text-[1.4rem] font-bold leading-[1.02] tracking-[-0.05em] text-(--home-text-strong)">
-                    {t('hero.console.reviewTitle')}
+
+                  <h2 className="mt-5 max-w-[12ch] font-display text-[clamp(2rem,3vw,3rem)] font-semibold leading-[0.94] tracking-[-0.06em] text-(--home-text-strong)">
+                    {t('hero.preview.answerTitle')}
                   </h2>
-                  <p className="mt-4 text-sm leading-7 text-(--home-text-muted)">
-                    {t('hero.console.reviewBody')}
+                  <p className="mt-5 max-w-3xl text-[1rem] leading-8 text-(--home-text-muted)">
+                    {t('hero.preview.answerBody')}
                   </p>
 
-                  <div className="mt-6 space-y-2.5">
-                    <div className="h-2 rounded-full bg-[rgba(255,255,255,0.08)]">
-                      <div className="h-full w-[82%] rounded-full bg-[linear-gradient(90deg,#fafafa,#d4d4d8)]" />
-                    </div>
-                    <div className="h-2 rounded-full bg-[rgba(255,255,255,0.08)]">
-                      <div className="h-full w-[68%] rounded-full bg-[linear-gradient(90deg,#a1a1aa,#d4d4d8)]" />
-                    </div>
-                    <div className="h-2 rounded-full bg-[rgba(255,255,255,0.08)]">
-                      <div className="h-full w-[91%] rounded-full bg-[linear-gradient(90deg,#71717a,#a1a1aa)]" />
+                  <div className="mt-6 rounded-[24px] border border-(--home-border) bg-[rgba(248,241,232,0.9)] p-4">
+                    <div className="flex items-start gap-3">
+                      <span className="mt-1 flex size-9 items-center justify-center rounded-full bg-[#1f1a16] text-[#faf7f2]">
+                        <BadgeCheck className="size-4" />
+                      </span>
+                      <div>
+                        <p className="text-[11px] font-semibold uppercase tracking-[0.2em] text-(--home-text-soft)">
+                          {t('hero.preview.reviewLabel')}
+                        </p>
+                        <p className="mt-1 text-sm leading-7 text-(--home-text-muted)">
+                          {t('hero.preview.reviewValue')}
+                        </p>
+                      </div>
                     </div>
                   </div>
-                </article>
+                </div>
+
+                <div className="grid gap-4 lg:grid-cols-[1.05fr_0.95fr]">
+                  <article className="rounded-[28px] border border-(--home-border) bg-[rgba(255,252,247,0.82)] p-5 shadow-(--home-shadow-soft)">
+                    <div className="flex items-center gap-3">
+                      <span className="flex size-10 items-center justify-center rounded-3xl border border-(--home-border) bg-white/72 text-(--home-text-strong)">
+                        <FileSearch className="size-4" />
+                      </span>
+                      <p className="text-[10px] font-semibold uppercase tracking-[0.24em] text-(--home-text-soft)">
+                        {t('hero.preview.sourcesLabel')}
+                      </p>
+                    </div>
+                    <h3 className="mt-5 max-w-[16ch] font-display text-[1.6rem] font-semibold leading-[1.02] tracking-[-0.05em] text-(--home-text-strong)">
+                      {t('hero.preview.sourcesTitle')}
+                    </h3>
+                    <div className="mt-5 space-y-3">
+                      {sourceItems.map((item) => (
+                        <div
+                          key={item}
+                          className="flex items-center justify-between gap-3 rounded-[22px] border border-(--home-border) bg-white/74 px-4 py-3"
+                        >
+                          <span className="text-sm text-(--home-text-muted)">{item}</span>
+                          <span className="text-[10px] font-semibold uppercase tracking-[0.18em] text-(--home-text-soft)">
+                            {t('hero.preview.sources.ready')}
+                          </span>
+                        </div>
+                      ))}
+                    </div>
+                  </article>
+
+                  <article className="rounded-[28px] border border-[rgba(31,26,22,0.08)] bg-[linear-gradient(180deg,#1f1a16_0%,#17120f_100%)] p-5 text-[#faf7f2] shadow-[0_22px_54px_rgba(31,26,22,0.18)]">
+                    <div className="flex items-center gap-3">
+                      <span className="flex size-10 items-center justify-center rounded-3xl border border-white/10 bg-white/6 text-white">
+                        <LockKeyhole className="size-4" />
+                      </span>
+                      <p className="text-[10px] font-semibold uppercase tracking-[0.24em] text-[rgba(255,247,240,0.56)]">
+                        {t('hero.preview.actionsLabel')}
+                      </p>
+                    </div>
+                    <h3 className="mt-5 max-w-[12ch] font-display text-[1.6rem] font-semibold leading-[1.02] tracking-[-0.05em] text-white">
+                      {t('hero.preview.actionsTitle')}
+                    </h3>
+                    <div className="mt-5 space-y-3">
+                      {actionItems.map((item, index) => (
+                        <div
+                          key={item}
+                          className="flex items-start gap-3 rounded-[22px] border border-white/8 bg-white/5 px-4 py-3"
+                        >
+                          <span className="flex size-7 shrink-0 items-center justify-center rounded-full bg-white text-[11px] font-semibold text-[#1f1a16]">
+                            {index + 1}
+                          </span>
+                          <span className="text-sm leading-6 text-[rgba(255,247,240,0.74)]">
+                            {item}
+                          </span>
+                        </div>
+                      ))}
+                    </div>
+                  </article>
+                </div>
               </div>
+
+              <aside className="grid gap-4">
+                <div className="rounded-[28px] border border-(--home-border) bg-[rgba(255,252,247,0.82)] p-5 shadow-(--home-shadow-soft)">
+                  <p className="text-[10px] font-semibold uppercase tracking-[0.24em] text-(--home-text-soft)">
+                    {t('hero.preview.side.reviewLabel')}
+                  </p>
+                  <p className="mt-3 font-display text-[1.8rem] font-semibold tracking-[-0.05em] text-(--home-text-strong)">
+                    {t('hero.preview.side.reviewValue')}
+                  </p>
+                  <p className="mt-3 text-sm leading-7 text-(--home-text-muted)">
+                    {t('hero.preview.side.reviewBody')}
+                  </p>
+                </div>
+
+                <div className="rounded-[28px] border border-(--home-border) bg-[rgba(249,242,232,0.84)] p-5 shadow-(--home-shadow-soft)">
+                  <p className="text-[10px] font-semibold uppercase tracking-[0.24em] text-(--home-text-soft)">
+                    {t('hero.preview.side.scopeLabel')}
+                  </p>
+                  <p className="mt-3 font-display text-[1.8rem] font-semibold tracking-[-0.05em] text-(--home-text-strong)">
+                    {t('hero.preview.side.scopeValue')}
+                  </p>
+                  <p className="mt-3 text-sm leading-7 text-(--home-text-muted)">
+                    {t('hero.preview.side.scopeBody')}
+                  </p>
+                </div>
+
+                <div className="rounded-[28px] border border-(--home-border) bg-[rgba(255,252,247,0.82)] p-5 shadow-(--home-shadow-soft)">
+                  <p className="text-[10px] font-semibold uppercase tracking-[0.24em] text-(--home-text-soft)">
+                    {t('hero.preview.side.handoffLabel')}
+                  </p>
+                  <p className="mt-3 font-display text-[1.8rem] font-semibold tracking-[-0.05em] text-(--home-text-strong)">
+                    {t('hero.preview.side.handoffValue')}
+                  </p>
+                  <p className="mt-3 text-sm leading-7 text-(--home-text-muted)">
+                    {t('hero.preview.side.handoffBody')}
+                  </p>
+                </div>
+              </aside>
             </div>
-
-            <article className="absolute -left-6 top-9 hidden max-w-47.5 rounded-[22px] border border-(--home-border) bg-[rgba(12,12,14,0.94)] p-4 shadow-(--home-shadow-soft) lg:block">
-              <div className="flex items-center gap-3">
-                <span className="flex size-9 items-center justify-center rounded-[14px] border border-[rgba(255,255,255,0.12)] bg-[rgba(255,255,255,0.06)] text-(--home-text-strong)">
-                  <BadgeCheck className="size-4" />
-                </span>
-                <div>
-                  <p className="text-[10px] font-semibold uppercase tracking-[0.22em] text-(--home-text-soft)">
-                    {t('hero.console.floatingFresh')}
-                  </p>
-                  <p className="mt-1 text-sm font-semibold text-(--home-text-strong)">
-                    {t('hero.console.floatingFreshValue')}
-                  </p>
-                </div>
-              </div>
-            </article>
-
-            <article className="absolute -bottom-5 right-6 hidden max-w-55 rounded-[22px] border border-(--home-border) bg-[rgba(12,12,14,0.94)] p-4 shadow-(--home-shadow-soft) lg:block">
-              <div className="flex items-center gap-3">
-                <span className="flex size-9 items-center justify-center rounded-[14px] border border-[rgba(255,255,255,0.12)] bg-[rgba(255,255,255,0.06)] text-(--home-text-strong)">
-                  <LockKeyhole className="size-4" />
-                </span>
-                <div>
-                  <p className="text-[10px] font-semibold uppercase tracking-[0.22em] text-(--home-text-soft)">
-                    {t('hero.console.floatingScope')}
-                  </p>
-                  <p className="mt-1 text-sm font-semibold text-(--home-text-strong)">
-                    {t('hero.console.floatingScopeValue')}
-                  </p>
-                </div>
-              </div>
-            </article>
           </div>
         </div>
       </div>
