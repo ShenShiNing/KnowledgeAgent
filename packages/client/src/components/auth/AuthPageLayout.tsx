@@ -23,22 +23,21 @@ interface AuthPageLayoutProps {
 }
 
 function AuthHeader({ variant = 'default' }: { variant?: AuthHeaderVariant }) {
-  const { t } = useTranslation(['auth', 'common']);
+  const { t, i18n } = useTranslation(['auth', 'common', 'app', 'language']);
   const { theme, setTheme } = useTheme();
-  const { i18n } = useTranslation('language');
   const accessToken = useAuthStore((s) => s.accessToken);
   const isAuthenticated = useAuthStore((s) => s.isAuthenticated);
   const hasAuthSession = isAuthenticated || !!accessToken;
   const currentLanguage =
     i18n.resolvedLanguage === 'en-US' || i18n.language === 'en-US' ? 'en-US' : 'zh-CN';
   const themeOptions = [
-    { label: 'dark', value: 'dark' },
-    { label: 'light', value: 'light' },
-    { label: 'system', value: 'system' },
+    { label: t('userMenu.themeDark', { ns: 'app' }), value: 'dark' },
+    { label: t('userMenu.themeLight', { ns: 'app' }), value: 'light' },
+    { label: t('userMenu.themeSystem', { ns: 'app' }), value: 'system' },
   ] as const;
   const languageOptions = [
-    { label: 'Chinese', value: 'zh-CN' },
-    { label: 'English', value: 'en-US' },
+    { label: t('zh', { ns: 'language' }), value: 'zh-CN' },
+    { label: t('en', { ns: 'language' }), value: 'en-US' },
   ] as const;
   const themeIcon =
     theme === 'dark' ? (
