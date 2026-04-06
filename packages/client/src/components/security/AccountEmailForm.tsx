@@ -16,6 +16,7 @@ import {
   resolveEmailSubmitErrorMessage,
   resolveEmailVerifyErrorMessage,
 } from './errorMessage';
+import { resolveZodIssueMessage } from '@/lib/validation/resolve-zod-issue-message';
 import { useExpiryCountdown } from './useExpiryCountdown';
 
 const RESEND_COOLDOWN = 60;
@@ -86,7 +87,11 @@ export function AccountEmailForm({ onSuccess }: AccountEmailFormProps) {
     const normalizedEmail = normalizeClientEmail(newEmail);
     const validationResult = emailSchema.safeParse(normalizedEmail);
     if (!validationResult.success) {
-      return validationResult.error.issues[0]?.message ?? t('email.sendFailed');
+      return (
+        resolveZodIssueMessage(validationResult.error.issues[0], {
+          invalidEmail: t('email.invalid'),
+        }) ?? t('email.sendFailed')
+      );
     }
 
     if (normalizedEmail === normalizeClientEmail(user?.email ?? '')) {

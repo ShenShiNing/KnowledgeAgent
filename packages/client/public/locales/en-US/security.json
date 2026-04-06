@@ -50,6 +50,7 @@
     "verifiedExpiresIn": "This verification expires in {{seconds}}s",
     "verificationExpired": "Email verification expired. Please verify again.",
     "sameEmail": "The new email must be different from the current email",
+    "invalid": "Invalid email format",
     "alreadyExists": "This email is already used by another account",
     "verificationRequired": "Please verify the new email code before submitting",
     "codeInvalidLength": "Please enter the 6-digit verification code",

@@ -50,6 +50,7 @@
     "verifiedExpiresIn": "当前验证将在 {{seconds}} 秒后过期",
     "verificationExpired": "邮箱验证已过期，请重新验证",
     "sameEmail": "新邮箱不能与当前邮箱相同",
+    "invalid": "邮箱格式不正确",
     "alreadyExists": "该邮箱已被其他账号使用",
     "verificationRequired": "请先完成新邮箱验证码验证",
     "codeInvalidLength": "请输入 6 位验证码",

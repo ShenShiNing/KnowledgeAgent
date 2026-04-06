@@ -9,6 +9,7 @@ import { useTranslation } from 'react-i18next';
 import { FormField } from './FormField';
 import { emailApi } from '@/api';
 import { translateApiError } from '@/lib/http/translate-error';
+import { resolveZodIssueMessage } from '@/lib/validation/resolve-zod-issue-message';
 
 interface SignupStepEmailProps {
   onNext: (email: string) => void;
@@ -28,7 +29,11 @@ export function SignupStepEmail({ onNext, defaultEmail = '' }: SignupStepEmailPr
 
       const result = emailSchema.safeParse(value.email);
       if (!result.success) {
-        setError(result.error.issues[0]?.message || t('signup.email.invalid'));
+        setError(
+          resolveZodIssueMessage(result.error.issues[0], {
+            invalidEmail: t('signup.email.invalid'),
+          }) || t('signup.email.invalid')
+        );
         return;
       }
 
@@ -60,7 +65,11 @@ export function SignupStepEmail({ onNext, defaultEmail = '' }: SignupStepEmailPr
         validators={{
           onBlur: ({ value }) => {
             const result = emailSchema.safeParse(value);
-            return result.success ? undefined : result.error.issues[0]?.message;
+            return result.success
+              ? undefined
+              : resolveZodIssueMessage(result.error.issues[0], {
+                  invalidEmail: t('signup.email.invalid'),
+                });
           },
         }}
       >
