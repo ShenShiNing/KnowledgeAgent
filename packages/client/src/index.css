@@ -87,6 +87,7 @@
   --home-footer-bg: #f8f2e8;
   --home-footer-text: #201914;
   --home-footer-muted: #8d7b69;
+  --home-navbar-bg: rgba(246, 240, 230, 0.76);
   --home-backdrop-base: linear-gradient(180deg, #f6f0e6 0%, #f3ede3 28%, #f7f2ea 60%, #efe6d8 100%);
   --home-backdrop-glow-left: radial-gradient(circle, rgba(255, 255, 255, 0.92), transparent 72%);
   --home-backdrop-glow-right: radial-gradient(circle, rgba(225, 200, 163, 0.36), transparent 72%);
@@ -147,6 +148,7 @@
   --home-footer-bg: #17110e;
   --home-footer-text: #f4eee6;
   --home-footer-muted: #9d8d7b;
+  --home-navbar-bg: rgba(17, 13, 11, 0.74);
   --home-backdrop-base: linear-gradient(180deg, #110d0b 0%, #16110d 30%, #19130f 58%, #120d0a 100%);
   --home-backdrop-glow-left: radial-gradient(circle, rgba(132, 96, 58, 0.18), transparent 72%);
   --home-backdrop-glow-right: radial-gradient(circle, rgba(207, 155, 89, 0.14), transparent 72%);
