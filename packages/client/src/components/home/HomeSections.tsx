@@ -390,8 +390,8 @@ export function HomeFooter({ hasAuthSession }: HomeFooterProps) {
   const { t } = useTranslation(['home', 'common']);
 
   return (
-    <footer className="px-4 pb-8 pt-6 md:px-6 md:pt-8">
-      <div className="mx-auto max-w-290 border-t border-(--home-border) pt-8">
+    <footer className="pb-8 pt-6 md:pt-8">
+      <div className="border-t border-(--home-border) px-4 pt-8 md:px-6">
         <div className="grid gap-12 pb-10 lg:grid-cols-[minmax(0,1fr)_minmax(0,0.78fr)]">
           <div className="max-w-xl">
             <div className="flex items-center gap-3">

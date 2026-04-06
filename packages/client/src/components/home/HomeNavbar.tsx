@@ -119,7 +119,7 @@ export function HomeNavbar({ hasAuthSession }: HomeNavbarProps) {
 
   return (
     <header className="sticky top-0 z-50 border-b border-(--home-border) bg-[rgba(246,240,230,0.82)] backdrop-blur-xl">
-      <div className="flex h-16 w-full items-center justify-between gap-4 px-4 md:px-6">
+      <div className="grid h-16 w-full grid-cols-[minmax(0,1fr)_auto] items-center gap-4 px-4 md:px-6 lg:grid-cols-[minmax(0,1fr)_auto_minmax(0,1fr)]">
         <Link
           to="/"
           className="min-w-0 font-display text-lg font-semibold tracking-[-0.05em] text-(--home-text-strong) transition-opacity hover:opacity-85"
@@ -127,7 +127,7 @@ export function HomeNavbar({ hasAuthSession }: HomeNavbarProps) {
           <span className="block truncate">{t('brand', { ns: 'common' })}</span>
         </Link>
 
-        <nav className="hidden items-center gap-6 lg:flex">
+        <nav className="hidden items-center justify-center gap-6 lg:flex">
           {homeNavItems.map((item) =>
             'href' in item ? (
               <a
@@ -149,7 +149,7 @@ export function HomeNavbar({ hasAuthSession }: HomeNavbarProps) {
           )}
         </nav>
 
-        <div className="flex items-center gap-3">
+        <div className="flex items-center justify-end gap-3">
           {hasAuthSession ? (
             <>
               <Button className={`${homePrimaryButtonClass} hidden sm:inline-flex`} asChild>
