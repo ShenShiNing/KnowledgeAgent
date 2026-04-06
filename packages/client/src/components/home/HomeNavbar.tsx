@@ -1,7 +1,6 @@
 import { Link, useRouter } from '@tanstack/react-router';
 import { ChevronDown, LayoutDashboard, LogOut, Monitor, User } from 'lucide-react';
 import { useTranslation } from 'react-i18next';
-import logoMark from '@/assets/brand/logo-mark.svg';
 import { Avatar, AvatarFallback, AvatarImage } from '@/components/ui/avatar';
 import { Button } from '@/components/ui/button';
 import {
@@ -119,71 +118,59 @@ export function HomeNavbar({ hasAuthSession }: HomeNavbarProps) {
   const workspaceTarget = hasAuthSession ? '/dashboard' : '/auth/signup';
 
   return (
-    <header className="sticky top-0 z-50 px-4 pt-4 md:px-6 md:pt-5">
-      <div className="mx-auto max-w-290">
-        <div className="flex items-center justify-between gap-4 rounded-full border border-(--home-border) bg-[rgba(250,246,239,0.78)] px-4 py-3 shadow-[0_14px_32px_rgba(61,43,24,0.06)] backdrop-blur-xl md:px-5">
-          <Link
-            to="/"
-            className="flex min-w-0 items-center gap-2.5 text-(--home-text-strong) transition-opacity hover:opacity-85"
-          >
-            <span className="flex size-9 items-center justify-center rounded-full border border-(--home-border) bg-white/74 shadow-[0_10px_24px_rgba(61,43,24,0.05)]">
-              <img src={logoMark} alt="" className="h-4.5 w-4.5" />
-            </span>
-            <span className="min-w-0">
-              <span className="block truncate text-[11px] font-semibold uppercase tracking-[0.18em] text-(--home-text-strong)">
-                {t('brand', { ns: 'common' })}
-              </span>
-              <span className="hidden truncate text-[10px] uppercase tracking-[0.2em] text-(--home-text-soft) lg:block">
-                {t('nav.kicker')}
-              </span>
-            </span>
-          </Link>
+    <header className="sticky top-0 z-50 border-b border-(--home-border) bg-[rgba(246,240,230,0.82)] px-4 backdrop-blur-xl md:px-6">
+      <div className="mx-auto flex h-16 max-w-290 items-center justify-between gap-4">
+        <Link
+          to="/"
+          className="min-w-0 font-display text-lg font-semibold tracking-[-0.05em] text-(--home-text-strong) transition-opacity hover:opacity-85"
+        >
+          <span className="block truncate">{t('brand', { ns: 'common' })}</span>
+        </Link>
 
-          <nav className="hidden items-center gap-6 lg:flex">
-            {homeNavItems.map((item) =>
-              'href' in item ? (
-                <a
-                  key={item.key}
-                  href={item.href}
-                  className="text-[11px] font-semibold uppercase tracking-[0.22em] text-(--home-text-soft) transition-colors hover:text-(--home-text-strong)"
-                >
-                  {t(item.key)}
-                </a>
-              ) : (
-                <Link
-                  key={item.key}
-                  to={item.route}
-                  className="text-[11px] font-semibold uppercase tracking-[0.22em] text-(--home-text-soft) transition-colors hover:text-(--home-text-strong)"
-                >
-                  {t(item.key)}
-                </Link>
-              )
-            )}
-          </nav>
-
-          <div className="flex items-center gap-3">
-            {hasAuthSession ? (
-              <>
-                <Button className={`${homePrimaryButtonClass} hidden sm:inline-flex`} asChild>
-                  <Link to={workspaceTarget}>{t('dashboard', { ns: 'common' })}</Link>
-                </Button>
-                <HomeUserMenu />
-              </>
+        <nav className="hidden items-center gap-6 lg:flex">
+          {homeNavItems.map((item) =>
+            'href' in item ? (
+              <a
+                key={item.key}
+                href={item.href}
+                className="text-[11px] font-semibold uppercase tracking-[0.22em] text-(--home-text-soft) transition-colors hover:text-(--home-text-strong)"
+              >
+                {t(item.key)}
+              </a>
             ) : (
-              <>
-                <Button
-                  variant="ghost"
-                  className={`${homeGhostButtonClass} hidden sm:inline-flex`}
-                  asChild
-                >
-                  <Link to="/auth/login">{t('login')}</Link>
-                </Button>
-                <Button className={homePrimaryButtonClass} asChild>
-                  <Link to={workspaceTarget}>{t('getStarted')}</Link>
-                </Button>
-              </>
-            )}
-          </div>
+              <Link
+                key={item.key}
+                to={item.route}
+                className="text-[11px] font-semibold uppercase tracking-[0.22em] text-(--home-text-soft) transition-colors hover:text-(--home-text-strong)"
+              >
+                {t(item.key)}
+              </Link>
+            )
+          )}
+        </nav>
+
+        <div className="flex items-center gap-3">
+          {hasAuthSession ? (
+            <>
+              <Button className={`${homePrimaryButtonClass} hidden sm:inline-flex`} asChild>
+                <Link to={workspaceTarget}>{t('dashboard', { ns: 'common' })}</Link>
+              </Button>
+              <HomeUserMenu />
+            </>
+          ) : (
+            <>
+              <Button
+                variant="ghost"
+                className={`${homeGhostButtonClass} hidden sm:inline-flex`}
+                asChild
+              >
+                <Link to="/auth/login">{t('login')}</Link>
+              </Button>
+              <Button className={homePrimaryButtonClass} asChild>
+                <Link to={workspaceTarget}>{t('getStarted')}</Link>
+              </Button>
+            </>
+          )}
         </div>
       </div>
     </header>

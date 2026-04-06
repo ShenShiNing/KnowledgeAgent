@@ -1,5 +1,4 @@
 import { Link } from '@tanstack/react-router';
-import { Brain } from 'lucide-react';
 import { LanguageToggle } from '@/components/i18n/LanguageToggle';
 import { ModeToggle } from '@/components/theme/mode-toggle';
 import { Button } from '@/components/ui/button';
@@ -20,19 +19,14 @@ function AuthHeader() {
   const hasAuthSession = isAuthenticated || !!accessToken;
 
   return (
-    <header className="fixed inset-x-0 top-4 z-50 px-4">
+    <header className="relative z-10 border-b border-border/60 bg-background/88 px-4 backdrop-blur-md">
       <div className="container">
-        <div className="mx-auto flex h-14 w-full max-w-6xl items-center justify-between rounded-2xl border bg-background/85 px-4 shadow-sm backdrop-blur-md">
+        <div className="mx-auto flex h-16 w-full max-w-6xl items-center justify-between gap-3">
           <Link
             to={hasAuthSession ? '/dashboard' : '/'}
-            className="flex items-center gap-2.5 transition-opacity hover:opacity-85"
+            className="min-w-0 font-display text-lg font-semibold tracking-tight text-foreground transition-opacity hover:opacity-85"
           >
-            <div className="flex size-8 items-center justify-center rounded-lg bg-primary text-primary-foreground">
-              <Brain className="size-4" />
-            </div>
-            <span className="font-display text-base font-semibold tracking-tight">
-              {t('brand', { ns: 'common' })}
-            </span>
+            <span className="truncate">{t('brand', { ns: 'common' })}</span>
           </Link>
 
           <div className="flex items-center gap-2">
@@ -60,7 +54,7 @@ function AuthHeader() {
 
 export function AuthPageLayout({ children, title, description, footer }: AuthPageLayoutProps) {
   return (
-    <div className="relative min-h-screen overflow-hidden bg-background">
+    <div className="relative flex min-h-screen flex-col overflow-hidden bg-background">
       <AuthHeader />
 
       <div aria-hidden className="pointer-events-none absolute inset-0 -z-10">
@@ -68,7 +62,7 @@ export function AuthPageLayout({ children, title, description, footer }: AuthPag
         <div className="absolute -left-20 bottom-8 h-64 w-64 rounded-full bg-primary/8 blur-3xl" />
       </div>
 
-      <div className="flex min-h-screen items-center justify-center px-4 pt-20 pb-8">
+      <div className="flex flex-1 items-center justify-center px-4 py-10">
         <div className="w-full max-w-md py-8">
           <div className="mb-8 flex flex-col items-center space-y-2 text-center">
             <h1 className="font-display text-2xl font-semibold tracking-tight">{title}</h1>
