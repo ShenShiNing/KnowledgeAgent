@@ -102,6 +102,7 @@ export function LoginForm() {
                 name={field.name}
                 label={t('common:password')}
                 placeholder="••••••••"
+                inputClassName={!showPassword ? 'text-lg tracking-[0.18em]' : undefined}
                 icon={Lock}
                 value={field.state.value}
                 onChange={field.handleChange}
