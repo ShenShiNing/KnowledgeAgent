@@ -4,97 +4,293 @@
     "toggle": "切换主题"
   },
   "login": "登录",
-  "getStarted": "免费开始",
+  "getStarted": "立即开始",
+  "nav": {
+    "kicker": "Source-grounded Knowledge Workspace",
+    "product": "产品预览",
+    "workflow": "工作流",
+    "faq": "问答",
+    "about": "关于"
+  },
   "hero": {
-    "badge": "溯知 · 溯源而知，一问即达",
-    "title": "溯知",
-    "titleMuted": "把你的知识变成可检索、可对话、可验证的答案系统",
-    "description": "统一沉淀你的文档与笔记，通过语义检索和引用式回答，把知识从「难找」变成「即问即得」，让学习与创作更高效。",
-    "enterDashboard": "进入控制台",
-    "startBuilding": "开始构建知识库",
-    "loginNow": "已有账号，立即登录"
-  },
-  "metrics": {
-    "searchTime": "平均检索耗时",
-    "searchTimeValue": "< 2s",
-    "docTypes": "支持文档类型",
-    "docTypesValue": "PDF / MD / TXT",
-    "answerMode": "答案输出方式",
-    "answerModeValue": "带引用来源"
-  },
-  "capabilities": {
-    "label": "核心能力",
-    "title": "为个人创作者与小团队设计"
-  },
-  "capability": {
-    "docs": {
-      "title": "文档统一接入",
-      "description": "支持 PDF、Markdown、文本等多格式资料接入，集中管理你的文档与笔记。"
+    "eyebrow": "为团队而做的知识工作台",
+    "title": {
+      "lineOne": "把分散资料",
+      "lineTwo": "整理成可执行答案"
     },
-    "search": {
-      "title": "语义检索增强",
-      "description": "不依赖关键词匹配，基于语义相似度定位内容，减少信息遗漏。"
+    "summary": "Groundpath 把文档、知识库和对话压到同一个工作面上，让团队在生成回答的同时看到来源、范围和交付信号。",
+    "support": "从资料接入到行动交付，问题、引用、版本和权限边界始终保持在一条连续链路里，不再需要在多个工具之间来回补救。",
+    "primary": {
+      "auth": "进入工作台",
+      "guest": "立即开始"
     },
-    "traceable": {
-      "title": "可追溯回答",
-      "description": "Agent 回答附带来源片段，结果可核验，适合学习、创作与日常使用。"
+    "secondary": "了解 Groundpath",
+    "signals": {
+      "sources": "回答默认带引用",
+      "scope": "范围先锁定再生成",
+      "review": "交付前保留审阅信号"
+    },
+    "preview": {
+      "kicker": "Groundpath Workspace",
+      "searchLabel": "当前工作面",
+      "searchValue": "采购政策 · 合同档案 · 供应商 FAQ",
+      "scopeLabel": "已连接来源",
+      "scopeValue": "锁定在当前组织与知识范围内",
+      "answerLabel": "回答面板",
+      "answerBadge": "带来源输出",
+      "answerTitle": "让答案在受控范围里直接生成",
+      "answerBody": "问题、回答、引用和动作轨道在一个界面里并排出现。团队不需要先生成，再去别处补来源和边界。",
+      "reviewLabel": "审阅信号",
+      "reviewValue": "同时显示更新时间、权限边界和引用完整度，便于在发送、审批或执行前做最后确认。",
+      "sourcesLabel": "来源侧栏",
+      "sourcesTitle": "每条回答都能回到具体档案与版本",
+      "sources": {
+        "ready": "已连接",
+        "items": {
+          "one": "采购制度 2026 Q1",
+          "two": "主合同模板 v4",
+          "three": "供应商准入规范"
+        }
+      },
+      "actionsLabel": "动作轨道",
+      "actionsTitle": "把生成、审阅和交付压进同一条链路",
+      "actions": {
+        "items": {
+          "one": "先限定组织、知识库与会话范围。",
+          "two": "生成时保留引用与来源更新时间。",
+          "three": "把可审阅答案带入下一步业务动作。"
+        }
+      },
+      "side": {
+        "reviewLabel": "引用完整度",
+        "reviewValue": "98%",
+        "reviewBody": "回答生成时就附带来源，不需要在导出前临时补链。",
+        "scopeLabel": "权限边界",
+        "scopeValue": "已锁定",
+        "scopeBody": "问题只在当前组织与允许访问的资料范围内展开。",
+        "handoffLabel": "交付状态",
+        "handoffValue": "可审阅",
+        "handoffBody": "把答案连同引用与上下文一起交给团队，而不是只扔出一段文本。"
+      },
+      "floating": {
+        "left": {
+          "label": "最新来源",
+          "value": "24h 内有更新"
+        },
+        "right": {
+          "label": "知识范围",
+          "value": "采购与合同已锁定"
+        },
+        "bottom": {
+          "label": "准备交付",
+          "value": "引用、权限与审阅状态齐全"
+        }
+      }
+    }
+  },
+  "proof": {
+    "eyebrow": "Why teams choose Groundpath",
+    "title": "不是更会说，而是更能被团队拿去执行。",
+    "description": "真正的知识工作不缺文本输出，缺的是来源清晰、边界明确、可在流程里继续使用的答案对象。",
+    "rail": {
+      "label": "运营原则",
+      "title": "把回答从一次输出，变成持续可交付的工作对象。",
+      "description": "当资料先被组织成有边界的档案对象，检索、生成和下一步动作才能沿着同一条证据链闭环。",
+      "points": {
+        "scope": "先限定组织、知识库和访问边界，再让模型开始工作。",
+        "version": "保留来源版本、更新时间和引用入口，不让答案脱离出处。",
+        "audit": "把审阅状态留在交付链路里，而不是等到出错后再补救。"
+      }
+    },
+    "cards": {
+      "trace": {
+        "value": "01",
+        "title": "回答始终能回到来源",
+        "description": "引用不是附件，而是回答本身的一部分。"
+      },
+      "boundary": {
+        "value": "02",
+        "title": "边界先于生成能力",
+        "description": "权限、知识范围和会话对象先收束，再允许模型展开。"
+      },
+      "review": {
+        "value": "03",
+        "title": "团队能直接继续处理",
+        "description": "更新时间、冲突和引用状态都留在答案旁边，方便后续交接。"
+      }
     }
   },
   "workflow": {
-    "title": "3 步完成你的知识库 Agent",
-    "step1": {
-      "title": "创建知识库",
-      "description": "按主题创建知识库，让内容结构更清晰。"
+    "label": "How it works",
+    "title": "先整理知识，再让回答发生。",
+    "description": "Groundpath 的工作流不是把聊天窗口做得更漂亮，而是把资料、回答和交付动作收进同一个系统表面。",
+    "board": {
+      "label": "Source-grounded flow",
+      "title": "团队共用一条紧凑但可靠的答案链路",
+      "description": "接入资料后，系统会先处理边界、来源和身份，再把生成结果交给团队继续推进。",
+      "metrics": {
+        "scope": {
+          "label": "工作方式",
+          "value": "范围先行"
+        },
+        "review": {
+          "label": "输出形态",
+          "value": "引用随行"
+        },
+        "delivery": {
+          "label": "交付状态",
+          "value": "可审阅"
+        }
+      }
     },
-    "step2": {
-      "title": "导入文档",
-      "description": "上传后自动向量化，形成可检索上下文。"
+    "steps": {
+      "connect": {
+        "title": "接入你的资料",
+        "description": "把文档、知识库和归档资料接到同一工作面，不再让上下文散落在聊天、网盘和文档工具之间。"
+      },
+      "query": {
+        "title": "带着边界开始生成",
+        "description": "先锁定组织、资料范围和访问权限，再让模型在受控上下文里生成可引用的回答。"
+      },
+      "deliver": {
+        "title": "把答案交进真实流程",
+        "description": "连同来源、更新时间和审阅状态一起交付，方便审批、同步和后续执行。"
+      }
+    }
+  },
+  "capabilities": {
+    "label": "Core capabilities",
+    "title": "把档案、检索与交付压缩到一个系统里。",
+    "description": "你不是在用另一个 AI 包装层，而是在得到一套能承接团队知识工作的真实工作台。",
+    "cards": {
+      "rag": {
+        "eyebrow": "即时 RAG",
+        "title": "资料接入后，马上得到带来源答案",
+        "description": "文档进入系统后就能成为检索增强的上下文，回答会自动附带引用与版本入口。",
+        "signal": "从第一轮同步开始就带引用",
+        "cta": "查看知识库"
+      },
+      "secure": {
+        "eyebrow": "私有边界",
+        "title": "权限、作用范围和来源留在系统内部",
+        "description": "团队不用再靠外部约定维持边界，回答会跟着组织范围和可访问资料一起收束。",
+        "signal": "权限边界、访问范围与引用同处一面",
+        "cta": "了解安全设计"
+      },
+      "multimodal": {
+        "eyebrow": "连续工作面",
+        "title": "同一界面里继续对话、补资料、推进问题",
+        "description": "补充上下文、切换任务和继续追问都发生在同一个工作面中，不打断证据链。",
+        "signal": "问题、回答与上下文保持连续",
+        "cta": "打开工作台"
+      },
+      "search": {
+        "eyebrow": "交付链路",
+        "title": "让召回、回答和后续动作指向同一份证据",
+        "description": "从资料组织到最终交付，检索、引用和动作轨道始终围绕同一组来源对象。",
+        "signal": "检索与交付围绕同一来源对象",
+        "cta": "开始使用"
+      }
+    }
+  },
+  "faq": {
+    "label": "FAQ",
+    "title": "把团队最常问的几个问题先说清楚。",
+    "description": "如果你关心来源、权限和落地方式，这几项通常决定了系统是否能真正进入业务环境。",
+    "aside": {
+      "label": "为什么先答这些问题",
+      "title": "真正的阻力，通常不在模型效果本身。",
+      "body": "团队更关心的是能否带着引用继续交付、能否限制边界、能否快速上手接入。这些决定了系统能否进入生产工作流。"
     },
-    "step3": {
-      "title": "开始问答",
-      "description": "通过 Agent 对话快速获取可引用答案。"
+    "items": {
+      "sources": {
+        "question": "回答里的来源和版本信息会一起保留下来吗？",
+        "answer": "会。Groundpath 的设计目标就是让回答、引用、更新时间和来源入口一起出现，避免团队在导出或交接时再去补链。"
+      },
+      "security": {
+        "question": "权限和知识范围能否先限制，再开放生成？",
+        "answer": "可以。组织边界、知识库范围和可访问资料会先被收束，模型只在允许的上下文内工作，这比事后检查更可靠。"
+      },
+      "setup": {
+        "question": "从现有资料开始接入会不会很重？",
+        "answer": "不会。你可以先从一组文档或一个知识库开始，验证来源追溯、引用展示和工作面协作，再逐步扩展到更多团队资料。"
+      },
+      "handoff": {
+        "question": "团队拿到答案后，能直接继续处理吗？",
+        "answer": "这正是首页这次强调的重点。Groundpath 不是只给一段漂亮文本，而是交付一个带引用、范围和审阅信号的答案对象，方便继续审批、同步和执行。"
+      }
     }
   },
   "cta": {
-    "title": "准备好搭建你的专属知识助手了吗？",
-    "description": "从文档整理到可引用问答，在一个界面内完成你的知识沉淀与使用闭环。",
+    "eyebrow": "准备把第一组资料接进来了吗？",
+    "title": "从第一份档案开始，建立第一条可执行答案链路。",
+    "description": "先挑一组最常被团队查询的资料，把它们变成带来源、可审阅、可继续交付的答案工作流。",
     "primary": {
-      "auth": "进入控制台",
-      "guest": "免费创建账号"
+      "auth": "进入工作台",
+      "guest": "免费开始使用"
     },
-    "secondary": "了解产品详情"
+    "secondary": "查看关于",
+    "board": {
+      "label": "从首个知识场景开始",
+      "title": "三步把回答变成团队标准动作",
+      "items": {
+        "connect": "接入最常使用的一组资料，并定义清晰范围。",
+        "review": "让引用、权限和更新时间与回答同时出现。",
+        "deploy": "把可审阅答案交给团队继续处理与执行。"
+      }
+    }
   },
   "footer": {
-    "about": "关于",
-    "console": "控制台"
+    "description": "Groundpath 让知识工作从资料接入、检索到回答交付都保持可追溯、可审阅、可继续执行。",
+    "copyright": "保留所有权利。",
+    "columns": {
+      "product": {
+        "title": "产品",
+        "product": "产品预览",
+        "workflow": "工作流",
+        "faq": "常见问题",
+        "workspace": "工作台"
+      },
+      "company": {
+        "title": "公司",
+        "about": "关于",
+        "login": "登录",
+        "getStarted": "开始使用"
+      }
+    },
+    "legal": {
+      "privacy": "隐私政策",
+      "terms": "服务条款",
+      "contact": "联系"
+    }
   },
   "about": {
     "nav": {
       "home": "首页",
-      "dashboard": "进入控制台",
-      "getStarted": "免费开始"
+      "dashboard": "前往工作台",
+      "getStarted": "开始使用"
     },
     "hero": {
       "title": "关于溯知",
-      "description": "溯知致力于让团队知识「可检索、可对话、可验证」。我们把文档资产转化为可持续演进的知识系统，让每个答案都能回到来源。"
+      "description": "溯知是一套面向团队知识档案的工作台，把检索、对话与核验收敛到同一个系统界面上。"
     },
     "action": {
-      "dashboard": "进入控制台",
+      "dashboard": "进入工作台",
       "signup": "创建账号",
-      "viewKnowledgeBases": "查看知识库模块"
+      "viewKnowledgeBases": "查看知识库"
     },
     "principle": {
       "trusted": {
-        "title": "可信答案优先",
-        "description": "每次回答都可回溯到来源文档，降低信息幻觉风险。"
+        "title": "以可检索为基础",
+        "description": "先把文档组织成稳定的档案对象，再谈生产环境下的范围控制与召回质量。"
       },
       "knowledge": {
-        "title": "知识持续沉淀",
-        "description": "通过知识库体系管理文档，构建可维护的组织记忆。"
+        "title": "在上下文中对话",
+        "description": "让问题与回答始终发生在同一档案空间中，不脱离来源与作用范围。"
       },
       "semantic": {
-        "title": "语义检索驱动",
-        "description": "跨关键词限制定位相关内容，提升查询效率与准确率。"
+        "title": "在审阅中可验证",
+        "description": "暴露引用、来源新鲜度与版本状态，让每次回答都可在执行前被检查。"
       }
     }
   }

@@ -3,70 +3,266 @@
   "theme": {
     "toggle": "Toggle theme"
   },
-  "login": "Log in",
-  "getStarted": "Get started",
+  "login": "Sign in",
+  "getStarted": "Get Started",
+  "nav": {
+    "kicker": "Source-grounded Knowledge Workspace",
+    "product": "Product",
+    "workflow": "Workflow",
+    "faq": "FAQ",
+    "about": "About"
+  },
   "hero": {
-    "badge": "Groundpath · Trace the source. Reach the answer.",
-    "title": "Groundpath",
-    "titleMuted": "Turn your knowledge into a searchable, conversational, and verifiable answer system",
-    "description": "Consolidate your documents and notes, then use semantic retrieval with cited answers to turn hard-to-find knowledge into instant responses.",
-    "enterDashboard": "Go to Dashboard",
-    "startBuilding": "Build your knowledge base",
-    "loginNow": "Already have an account? Log in"
-  },
-  "metrics": {
-    "searchTime": "Avg retrieval latency",
-    "searchTimeValue": "< 2s",
-    "docTypes": "Supported file types",
-    "docTypesValue": "PDF / MD / TXT",
-    "answerMode": "Answer format",
-    "answerModeValue": "With source citations"
-  },
-  "capabilities": {
-    "label": "Core capabilities",
-    "title": "Designed for solo creators and small teams"
-  },
-  "capability": {
-    "docs": {
-      "title": "Unified document ingestion",
-      "description": "Ingest PDF, Markdown, plain text, and more into one workspace for centralized knowledge management."
+    "eyebrow": "A knowledge workspace built for teams",
+    "title": {
+      "lineOne": "Turn scattered sources",
+      "lineTwo": "into executable answers"
     },
-    "search": {
-      "title": "Semantic retrieval",
-      "description": "Find relevant content by meaning instead of exact keywords to reduce missed context."
+    "summary": "Groundpath compresses documents, knowledge bases, and conversation into one surface so teams can see source, scope, and delivery signals while the answer is being formed.",
+    "support": "From source intake to downstream action, the question, citations, versions, and permissions stay on one continuous chain instead of being patched together across separate tools.",
+    "primary": {
+      "auth": "Open Workspace",
+      "guest": "Get Started"
     },
-    "traceable": {
-      "title": "Traceable answers",
-      "description": "Agent responses include source snippets so outputs are auditable and easier to trust."
+    "secondary": "Learn Groundpath",
+    "signals": {
+      "sources": "answers stay citation-bound",
+      "scope": "scope locks before generation",
+      "review": "review signals stay visible"
+    },
+    "preview": {
+      "kicker": "Groundpath Workspace",
+      "searchLabel": "Current surface",
+      "searchValue": "Procurement policy · contracts archive · vendor FAQ",
+      "scopeLabel": "Connected sources",
+      "scopeValue": "Scoped to the current org and knowledge boundary",
+      "answerLabel": "Answer panel",
+      "answerBadge": "source-tied output",
+      "answerTitle": "Generate answers directly inside a controlled surface",
+      "answerBody": "Question, answer, citations, and action rails sit side by side. Teams do not need to generate first and reconstruct trust somewhere else.",
+      "reviewLabel": "Review signal",
+      "reviewValue": "Freshness, access boundaries, and citation completeness remain visible before something is sent, approved, or executed.",
+      "sourcesLabel": "Source rail",
+      "sourcesTitle": "Every answer can return to a concrete archive and version",
+      "sources": {
+        "ready": "connected",
+        "items": {
+          "one": "Procurement policy 2026 Q1",
+          "two": "Master contract template v4",
+          "three": "Vendor onboarding standard"
+        }
+      },
+      "actionsLabel": "Action rail",
+      "actionsTitle": "Keep generation, review, and delivery on the same chain",
+      "actions": {
+        "items": {
+          "one": "Constrain organization, knowledge base, and session scope first.",
+          "two": "Preserve citations and source freshness during generation.",
+          "three": "Hand a reviewable answer into the next business step."
+        }
+      },
+      "side": {
+        "reviewLabel": "Citation completeness",
+        "reviewValue": "98%",
+        "reviewBody": "The answer is created with its source chain already attached instead of being patched at export time.",
+        "scopeLabel": "Access boundary",
+        "scopeValue": "locked",
+        "scopeBody": "The question only expands inside the current organization and the sources the user is allowed to access.",
+        "handoffLabel": "Delivery state",
+        "handoffValue": "reviewable",
+        "handoffBody": "Hand off an answer with its evidence and context intact instead of passing along a raw text block."
+      },
+      "floating": {
+        "left": {
+          "label": "Latest source",
+          "value": "updated within 24h"
+        },
+        "right": {
+          "label": "Knowledge scope",
+          "value": "procurement and contracts locked"
+        },
+        "bottom": {
+          "label": "Ready to hand off",
+          "value": "citations, permissions, and review state included"
+        }
+      }
+    }
+  },
+  "proof": {
+    "eyebrow": "Why teams choose Groundpath",
+    "title": "Not just better phrasing. Better execution for the team.",
+    "description": "Knowledge work is not short on text output. It is short on answers that stay source-clear, boundary-aware, and usable inside the actual workflow.",
+    "rail": {
+      "label": "Operating principle",
+      "title": "Turn a one-off answer into an object the team can keep operating on.",
+      "description": "Once source material is organized as bounded archive objects, retrieval, generation, and the next action can close the loop on the same evidence chain.",
+      "points": {
+        "scope": "Constrain organization, knowledge base, and access boundary before the model starts working.",
+        "version": "Keep source versions, freshness, and citation entry points visible so the answer never detaches from origin.",
+        "audit": "Leave review state on the delivery path instead of treating it as after-the-fact cleanup."
+      }
+    },
+    "cards": {
+      "trace": {
+        "value": "01",
+        "title": "Answers always return to a source",
+        "description": "Citations are not attachments. They stay part of the answer itself."
+      },
+      "boundary": {
+        "value": "02",
+        "title": "Boundary comes before capability",
+        "description": "Permissions, knowledge scope, and session objects narrow first, then the model expands."
+      },
+      "review": {
+        "value": "03",
+        "title": "The team can continue from the answer",
+        "description": "Freshness, conflicts, and citation state stay next to the answer for the next handoff."
+      }
     }
   },
   "workflow": {
-    "title": "Build your knowledge agent in 3 steps",
-    "step1": {
-      "title": "Create a knowledge base",
-      "description": "Organize your content by topic with clear structure."
+    "label": "How it works",
+    "title": "Shape the knowledge first, then let the answer happen.",
+    "description": "Groundpath is not just a prettier chat window. It brings sources, response formation, and downstream delivery onto the same system surface.",
+    "board": {
+      "label": "Source-grounded flow",
+      "title": "A compact but reliable answer chain shared by the team",
+      "description": "After sources are connected, the system resolves boundary, identity, and origin before the generated result moves into team workflows.",
+      "metrics": {
+        "scope": {
+          "label": "Operating mode",
+          "value": "scope first"
+        },
+        "review": {
+          "label": "Answer shape",
+          "value": "citations attached"
+        },
+        "delivery": {
+          "label": "Handoff state",
+          "value": "review ready"
+        }
+      }
     },
-    "step2": {
-      "title": "Import documents",
-      "description": "Uploaded files are vectorized automatically to become retrievable context."
+    "steps": {
+      "connect": {
+        "title": "Connect your sources",
+        "description": "Bring documents, knowledge bases, and archived material onto one surface instead of scattering context across chat, drives, and docs."
+      },
+      "query": {
+        "title": "Generate inside the boundary",
+        "description": "Lock organization, source scope, and access rules first, then let the model answer inside a controlled context with citations intact."
+      },
+      "deliver": {
+        "title": "Move the answer into real work",
+        "description": "Hand it off with citations, freshness, and review state still attached so approval, sync, or execution can continue immediately."
+      }
+    }
+  },
+  "capabilities": {
+    "label": "Core capabilities",
+    "title": "Compress archives, retrieval, and delivery into one operating layer.",
+    "description": "This is not another model wrapper. It is a real workspace for teams that need knowledge operations to hold up under production use.",
+    "cards": {
+      "rag": {
+        "eyebrow": "Instant RAG",
+        "title": "Connect sources once and get citation-bound answers immediately",
+        "description": "As soon as documents land in the system, they become retrieval-augmented context with citations and version entry points attached.",
+        "signal": "citation-bound from the first sync",
+        "cta": "View knowledge bases"
+      },
+      "secure": {
+        "eyebrow": "Private boundaries",
+        "title": "Permissions, scope, and source stay inside the system",
+        "description": "Teams no longer rely on external conventions to maintain boundaries. The answer stays shaped by organization scope and allowed material.",
+        "signal": "access boundary, scope, and citation on one surface",
+        "cta": "See the security model"
+      },
+      "multimodal": {
+        "eyebrow": "Continuous workspace",
+        "title": "Continue the thread, add context, and push the question forward",
+        "description": "Adding context, switching tasks, and continuing the conversation all happen on the same surface without breaking the evidence chain.",
+        "signal": "question, answer, and context stay continuous",
+        "cta": "Open workspace"
+      },
+      "search": {
+        "eyebrow": "Delivery chain",
+        "title": "Make retrieval, answers, and next actions point to the same evidence",
+        "description": "From archive organization to final delivery, retrieval, citation, and action rails all stay aligned around the same source objects.",
+        "signal": "retrieval and delivery align around the same source",
+        "cta": "Start using Groundpath"
+      }
+    }
+  },
+  "faq": {
+    "label": "FAQ",
+    "title": "Answer the questions teams usually ask first.",
+    "description": "If you care about source, permissions, and operational fit, these are usually the points that decide whether a system can enter real business use.",
+    "aside": {
+      "label": "Why these questions matter",
+      "title": "The real friction is rarely just model quality.",
+      "body": "Teams usually care more about whether an answer can be handed off with citations, whether boundaries stay constrained, and whether source onboarding feels practical. Those are the production questions."
     },
-    "step3": {
-      "title": "Start asking",
-      "description": "Get fast answers with references through agent chat."
+    "items": {
+      "sources": {
+        "question": "Do citations and source versions stay attached to the answer?",
+        "answer": "Yes. Groundpath is designed so the answer, citations, freshness, and source entry points appear together instead of being reconstructed at export or handoff time."
+      },
+      "security": {
+        "question": "Can permissions and knowledge scope be locked before generation?",
+        "answer": "Yes. Organization boundary, knowledge base scope, and allowed material narrow first, and the model only works inside that controlled context."
+      },
+      "setup": {
+        "question": "Is it heavy to start with the source material we already have?",
+        "answer": "No. You can begin with one document set or one knowledge base, validate traceability and review flow, and then expand to broader team material over time."
+      },
+      "handoff": {
+        "question": "Can the team continue operating on the answer after it is generated?",
+        "answer": "That is the point. Groundpath does not just hand over a polished paragraph. It hands off an answer object with citations, scope, and review signals still attached."
+      }
     }
   },
   "cta": {
-    "title": "Ready to build your own knowledge assistant?",
-    "description": "From document organization to citation-backed answers, complete the full loop in one interface.",
+    "eyebrow": "Ready to connect the first source set?",
+    "title": "Start with one archive and build the first executable answer chain.",
+    "description": "Pick the source set your team asks for most often and turn it into a workflow of answers that are traceable, reviewable, and ready to carry forward.",
     "primary": {
-      "auth": "Go to Dashboard",
-      "guest": "Create a free account"
+      "auth": "Open Workspace",
+      "guest": "Get Started For Free"
     },
-    "secondary": "Learn more"
+    "secondary": "Read about Groundpath",
+    "board": {
+      "label": "Start with the first knowledge use case",
+      "title": "Three steps to turn answers into a team standard",
+      "items": {
+        "connect": "Connect the most-used source set and define a clear boundary.",
+        "review": "Make citations, permissions, and freshness visible at the same time.",
+        "deploy": "Hand the reviewable answer into the next business step."
+      }
+    }
   },
   "footer": {
-    "about": "About",
-    "console": "Console"
+    "description": "Groundpath keeps source intake, retrieval, and answer delivery traceable, reviewable, and ready for the next operational step.",
+    "copyright": "All rights reserved.",
+    "columns": {
+      "product": {
+        "title": "Product",
+        "product": "Product preview",
+        "workflow": "Workflow",
+        "faq": "FAQ",
+        "workspace": "Workspace"
+      },
+      "company": {
+        "title": "Company",
+        "about": "About",
+        "login": "Sign in",
+        "getStarted": "Get started"
+      }
+    },
+    "legal": {
+      "privacy": "Privacy Policy",
+      "terms": "Terms of Service",
+      "contact": "Contact"
+    }
   },
   "about": {
     "nav": {
@@ -76,7 +272,7 @@
     },
     "hero": {
       "title": "About Groundpath",
-      "description": "Groundpath helps teams keep knowledge searchable, conversational, and verifiable. It turns documents into a living knowledge system so every answer can be traced back to its source."
+      "description": "Groundpath is a knowledge archive workbench for teams that need retrieval, conversation, and verification to live on the same system surface."
     },
     "action": {
       "dashboard": "Go to Dashboard",
@@ -85,16 +281,16 @@
     },
     "principle": {
       "trusted": {
-        "title": "Trusted answers first",
-        "description": "Every answer traces back to source documents, reducing hallucination risk."
+        "title": "Retrievable by design",
+        "description": "Archive documents as structured objects so scope and recall remain stable under production use."
       },
       "knowledge": {
-        "title": "Continuous knowledge building",
-        "description": "Manage documents through a knowledge base system to build maintainable organizational memory."
+        "title": "Conversational in context",
+        "description": "Keep questions and answers inside the same archive space that defines their scope and evidence."
       },
       "semantic": {
-        "title": "Semantic retrieval driven",
-        "description": "Locate relevant content beyond keyword limitations, improving query efficiency and accuracy."
+        "title": "Verifiable under review",
+        "description": "Expose citations, source freshness, and version state so every answer can be checked before action."
       }
     }
   }

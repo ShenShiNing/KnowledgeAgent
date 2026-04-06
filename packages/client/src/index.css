@@ -1,19 +1,18 @@
-@import url('https://fonts.googleapis.com/css2?family=Manrope:wght@400;500;600;700;800&family=Noto+Sans+SC:wght@400;500;600;700;800&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@500;600;700&family=Noto+Sans+SC:wght@400;500;600;700;800&family=Noto+Serif+SC:wght@500;600;700&family=Urbanist:wght@400;500;600;700;800&display=swap');
 @import 'tailwindcss';
 @import 'tw-animate-css';
 
 @custom-variant dark (&:is(.dark *));
 
 @theme inline {
-  --font-sans: 'Manrope', 'Noto Sans SC', 'Segoe UI', sans-serif;
-  --font-display: 'Manrope', 'Noto Sans SC', 'Segoe UI', sans-serif;
+  --font-sans: 'Urbanist', 'Noto Sans SC', 'Segoe UI', sans-serif;
+  --font-display: 'Urbanist', 'Noto Sans SC', 'Segoe UI', sans-serif;
+  --font-editorial: 'Cormorant Garamond', 'Noto Serif SC', serif;
   --radius-sm: calc(var(--radius) - 4px);
   --radius-md: calc(var(--radius) - 2px);
   --radius-lg: var(--radius);
   --radius-xl: calc(var(--radius) + 4px);
   --radius-2xl: calc(var(--radius) + 8px);
-  --radius-3xl: calc(var(--radius) + 12px);
-  --radius-4xl: calc(var(--radius) + 16px);
   --color-background: var(--background);
   --color-foreground: var(--foreground);
   --color-card: var(--card);
@@ -32,23 +31,31 @@
   --color-border: var(--border);
   --color-input: var(--input);
   --color-ring: var(--ring);
-  --color-chart-1: var(--chart-1);
-  --color-chart-2: var(--chart-2);
-  --color-chart-3: var(--chart-3);
-  --color-chart-4: var(--chart-4);
-  --color-chart-5: var(--chart-5);
-  --color-sidebar: var(--sidebar);
-  --color-sidebar-foreground: var(--sidebar-foreground);
-  --color-sidebar-primary: var(--sidebar-primary);
-  --color-sidebar-primary-foreground: var(--sidebar-primary-foreground);
-  --color-sidebar-accent: var(--sidebar-accent);
-  --color-sidebar-accent-foreground: var(--sidebar-accent-foreground);
-  --color-sidebar-border: var(--sidebar-border);
-  --color-sidebar-ring: var(--sidebar-ring);
 }
 
 :root {
   --radius: 0.625rem;
+  --home-app-bg: #f6f0e6;
+  --home-paper: rgba(255, 251, 246, 0.96);
+  --home-surface: rgba(255, 250, 244, 0.88);
+  --home-surface-soft: rgba(246, 239, 229, 0.92);
+  --home-border: rgba(93, 68, 39, 0.12);
+  --home-border-strong: rgba(93, 68, 39, 0.2);
+  --home-text-strong: #201914;
+  --home-text-muted: #645646;
+  --home-text-soft: #8d7b69;
+  --home-accent: #1f1a16;
+  --home-accent-strong: #110e0b;
+  --home-accent-soft: rgba(31, 26, 22, 0.06);
+  --home-accent-ink: #faf7f2;
+  --home-shadow: 0 30px 80px rgba(61, 43, 24, 0.12);
+  --home-shadow-soft: 0 16px 42px rgba(61, 43, 24, 0.08);
+  --home-navbar-bg: rgba(246, 240, 230, 0.76);
+  --home-backdrop-base: linear-gradient(180deg, #f6f0e6 0%, #f3ede3 28%, #f7f2ea 60%, #efe6d8 100%);
+  --home-backdrop-glow-left: radial-gradient(circle, rgba(255, 255, 255, 0.92), transparent 72%);
+  --home-backdrop-glow-right: radial-gradient(circle, rgba(225, 200, 163, 0.36), transparent 72%);
+  --home-backdrop-glow-center: radial-gradient(circle, rgba(205, 157, 98, 0.12), transparent 74%);
+  --home-backdrop-grid: rgba(93, 68, 39, 0.026);
   --background: oklch(1 0 0);
   --foreground: oklch(0.145 0 0);
   --card: oklch(1 0 0);
@@ -67,22 +74,30 @@
   --border: oklch(0.922 0 0);
   --input: oklch(0.922 0 0);
   --ring: oklch(0.708 0 0);
-  --chart-1: oklch(0.646 0.222 41.116);
-  --chart-2: oklch(0.6 0.118 184.704);
-  --chart-3: oklch(0.398 0.07 227.392);
-  --chart-4: oklch(0.828 0.189 84.429);
-  --chart-5: oklch(0.769 0.188 70.08);
-  --sidebar: oklch(0.985 0 0);
-  --sidebar-foreground: oklch(0.145 0 0);
-  --sidebar-primary: oklch(0.205 0 0);
-  --sidebar-primary-foreground: oklch(0.985 0 0);
-  --sidebar-accent: oklch(0.97 0 0);
-  --sidebar-accent-foreground: oklch(0.205 0 0);
-  --sidebar-border: oklch(0.922 0 0);
-  --sidebar-ring: oklch(0.708 0 0);
 }
 
 .dark {
+  --home-app-bg: #110d0b;
+  --home-paper: rgba(26, 20, 16, 0.9);
+  --home-surface: rgba(34, 27, 22, 0.82);
+  --home-surface-soft: rgba(42, 33, 27, 0.9);
+  --home-border: rgba(228, 214, 196, 0.12);
+  --home-border-strong: rgba(228, 214, 196, 0.22);
+  --home-text-strong: #f4eee6;
+  --home-text-muted: #c9b9a6;
+  --home-text-soft: #9d8d7b;
+  --home-accent: #f4eee6;
+  --home-accent-strong: #ffffff;
+  --home-accent-soft: rgba(255, 255, 255, 0.08);
+  --home-accent-ink: #15100d;
+  --home-shadow: 0 30px 80px rgba(0, 0, 0, 0.4);
+  --home-shadow-soft: 0 16px 42px rgba(0, 0, 0, 0.28);
+  --home-navbar-bg: rgba(17, 13, 11, 0.74);
+  --home-backdrop-base: linear-gradient(180deg, #110d0b 0%, #16110d 30%, #19130f 58%, #120d0a 100%);
+  --home-backdrop-glow-left: radial-gradient(circle, rgba(132, 96, 58, 0.18), transparent 72%);
+  --home-backdrop-glow-right: radial-gradient(circle, rgba(207, 155, 89, 0.14), transparent 72%);
+  --home-backdrop-glow-center: radial-gradient(circle, rgba(244, 238, 230, 0.06), transparent 74%);
+  --home-backdrop-grid: rgba(228, 214, 196, 0.035);
   --background: oklch(0.145 0 0);
   --foreground: oklch(0.985 0 0);
   --card: oklch(0.205 0 0);
@@ -101,19 +116,27 @@
   --border: oklch(1 0 0 / 10%);
   --input: oklch(1 0 0 / 15%);
   --ring: oklch(0.556 0 0);
-  --chart-1: oklch(0.488 0.243 264.376);
-  --chart-2: oklch(0.696 0.17 162.48);
-  --chart-3: oklch(0.769 0.188 70.08);
-  --chart-4: oklch(0.627 0.265 303.9);
-  --chart-5: oklch(0.645 0.246 16.439);
-  --sidebar: oklch(0.205 0 0);
-  --sidebar-foreground: oklch(0.985 0 0);
-  --sidebar-primary: oklch(0.488 0.243 264.376);
-  --sidebar-primary-foreground: oklch(0.985 0 0);
-  --sidebar-accent: oklch(0.269 0 0);
-  --sidebar-accent-foreground: oklch(0.985 0 0);
-  --sidebar-border: oklch(1 0 0 / 10%);
-  --sidebar-ring: oklch(0.556 0 0);
+}
+
+@keyframes home-rise {
+  0% {
+    opacity: 0;
+    transform: translate3d(0, 24px, 0);
+  }
+  100% {
+    opacity: 1;
+    transform: translate3d(0, 0, 0);
+  }
+}
+
+@keyframes home-drift {
+  0%,
+  100% {
+    transform: translate3d(0, 0, 0) scale(1);
+  }
+  50% {
+    transform: translate3d(0, -18px, 0) scale(1.04);
+  }
 }
 
 @utility container {
@@ -166,61 +189,4 @@
   ) {
     cursor: pointer;
   }
-}
-
-/* PDF Annotator overrides - ensure proper containment */
-.PdfHighlighter {
-  position: absolute !important;
-  top: 0;
-  left: 0;
-  right: 0;
-  bottom: 0;
-}
-
-/* Ensure tip container stays within bounds */
-.Tip__compact,
-.Tip__card {
-  z-index: 50;
-}
-
-/* Ensure mouse selection doesn't create full-page overlays */
-.PdfHighlighter__mouse-selection {
-  position: absolute !important;
-}
-
-.chat-markdown :where(.wmde-markdown, .wmde-markdown-color) {
-  color: var(--foreground);
-  background-color: transparent;
-}
-
-.chat-markdown
-  :where(
-    .wmde-markdown h1,
-    .wmde-markdown h2,
-    .wmde-markdown h3,
-    .wmde-markdown h4,
-    .wmde-markdown h5,
-    .wmde-markdown h6,
-    .wmde-markdown p,
-    .wmde-markdown li,
-    .wmde-markdown blockquote,
-    .wmde-markdown td,
-    .wmde-markdown th
-  ) {
-  color: inherit;
-}
-
-.chat-markdown :where(.wmde-markdown a) {
-  color: inherit;
-}
-
-.chat-markdown
-  :where(
-    .wmde-markdown blockquote,
-    .wmde-markdown hr,
-    .wmde-markdown pre,
-    .wmde-markdown table th,
-    .wmde-markdown table td
-  ) {
-  border-color: var(--border);
 }

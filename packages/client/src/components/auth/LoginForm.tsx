@@ -102,6 +102,14 @@ export function LoginForm() {
                 name={field.name}
                 label={t('common:password')}
                 placeholder="••••••••"
+                inputClassName={
+                  !showPassword ? '!text-xl md:!text-xl tracking-[0.22em] font-medium' : undefined
+                }
+                inputStyle={
+                  !showPassword
+                    ? { fontFamily: 'Segoe UI Symbol, Arial, sans-serif' }
+                    : undefined
+                }
                 icon={Lock}
                 value={field.state.value}
                 onChange={field.handleChange}
