@@ -39,12 +39,12 @@ function HomeUserMenu() {
     <DropdownMenu modal={false}>
       <DropdownMenuTrigger asChild>
         <button
-          className="group flex h-10 items-center gap-2 rounded-full border border-(--home-border) bg-[rgba(255,255,255,0.02)] px-2 py-1.5 text-(--home-text-strong) transition-colors hover:border-[rgba(214,255,22,0.32)] hover:bg-[rgba(255,255,255,0.04)] focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[color:var(--home-accent)]"
+          className="group flex h-10 items-center gap-2 rounded-full border border-(--home-border) bg-[rgba(255,255,255,0.03)] px-2 py-1.5 text-(--home-text-strong) transition-colors hover:border-(--home-border-strong) hover:bg-[rgba(255,255,255,0.06)] focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-(--home-accent)"
           aria-label={t('openUserMenu')}
         >
           <Avatar size="sm">
             <AvatarImage src={user?.avatarUrl ?? undefined} alt={displayName} />
-            <AvatarFallback className="bg-(--home-accent) text-[color:var(--home-accent-ink)]">
+            <AvatarFallback className="bg-(--home-accent) text-(--home-accent-ink)">
               {initials}
             </AvatarFallback>
           </Avatar>
@@ -54,7 +54,7 @@ function HomeUserMenu() {
 
       <DropdownMenuContent
         align="end"
-        className="w-56 border-(--home-border) bg-[rgba(10,14,11,0.96)] text-(--home-text-strong) shadow-[var(--home-shadow)] backdrop-blur-xl"
+        className="w-56 border-(--home-border) bg-[rgba(9,9,11,0.98)] text-(--home-text-strong) shadow-(--home-shadow)"
       >
         <DropdownMenuLabel className="font-normal">
           <div className="flex flex-col space-y-1">
@@ -68,7 +68,7 @@ function HomeUserMenu() {
         <DropdownMenuGroup>
           <DropdownMenuItem
             asChild
-            className="cursor-pointer text-(--home-text-strong) focus:bg-[rgba(214,255,22,0.12)] focus:text-(--home-text-strong)"
+            className="cursor-pointer text-(--home-text-strong) focus:bg-[rgba(255,255,255,0.08)] focus:text-(--home-text-strong)"
           >
             <Link to="/dashboard">
               <LayoutDashboard className="mr-2 size-4" />
@@ -77,7 +77,7 @@ function HomeUserMenu() {
           </DropdownMenuItem>
           <DropdownMenuItem
             asChild
-            className="cursor-pointer text-(--home-text-strong) focus:bg-[rgba(214,255,22,0.12)] focus:text-(--home-text-strong)"
+            className="cursor-pointer text-(--home-text-strong) focus:bg-[rgba(255,255,255,0.08)] focus:text-(--home-text-strong)"
           >
             <Link to="/profile">
               <User className="mr-2 size-4" />
@@ -86,7 +86,7 @@ function HomeUserMenu() {
           </DropdownMenuItem>
           <DropdownMenuItem
             asChild
-            className="cursor-pointer text-(--home-text-strong) focus:bg-[rgba(214,255,22,0.12)] focus:text-(--home-text-strong)"
+            className="cursor-pointer text-(--home-text-strong) focus:bg-[rgba(255,255,255,0.08)] focus:text-(--home-text-strong)"
           >
             <Link to="/sessions">
               <Monitor className="mr-2 size-4" />
@@ -121,22 +121,27 @@ export function HomeNavbar({ hasAuthSession }: HomeNavbarProps) {
   const workspaceTarget = hasAuthSession ? '/dashboard' : '/auth/signup';
 
   return (
-    <header className="relative z-50 px-4 pt-5 md:px-6 md:pt-7">
-      <div className="mx-auto max-w-[1160px]">
-        <div className="flex items-center justify-between gap-4">
+    <header className="sticky top-0 z-50 px-4 pt-4 md:px-6 md:pt-5">
+      <div className="mx-auto max-w-290">
+        <div className="flex items-center justify-between gap-4 rounded-full border border-(--home-border) bg-[rgba(9,9,11,0.82)] px-4 py-3 shadow-[0_14px_32px_rgba(0,0,0,0.2)] backdrop-blur-xl md:px-5">
           <Link
             to="/"
             className="flex min-w-0 items-center gap-2.5 text-(--home-text-strong) transition-opacity hover:opacity-85"
           >
-            <span className="flex size-7 items-center justify-center rounded-full border border-[rgba(214,255,22,0.18)] bg-[rgba(214,255,22,0.08)]">
-              <img src={logoMark} alt="" className="h-[18px] w-[18px]" />
+            <span className="flex size-8 items-center justify-center rounded-full border border-[rgba(255,255,255,0.12)] bg-[rgba(255,255,255,0.05)]">
+              <img src={logoMark} alt="" className="h-4.5 w-4.5" />
             </span>
-            <span className="truncate text-[11px] font-semibold uppercase tracking-[0.18em] text-(--home-text-strong)">
-              {t('brand', { ns: 'common' })}
+            <span className="min-w-0">
+              <span className="block truncate text-[11px] font-semibold uppercase tracking-[0.18em] text-(--home-text-strong)">
+                {t('brand', { ns: 'common' })}
+              </span>
+              <span className="hidden truncate text-[10px] uppercase tracking-[0.2em] text-(--home-text-soft) lg:block">
+                {t('nav.kicker')}
+              </span>
             </span>
           </Link>
 
-          <nav className="hidden items-center gap-7 md:flex">
+          <nav className="hidden items-center gap-6 lg:flex">
             {homeNavItems.map((item) =>
               'href' in item ? (
                 <a
@@ -168,7 +173,11 @@ export function HomeNavbar({ hasAuthSession }: HomeNavbarProps) {
               </>
             ) : (
               <>
-                <Button variant="ghost" className={`${homeGhostButtonClass} hidden sm:inline-flex`} asChild>
+                <Button
+                  variant="ghost"
+                  className={`${homeGhostButtonClass} hidden sm:inline-flex`}
+                  asChild
+                >
                   <Link to="/auth/login">{t('login')}</Link>
                 </Button>
                 <Button className={homePrimaryButtonClass} asChild>
