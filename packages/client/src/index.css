@@ -66,25 +66,27 @@
   --neutral-700: #30394d;
   --neutral-900: #121826;
   --neutral-950: #090e18;
-  --home-app-bg: #f3eee4;
-  --home-paper: #ece4d8;
-  --home-surface: rgba(255, 250, 243, 0.78);
-  --home-surface-soft: rgba(255, 250, 243, 0.94);
-  --home-surface-inverse: #15120f;
-  --home-border: rgba(21, 18, 15, 0.09);
-  --home-border-strong: rgba(21, 18, 15, 0.15);
-  --home-grid: rgba(21, 18, 15, 0.08);
-  --home-text-strong: #171411;
-  --home-text-muted: #5d574c;
-  --home-text-soft: #8b8275;
-  --home-accent: #b68f4d;
-  --home-accent-strong: #8f682f;
-  --home-accent-soft: rgba(182, 143, 77, 0.16);
-  --home-shadow: 0 28px 90px rgba(39, 31, 21, 0.1);
-  --home-shadow-soft: 0 16px 40px rgba(39, 31, 21, 0.08);
-  --home-footer-bg: #13100c;
-  --home-footer-text: #f4eee5;
-  --home-footer-muted: #a79c8d;
+  --home-app-bg: #050605;
+  --home-paper: rgba(12, 15, 12, 0.92);
+  --home-surface: rgba(18, 22, 18, 0.78);
+  --home-surface-soft: rgba(20, 25, 20, 0.94);
+  --home-surface-inverse: #dbff1f;
+  --home-border: rgba(255, 255, 255, 0.08);
+  --home-border-strong: rgba(255, 255, 255, 0.14);
+  --home-grid: rgba(255, 255, 255, 0.04);
+  --home-text-strong: #f6f8f1;
+  --home-text-muted: #c0c7ba;
+  --home-text-soft: #8a9284;
+  --home-accent: #d8ff12;
+  --home-accent-strong: #ecff72;
+  --home-accent-soft: rgba(214, 255, 22, 0.16);
+  --home-accent-faint: rgba(214, 255, 22, 0.24);
+  --home-accent-ink: #0a0d08;
+  --home-shadow: 0 30px 84px rgba(0, 0, 0, 0.34);
+  --home-shadow-soft: 0 16px 42px rgba(0, 0, 0, 0.2);
+  --home-footer-bg: #050605;
+  --home-footer-text: #f4f7ef;
+  --home-footer-muted: #8e9887;
   --background: oklch(1 0 0);
   --foreground: oklch(0.145 0 0);
   --card: oklch(1 0 0);
@@ -119,25 +121,27 @@
 }
 
 .dark {
-  --home-app-bg: #0f0d0a;
-  --home-paper: #1a1511;
-  --home-surface: rgba(30, 24, 18, 0.72);
-  --home-surface-soft: rgba(38, 30, 23, 0.92);
-  --home-surface-inverse: #f4eee5;
-  --home-border: rgba(255, 244, 230, 0.11);
-  --home-border-strong: rgba(255, 244, 230, 0.18);
-  --home-grid: rgba(255, 244, 230, 0.11);
-  --home-text-strong: #f4eee5;
-  --home-text-muted: #c0b6a8;
-  --home-text-soft: #8f8578;
-  --home-accent: #d7b26a;
-  --home-accent-strong: #ebc97f;
-  --home-accent-soft: rgba(215, 178, 106, 0.16);
-  --home-shadow: 0 32px 110px rgba(0, 0, 0, 0.42);
-  --home-shadow-soft: 0 18px 44px rgba(0, 0, 0, 0.3);
-  --home-footer-bg: #090704;
-  --home-footer-text: #f4eee5;
-  --home-footer-muted: #8f8578;
+  --home-app-bg: #050605;
+  --home-paper: rgba(12, 15, 12, 0.92);
+  --home-surface: rgba(18, 22, 18, 0.78);
+  --home-surface-soft: rgba(20, 25, 20, 0.94);
+  --home-surface-inverse: #dbff1f;
+  --home-border: rgba(255, 255, 255, 0.08);
+  --home-border-strong: rgba(255, 255, 255, 0.14);
+  --home-grid: rgba(255, 255, 255, 0.04);
+  --home-text-strong: #f6f8f1;
+  --home-text-muted: #c0c7ba;
+  --home-text-soft: #8a9284;
+  --home-accent: #d8ff12;
+  --home-accent-strong: #ecff72;
+  --home-accent-soft: rgba(214, 255, 22, 0.16);
+  --home-accent-faint: rgba(214, 255, 22, 0.24);
+  --home-accent-ink: #0a0d08;
+  --home-shadow: 0 30px 84px rgba(0, 0, 0, 0.34);
+  --home-shadow-soft: 0 16px 42px rgba(0, 0, 0, 0.2);
+  --home-footer-bg: #050605;
+  --home-footer-text: #f4f7ef;
+  --home-footer-muted: #8e9887;
   --background: oklch(0.145 0 0);
   --foreground: oklch(0.985 0 0);
   --card: oklch(0.205 0 0);
@@ -178,6 +182,48 @@
   }
   50% {
     transform: translate3d(0, -10px, 0);
+  }
+}
+
+@keyframes home-rise {
+  0% {
+    opacity: 0;
+    transform: translate3d(0, 24px, 0);
+  }
+  100% {
+    opacity: 1;
+    transform: translate3d(0, 0, 0);
+  }
+}
+
+@keyframes home-drift {
+  0%,
+  100% {
+    transform: translate3d(0, 0, 0) scale(1);
+  }
+  50% {
+    transform: translate3d(0, -18px, 0) scale(1.04);
+  }
+}
+
+@keyframes home-pulse {
+  0%,
+  100% {
+    opacity: 1;
+    transform: scale(1);
+  }
+  50% {
+    opacity: 0.72;
+    transform: scale(0.92);
+  }
+}
+
+@keyframes home-scan {
+  0% {
+    transform: translateX(-120%);
+  }
+  100% {
+    transform: translateX(220%);
   }
 }
 

@@ -1,5 +1,13 @@
 import type { LucideIcon } from 'lucide-react';
-import { Database, FileText, MessageSquareText, Search, ShieldCheck } from 'lucide-react';
+import {
+  Database,
+  FileText,
+  Link2,
+  Lock,
+  MessageSquareText,
+  Search,
+  ShieldCheck,
+} from 'lucide-react';
 
 export type HomeRoute =
   | '/about'
@@ -9,134 +17,84 @@ export type HomeRoute =
   | '/knowledge-bases';
 
 export const homePrimaryButtonClass =
-  'h-11 rounded-full border border-transparent bg-(--home-surface-inverse) px-5 text-[color:var(--home-app-bg)] shadow-[0_16px_34px_rgba(19,18,16,0.16)] transition-[transform,background-color,box-shadow] hover:-translate-y-0.5 hover:bg-[color:var(--home-text-strong)] hover:shadow-[0_22px_38px_rgba(19,18,16,0.22)] focus-visible:ring-[color:var(--home-accent)] dark:text-[color:var(--home-surface-inverse)]';
-
-export const homeSecondaryButtonClass =
-  'h-11 rounded-full border border-(--home-border-strong) bg-[rgba(255,250,243,0.62)] px-5 text-(--home-text-strong) transition-[transform,background-color,border-color] hover:-translate-y-0.5 hover:border-[color:var(--home-accent)] hover:bg-(--home-surface) focus-visible:ring-[color:var(--home-accent)] dark:bg-[rgba(29,24,19,0.68)]';
+  'h-11 rounded-full border border-transparent bg-(--home-accent) px-5 text-[color:var(--home-accent-ink)] shadow-[0_18px_46px_rgba(214,255,22,0.18)] transition-[transform,background-color,box-shadow] hover:-translate-y-0.5 hover:bg-(--home-accent-strong) hover:shadow-[0_26px_58px_rgba(214,255,22,0.24)] focus-visible:ring-[color:var(--home-accent)]';
 
 export const homeGhostButtonClass =
-  'h-10 rounded-full border border-transparent bg-transparent px-4 text-(--home-text-strong) transition-colors hover:bg-(--home-surface-soft) focus-visible:ring-[color:var(--home-accent)]';
+  'h-10 rounded-full border border-transparent bg-transparent px-0 text-sm font-semibold text-(--home-text-soft) shadow-none transition-colors hover:bg-transparent hover:text-(--home-text-strong) focus-visible:ring-[color:var(--home-accent)]';
 
 export const homeNavItems = [
-  { href: '#research', key: 'nav.research' },
-  { href: '#releases', key: 'nav.releases' },
-  { href: '#principles', key: 'nav.principles' },
+  { href: '#workflow', key: 'nav.workflow' },
+  { href: '#capabilities', key: 'nav.capabilities' },
+  { key: 'nav.about', route: '/about' },
 ] as const;
 
-export const homeHeroMetrics = [
+export const homeWorkflowSteps = [
   {
-    detailKey: 'hero.metrics.archives.detail',
-    labelKey: 'hero.metrics.archives.label',
-    valueKey: 'hero.metrics.archives.value',
+    descriptionKey: 'workflow.steps.connect.description',
+    icon: Link2,
+    number: '01',
+    titleKey: 'workflow.steps.connect.title',
   },
   {
-    detailKey: 'hero.metrics.scope.detail',
-    labelKey: 'hero.metrics.scope.label',
-    valueKey: 'hero.metrics.scope.value',
+    descriptionKey: 'workflow.steps.index.description',
+    icon: FileText,
+    number: '02',
+    titleKey: 'workflow.steps.index.title',
   },
   {
-    detailKey: 'hero.metrics.evidence.detail',
-    labelKey: 'hero.metrics.evidence.label',
-    valueKey: 'hero.metrics.evidence.value',
-  },
-] as const;
-
-export const homeShowcaseMarkerItems = [
-  {
-    className: 'left-[2%] top-[18%] md:left-[10%] md:top-[14%]',
-    titleKey: 'showcase.markers.scope.title',
-    valueKey: 'showcase.markers.scope.value',
+    descriptionKey: 'workflow.steps.query.description',
+    icon: Search,
+    number: '03',
+    titleKey: 'workflow.steps.query.title',
   },
   {
-    className: 'right-[2%] top-[12%] md:right-[10%] md:top-[18%]',
-    titleKey: 'showcase.markers.coverage.title',
-    valueKey: 'showcase.markers.coverage.value',
-  },
-  {
-    className: 'left-[8%] bottom-[14%] md:left-[18%] md:bottom-[22%]',
-    titleKey: 'showcase.markers.sync.title',
-    valueKey: 'showcase.markers.sync.value',
+    descriptionKey: 'workflow.steps.act.description',
+    icon: ShieldCheck,
+    number: '04',
+    titleKey: 'workflow.steps.act.title',
   },
 ] as const;
 
-export const homeShowcaseSignalKeys = [
-  'showcase.signals.answers',
-  'showcase.signals.retrieval',
-  'showcase.signals.review',
-] as const;
-
-export const homeReleaseCards = [
+export const homeFeatureCards = [
   {
-    ctaKey: 'releases.cards.archive.cta',
-    dateKey: 'releases.cards.archive.date',
-    descriptionKey: 'releases.cards.archive.description',
-    eyebrowKey: 'releases.cards.archive.eyebrow',
+    ctaKey: 'capabilities.cards.rag.cta',
+    descriptionKey: 'capabilities.cards.rag.description',
+    eyebrowKey: 'capabilities.cards.rag.eyebrow',
     icon: Database,
     routeAuth: '/knowledge-bases',
     routeGuest: '/auth/signup',
-    titleKey: 'releases.cards.archive.title',
+    titleKey: 'capabilities.cards.rag.title',
   },
   {
-    ctaKey: 'releases.cards.conversation.cta',
-    dateKey: 'releases.cards.conversation.date',
-    descriptionKey: 'releases.cards.conversation.description',
-    eyebrowKey: 'releases.cards.conversation.eyebrow',
+    ctaKey: 'capabilities.cards.secure.cta',
+    descriptionKey: 'capabilities.cards.secure.description',
+    eyebrowKey: 'capabilities.cards.secure.eyebrow',
+    icon: Lock,
+    route: '/about',
+    titleKey: 'capabilities.cards.secure.title',
+  },
+  {
+    ctaKey: 'capabilities.cards.multimodal.cta',
+    descriptionKey: 'capabilities.cards.multimodal.description',
+    eyebrowKey: 'capabilities.cards.multimodal.eyebrow',
     icon: MessageSquareText,
     routeAuth: '/dashboard',
     routeGuest: '/auth/signup',
-    titleKey: 'releases.cards.conversation.title',
+    titleKey: 'capabilities.cards.multimodal.title',
   },
   {
-    ctaKey: 'releases.cards.verification.cta',
-    dateKey: 'releases.cards.verification.date',
-    descriptionKey: 'releases.cards.verification.description',
-    eyebrowKey: 'releases.cards.verification.eyebrow',
-    icon: ShieldCheck,
-    route: '/about',
-    titleKey: 'releases.cards.verification.title',
+    ctaKey: 'capabilities.cards.search.cta',
+    descriptionKey: 'capabilities.cards.search.description',
+    eyebrowKey: 'capabilities.cards.search.eyebrow',
+    icon: Search,
+    routeAuth: '/dashboard',
+    routeGuest: '/auth/signup',
+    titleKey: 'capabilities.cards.search.title',
   },
 ] as const satisfies ReadonlyArray<{
   ctaKey: string;
-  dateKey: string;
   descriptionKey: string;
   eyebrowKey: string;
-  icon: LucideIcon;
-  route?: HomeRoute;
-  routeAuth?: HomeRoute;
-  routeGuest?: HomeRoute;
-  titleKey: string;
-}>;
-
-export const homePrincipleItems = [
-  {
-    descriptionKey: 'principles.items.sources.description',
-    href: '#research',
-    icon: Search,
-    titleKey: 'principles.items.sources.title',
-  },
-  {
-    descriptionKey: 'principles.items.archives.description',
-    routeAuth: '/knowledge-bases',
-    routeGuest: '/auth/signup',
-    icon: Database,
-    titleKey: 'principles.items.archives.title',
-  },
-  {
-    descriptionKey: 'principles.items.responses.description',
-    routeAuth: '/dashboard',
-    routeGuest: '/auth/signup',
-    icon: MessageSquareText,
-    titleKey: 'principles.items.responses.title',
-  },
-  {
-    descriptionKey: 'principles.items.audit.description',
-    route: '/about',
-    icon: FileText,
-    titleKey: 'principles.items.audit.title',
-  },
-] as const satisfies ReadonlyArray<{
-  descriptionKey: string;
-  href?: string;
   icon: LucideIcon;
   route?: HomeRoute;
   routeAuth?: HomeRoute;
@@ -147,39 +105,27 @@ export const homePrincipleItems = [
 export const homeFooterColumns = [
   {
     links: [
+      { key: 'footer.columns.product.workflow', href: '#workflow' },
+      { key: 'footer.columns.product.features', href: '#capabilities' },
       {
         key: 'footer.columns.product.workspace',
         routeAuth: '/dashboard',
         routeGuest: '/auth/signup',
       },
-      {
-        key: 'footer.columns.product.knowledge',
-        routeAuth: '/knowledge-bases',
-        routeGuest: '/auth/signup',
-      },
-      { key: 'footer.columns.product.research', href: '#research' },
     ],
     titleKey: 'footer.columns.product.title',
   },
   {
     links: [
-      { key: 'footer.columns.system.releases', href: '#releases' },
-      { key: 'footer.columns.system.principles', href: '#principles' },
-      { key: 'footer.columns.system.about', route: '/about' },
-    ],
-    titleKey: 'footer.columns.system.title',
-  },
-  {
-    links: [
-      { key: 'footer.columns.access.signup', route: '/auth/signup' },
-      { key: 'footer.columns.access.login', route: '/auth/login' },
+      { key: 'footer.columns.company.about', route: '/about' },
+      { key: 'footer.columns.company.login', route: '/auth/login' },
       {
-        key: 'footer.columns.access.console',
+        key: 'footer.columns.company.getStarted',
         routeAuth: '/dashboard',
-        routeGuest: '/auth/login',
+        routeGuest: '/auth/signup',
       },
     ],
-    titleKey: 'footer.columns.access.title',
+    titleKey: 'footer.columns.company.title',
   },
 ] as const satisfies ReadonlyArray<{
   links: ReadonlyArray<{

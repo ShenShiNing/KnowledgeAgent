@@ -1,8 +1,8 @@
 import {
+  HomeCapabilitiesSection,
+  HomeCtaSection,
   HomeFooter,
-  HomePrinciplesSection,
-  HomeReleaseSection,
-  HomeShowcaseSection,
+  HomeWorkflowSection,
 } from '@/components/home/HomeSections';
 import { HomeHero } from '@/components/home/HomeHero';
 import { HomeNavbar } from '@/components/home/HomeNavbar';
@@ -18,17 +18,17 @@ const HomePage = () => {
       <HomeNavbar hasAuthSession={hasAuthSession} />
 
       <div aria-hidden className="pointer-events-none absolute inset-0 -z-10 overflow-hidden">
-        <div className="absolute inset-x-0 top-0 h-[36rem] bg-[radial-gradient(circle_at_18%_10%,rgba(182,143,77,0.16),transparent_24%),radial-gradient(circle_at_86%_14%,rgba(255,255,255,0.72),transparent_18%),linear-gradient(180deg,#f5f0e6_0%,#f3eee4_62%,#f3eee4_100%)] dark:bg-[radial-gradient(circle_at_18%_10%,rgba(215,178,106,0.12),transparent_24%),radial-gradient(circle_at_86%_14%,rgba(255,255,255,0.08),transparent_18%),linear-gradient(180deg,#100d09_0%,#0f0d0a_62%,#0f0d0a_100%)]" />
-        <div className="absolute inset-x-6 top-28 h-px bg-[linear-gradient(90deg,transparent,rgba(23,21,18,0.16),transparent)] dark:bg-[linear-gradient(90deg,transparent,rgba(255,244,230,0.14),transparent)]" />
-        <div className="absolute left-[-6rem] top-[26rem] h-64 w-64 rounded-full bg-[rgba(182,143,77,0.12)] blur-3xl dark:bg-[rgba(215,178,106,0.08)]" />
-        <div className="absolute right-[-8rem] top-[48rem] h-72 w-72 rounded-full bg-[rgba(255,255,255,0.4)] blur-3xl dark:bg-[rgba(255,255,255,0.06)]" />
+        <div className="absolute inset-0 bg-[linear-gradient(180deg,#050605_0%,#050605_100%)]" />
+        <div className="absolute left-1/2 top-[-16rem] h-[34rem] w-[58rem] -translate-x-1/2 rounded-full bg-[radial-gradient(circle,rgba(214,255,22,0.14),transparent_64%)] blur-3xl" />
+        <div className="absolute inset-0 bg-[linear-gradient(to_right,rgba(255,255,255,0.035)_1px,transparent_1px),linear-gradient(to_bottom,rgba(255,255,255,0.035)_1px,transparent_1px)] bg-[size:72px_72px] opacity-[0.04]" />
+        <div className="absolute inset-x-0 top-[34rem] h-px bg-[linear-gradient(90deg,transparent,rgba(255,255,255,0.12),transparent)] opacity-70" />
       </div>
 
       <main>
         <HomeHero hasAuthSession={hasAuthSession} />
-        <HomeShowcaseSection />
-        <HomeReleaseSection hasAuthSession={hasAuthSession} />
-        <HomePrinciplesSection hasAuthSession={hasAuthSession} />
+        <HomeWorkflowSection />
+        <HomeCapabilitiesSection hasAuthSession={hasAuthSession} />
+        <HomeCtaSection hasAuthSession={hasAuthSession} />
       </main>
 
       <HomeFooter hasAuthSession={hasAuthSession} />

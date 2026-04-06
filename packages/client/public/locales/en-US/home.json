@@ -4,130 +4,99 @@
     "toggle": "Toggle theme"
   },
   "login": "Sign in",
-  "getStarted": "Try now",
+  "getStarted": "Get Started",
   "nav": {
-    "kicker": "Safety-first knowledge platform",
-    "research": "Research",
-    "releases": "Latest releases",
-    "principles": "Principles"
+    "kicker": "Traceable Knowledge Workspace",
+    "workflow": "Solution",
+    "capabilities": "Feature",
+    "about": "About"
   },
   "hero": {
-    "eyebrow": "Groundpath / Spring 2026 note",
-    "status": "A knowledge surface designed for production use",
+    "eyebrow": "Source-grounded answers for teams",
     "title": {
-      "lineOne": "Keep AI answers",
-      "lineTwo": "inside a",
-      "lineThree": "verifiable boundary."
+      "lineOne": "Trace the source.",
+      "lineTwo": "Reach the answer."
     },
-    "summary": "Groundpath keeps retrieval, conversation, citations, and review on one working surface so teams can establish scope, evidence, and trust before AI touches real operations.",
-    "support": "When responses are about to enter a business workflow, teams do not need louder generation. They need tighter source boundaries, steadier context control, and an evidence trail they can revisit.",
+    "summary": "Groundpath turns scattered knowledge into a traceable answer layer for teams that care about clarity, speed, and trust.",
+    "support": "Connect documents, keep citations attached, and move from retrieval to action on one focused surface.",
     "primary": {
-      "auth": "Open workspace",
-      "guest": "Try now"
+      "auth": "Open Workspace",
+      "guest": "Get Started"
     },
-    "secondary": "See latest releases",
-    "metrics": {
-      "archives": {
-        "label": "Live archives",
-        "value": "128",
-        "detail": "Maintained knowledge bases, documents, and versioned objects"
-      },
-      "scope": {
-        "label": "Default scoping",
-        "value": "2 layers",
-        "detail": "Ground the answer in approved context before generation begins"
-      },
-      "evidence": {
-        "label": "Citation coverage",
-        "value": "99.8%",
-        "detail": "Responses return with source position, freshness, and review state"
-      }
-    }
-  },
-  "showcase": {
-    "label": "Research preview",
-    "title": "What teams want from AI is not longer output. It is fewer hallucinations, tighter scope control, and evidence that can be reviewed.",
-    "description": "The center of the homepage makes that explicit: every answer should arrive with source context, sync freshness, and reviewability instead of hiding that information on another screen.",
-    "markers": {
-      "scope": {
-        "title": "Answer scope",
-        "value": "Product Ops / Q1 review"
-      },
-      "coverage": {
-        "title": "Citation coverage",
-        "value": "99.8% with evidence"
-      },
-      "sync": {
-        "title": "Last sync",
-        "value": "12 min ago"
-      }
-    },
+    "secondary": "See how it works",
     "signals": {
-      "answers": "answers carry citations",
-      "retrieval": "retrieval narrows scope first",
-      "review": "review signals stay visible"
+      "sources": "citations stay attached",
+      "scope": "scope before generation",
+      "review": "review remains visible"
     }
   },
-  "releases": {
-    "label": "Latest releases",
-    "title": "Turn the platform narrative into browsable release cards.",
-    "description": "Archive systems, scoped answers, and verification rails should not be buried inside a crowded navigation model.",
-    "support": "This homepage shifts away from stacked SaaS sections. It reads more like a research front page: declare the stance, reveal the capabilities, then show the path in.",
-    "cards": {
-      "archive": {
-        "eyebrow": "Archive systems",
-        "date": "Issue 01 / Knowledge archives",
-        "title": "Treat the knowledge base as an operating asset, not as upload residue.",
-        "description": "Documents, versions, tags, and source boundaries remain durable. Retrieval reads from structured archives instead of guessing context from loose fragments.",
-        "cta": "Open knowledge bases"
+  "workflow": {
+    "label": "Clarity drives action",
+    "title": "Clarity drives action.",
+    "description": "A compact workflow for teams that need every answer to stay tied to its source before it enters real operations.",
+    "steps": {
+      "connect": {
+        "title": "Connect",
+        "description": "Bring documents and source material onto one surface instead of scattering context across tools."
       },
-      "conversation": {
-        "eyebrow": "Scoped answers",
-        "date": "Issue 02 / Scoped conversation",
-        "title": "Run the answer inside the archive instead of outside it.",
-        "description": "Questions, follow-ups, and citations share one surface so teams do not have to stitch evidence back together across multiple screens.",
+      "index": {
+        "title": "Index",
+        "description": "Give each source a stable identity, freshness signal, and retrieval boundary."
+      },
+      "query": {
+        "title": "Query",
+        "description": "Scope the context first, then let the model answer with citations still attached."
+      },
+      "act": {
+        "title": "Act",
+        "description": "Carry review state and evidence into the final workflow step with confidence."
+      }
+    }
+  },
+  "capabilities": {
+    "label": "Built for business",
+    "title": "Built for business.",
+    "description": "Everything needed to turn source material into grounded answers inside one secure workspace.",
+    "cards": {
+      "rag": {
+        "eyebrow": "Instant RAG",
+        "title": "Immediate answers",
+        "description": "Connect your archive and deliver retrieval-augmented responses from the first query.",
+        "cta": "Learn more"
+      },
+      "secure": {
+        "eyebrow": "Private & Secure",
+        "title": "Protected by default",
+        "description": "Access boundaries, source scope, and citations stay inside an auditable system.",
+        "cta": "Learn more"
+      },
+      "multimodal": {
+        "eyebrow": "Multi-Model",
+        "title": "One stack, many models",
+        "description": "Switch models, add working context, and keep every answer in the same traceable flow.",
         "cta": "Open workspace"
       },
-      "verification": {
-        "eyebrow": "Verification rail",
-        "date": "Issue 03 / Review signals",
-        "title": "Keep the verification rail beside the answer, not on a later screen.",
-        "description": "Sync freshness, citation completeness, and review state remain attached to the response so operators can do one last check before acting.",
-        "cta": "Read the approach"
+      "search": {
+        "eyebrow": "Neural Search",
+        "title": "Retrieval that stays sharp",
+        "description": "Keep recall, matching, and final answers aligned around the same evidence chain.",
+        "cta": "Start searching"
       }
     }
   },
-  "principles": {
-    "label": "Principles",
-    "title": "An AI homepage should not only show capability. It should show how trust is built.",
-    "description": "Groundpath compresses research, product, and access into one narrative: define scope first, permit generation second, keep evidence beside the answer last.",
+  "cta": {
+    "eyebrow": "Ready to reach the answer?",
+    "title": "Ready to reach the answer?",
+    "description": "Join the next generation of source-grounded organizations.",
     "primary": {
-      "auth": "Open workspace",
-      "guest": "Create account"
+      "auth": "Open Workspace",
+      "guest": "Get Started For Free"
     },
-    "secondary": "Read the about page",
-    "itemCta": "Continue",
-    "items": {
-      "sources": {
-        "title": "Citations should stay attached to the answer.",
-        "description": "The moment a response loses its sources, it becomes harder to trust inside any high-stakes workflow."
-      },
-      "archives": {
-        "title": "Knowledge objects need a stable identity.",
-        "description": "Bases, documents, versions, and tags define what an answer can touch. That structure should survive retrieval."
-      },
-      "responses": {
-        "title": "Scope control comes before generation delight.",
-        "description": "Strong AI interaction does not answer freely and add constraints later. It limits context first, then decides whether generation should continue."
-      },
-      "audit": {
-        "title": "Review belongs inside the workflow.",
-        "description": "Freshness, approval status, and risk notes should appear beside the answer, not only inside backend logs."
-      }
-    }
+    "secondary": "Read about Groundpath"
   },
   "footer": {
-    "tagline": "Built for teams that need traceable knowledge, scoped answers, and reviewable evidence.",
+    "description": "Groundpath keeps knowledge operations traceable from retrieval to response.",
+    "copyright": "All rights reserved.",
     "about": "About",
     "console": "Workspace",
     "columns": {
@@ -135,13 +104,15 @@
         "title": "Product",
         "workspace": "Workspace",
         "knowledge": "Knowledge Bases",
-        "research": "Research Preview"
+        "workflow": "Solution",
+        "features": "Feature"
       },
-      "system": {
-        "title": "System",
-        "releases": "Latest Releases",
-        "principles": "Principles",
-        "about": "About"
+      "company": {
+        "title": "Company",
+        "about": "About",
+        "capabilities": "Capabilities",
+        "login": "Login",
+        "getStarted": "Get Started"
       },
       "access": {
         "title": "Access",
@@ -149,6 +120,11 @@
         "login": "Sign in",
         "console": "Open console"
       }
+    },
+    "legal": {
+      "privacy": "Privacy Policy",
+      "terms": "Terms of Service",
+      "contact": "Contact"
     }
   },
   "about": {
