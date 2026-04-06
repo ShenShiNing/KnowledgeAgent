@@ -9,6 +9,7 @@ import { Button } from '@/components/ui/button';
 import { emailApi } from '@/api';
 import { FormField } from '@/components/auth/FormField';
 import { translateApiError } from '@/lib/http/translate-error';
+import { resolveZodIssueMessage } from '@/lib/validation/resolve-zod-issue-message';
 
 interface EmailStepProps {
   onNext: (email: string) => void;
@@ -25,7 +26,11 @@ export function EmailStep({ onNext, defaultEmail }: EmailStepProps) {
       setError(null);
       const result = emailSchema.safeParse(value.email);
       if (!result.success) {
-        setError(result.error.issues[0]?.message || t('forgot.email.invalid'));
+        setError(
+          resolveZodIssueMessage(result.error.issues[0], {
+            invalidEmail: t('forgot.email.invalid'),
+          }) || t('forgot.email.invalid')
+        );
         return;
       }
 
@@ -52,7 +57,11 @@ export function EmailStep({ onNext, defaultEmail }: EmailStepProps) {
         validators={{
           onBlur: ({ value }) => {
             const result = emailSchema.safeParse(value);
-            return result.success ? undefined : result.error.issues[0]?.message;
+            return result.success
+              ? undefined
+              : resolveZodIssueMessage(result.error.issues[0], {
+                  invalidEmail: t('forgot.email.invalid'),
+                });
           },
         }}
       >

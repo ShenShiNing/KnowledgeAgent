@@ -12,6 +12,7 @@ import { useTranslation } from 'react-i18next';
 import { useAuthStore } from '@/stores';
 import { initiateGitHubLogin, initiateGoogleLogin } from '@/api';
 import { translateApiError } from '@/lib/http/translate-error';
+import { resolveZodIssueMessage } from '@/lib/validation/resolve-zod-issue-message';
 import { FormField } from './FormField';
 import { GitHubIcon, GoogleIcon } from './SocialIcons';
 
@@ -34,7 +35,12 @@ export function LoginForm() {
       const validationResult = loginRequestSchema.safeParse(value);
       if (!validationResult.success) {
         const firstError = validationResult.error.issues[0];
-        setError(firstError?.message || t('login.validationFailed'));
+        setError(
+          resolveZodIssueMessage(firstError, {
+            invalidEmail: t('login.emailInvalid'),
+            required: t('login.passwordRequired'),
+          }) || t('login.validationFailed')
+        );
         return;
       }
 
@@ -69,7 +75,11 @@ export function LoginForm() {
             validators={{
               onBlur: ({ value }) => {
                 const result = emailSchema.safeParse(value);
-                return result.success ? undefined : result.error.issues[0]?.message;
+                return result.success
+                  ? undefined
+                  : resolveZodIssueMessage(result.error.issues[0], {
+                      invalidEmail: t('login.emailInvalid'),
+                    });
               },
             }}
           >
