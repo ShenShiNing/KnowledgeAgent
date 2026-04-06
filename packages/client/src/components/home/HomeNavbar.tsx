@@ -1,5 +1,14 @@
 import { Link, useRouter } from '@tanstack/react-router';
-import { ChevronDown, LayoutDashboard, LogOut, Monitor, User } from 'lucide-react';
+import {
+  ChevronDown,
+  Languages,
+  LayoutDashboard,
+  LogOut,
+  Monitor,
+  Moon,
+  Sun,
+  User,
+} from 'lucide-react';
 import { useTranslation } from 'react-i18next';
 import { Avatar, AvatarFallback, AvatarImage } from '@/components/ui/avatar';
 import { Button } from '@/components/ui/button';
@@ -28,6 +37,7 @@ function getUserInitials(username?: string, email?: string): string {
 type HomePreferenceMenuProps = {
   ariaLabel: string;
   className?: string;
+  icon: React.ReactNode;
   onValueChange: (value: string) => void;
   options: ReadonlyArray<{
     label: string;
@@ -39,12 +49,11 @@ type HomePreferenceMenuProps = {
 function HomePreferenceMenu({
   ariaLabel,
   className,
+  icon,
   onValueChange,
   options,
   value,
 }: HomePreferenceMenuProps) {
-  const currentOption = options.find((option) => option.value === value) ?? options[0];
-
   return (
     <DropdownMenu modal={false}>
       <DropdownMenuTrigger asChild>
@@ -52,14 +61,13 @@ function HomePreferenceMenu({
           type="button"
           variant="ghost"
           className={cn(
-            'hidden h-11 rounded-full border border-(--home-border) bg-[rgba(255,250,244,0.72)] px-4 text-sm font-semibold text-(--home-text-strong) shadow-none transition-colors hover:bg-white hover:text-(--home-text-strong) focus-visible:ring-[#1f1a16] sm:inline-flex',
+            'hidden h-11 w-11 rounded-full border border-(--home-border) bg-[rgba(255,250,244,0.72)] p-0 text-(--home-text-strong) shadow-none transition-colors hover:bg-white hover:text-(--home-text-strong) focus-visible:ring-[#1f1a16] sm:inline-flex',
             className
           )}
           aria-label={ariaLabel}
           title={ariaLabel}
         >
-          <span>{currentOption?.label}</span>
-          <ChevronDown className="size-3.5 text-(--home-text-soft)" />
+          {icon}
         </Button>
       </DropdownMenuTrigger>
 
@@ -189,6 +197,14 @@ export function HomeNavbar({ hasAuthSession }: HomeNavbarProps) {
     { label: 'Chinese', value: 'zh-CN' },
     { label: 'English', value: 'en-US' },
   ] as const;
+  const themeIcon =
+    theme === 'dark' ? (
+      <Moon className="size-4.5" />
+    ) : theme === 'light' ? (
+      <Sun className="size-4.5" />
+    ) : (
+      <Monitor className="size-4.5" />
+    );
 
   const handleThemeChange = (value: string) => {
     if (value === 'dark' || value === 'light' || value === 'system') {
@@ -238,12 +254,14 @@ export function HomeNavbar({ hasAuthSession }: HomeNavbarProps) {
         <div className="flex items-center justify-end gap-3">
           <HomePreferenceMenu
             ariaLabel="Theme"
+            icon={themeIcon}
             onValueChange={handleThemeChange}
             options={themeOptions}
             value={theme}
           />
           <HomePreferenceMenu
             ariaLabel="Language"
+            icon={<Languages className="size-4.5" />}
             onValueChange={handleLanguageChange}
             options={languageOptions}
             value={currentLanguage}
