@@ -1,3 +1,4 @@
+import type { CSSProperties } from 'react';
 import type { LucideIcon } from 'lucide-react';
 import { Eye, EyeOff } from 'lucide-react';
 import { Input } from '@/components/ui/input';
@@ -10,6 +11,7 @@ interface FormFieldProps {
   type?: string;
   placeholder?: string;
   inputClassName?: string;
+  inputStyle?: CSSProperties;
   value: string;
   onChange: (value: string) => void;
   onBlur?: () => void;
@@ -64,6 +66,7 @@ export function FormField({
   type = 'text',
   placeholder,
   inputClassName,
+  inputStyle,
   value,
   onChange,
   onBlur,
@@ -88,6 +91,7 @@ export function FormField({
           type={inputType}
           placeholder={placeholder}
           className={cn(Icon && 'pl-10', showPasswordToggle && 'pr-10', inputClassName)}
+          style={inputStyle}
           value={value}
           onChange={(e) => onChange(e.target.value)}
           onBlur={onBlur}
