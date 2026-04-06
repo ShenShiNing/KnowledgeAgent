@@ -222,7 +222,7 @@ export function HomeNavbar({ hasAuthSession }: HomeNavbarProps) {
   };
 
   return (
-    <header className="sticky top-0 z-50 border-b border-(--home-border) bg-(--home-paper) backdrop-blur-xl">
+    <header className="sticky top-0 z-50 border-b border-(--home-border) bg-(--home-app-bg)">
       <div className="grid h-16 w-full grid-cols-[minmax(0,1fr)_auto] items-center gap-4 px-4 md:px-6 lg:grid-cols-[minmax(0,1fr)_auto_minmax(0,1fr)]">
         <Link
           to="/"
