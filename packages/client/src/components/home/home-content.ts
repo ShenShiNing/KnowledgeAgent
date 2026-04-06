@@ -20,10 +20,10 @@ export type HomeRoute =
   | '/knowledge-bases';
 
 export const homePrimaryButtonClass =
-  'h-11 rounded-full border border-[#1f1a16] bg-[#1f1a16] px-5 text-[color:#faf7f2] shadow-[0_18px_40px_rgba(31,26,22,0.16)] transition-[transform,background-color,box-shadow] hover:-translate-y-0.5 hover:bg-[#110e0b] hover:shadow-[0_22px_44px_rgba(31,26,22,0.2)] focus-visible:ring-[#1f1a16]';
+  'h-11 rounded-full border border-(--home-accent) bg-(--home-accent) px-5 text-(--home-accent-ink) shadow-(--home-shadow-soft) transition-[transform,background-color,box-shadow] hover:-translate-y-0.5 hover:bg-(--home-accent-strong) hover:shadow-(--home-shadow) focus-visible:ring-[#1f1a16]';
 
 export const homeGhostButtonClass =
-  'h-10 rounded-full border border-(--home-border) bg-[rgba(255,250,244,0.72)] px-4 text-sm font-semibold text-(--home-text-strong) shadow-none transition-colors hover:bg-white hover:text-(--home-text-strong) focus-visible:ring-[#1f1a16]';
+  'h-10 rounded-full border border-(--home-border) bg-(--home-surface) px-4 text-sm font-semibold text-(--home-text-strong) shadow-none transition-colors hover:bg-(--home-paper) hover:text-(--home-text-strong) focus-visible:ring-[#1f1a16]';
 
 export const homeNavItems = [
   { href: '#workflow', key: 'nav.workflow' },

@@ -152,7 +152,7 @@ export function HomeWorkflowSection() {
                     index === 0 && 'md:pr-6'
                   )}
                 >
-                  <p className="font-editorial text-[2.7rem] font-semibold italic leading-none tracking-[-0.08em] text-[rgba(31,26,22,0.36)]">
+                  <p className="font-editorial text-[2.7rem] font-semibold italic leading-none tracking-[-0.08em] text-(--home-text-soft)">
                     {step.number}
                   </p>
                   <h3 className="mt-5 max-w-[12ch] font-display text-[1.75rem] font-semibold leading-[1.08] tracking-[-0.05em] text-(--home-text-strong)">
@@ -344,7 +344,7 @@ export function HomeCtaSection({ hasAuthSession }: HomeCtaSectionProps) {
 
               <Button
                 variant="outline"
-                className="h-11 rounded-full border-(--home-border) bg-transparent px-5 text-(--home-text-strong) hover:bg-white/60"
+                className="h-11 rounded-full border-(--home-border) bg-transparent px-5 text-(--home-text-strong) hover:bg-(--home-surface)"
                 asChild
               >
                 <Link to="/about">{t('cta.secondary')}</Link>
@@ -366,7 +366,7 @@ export function HomeCtaSection({ hasAuthSession }: HomeCtaSectionProps) {
                   key={step}
                   className="flex items-start gap-3 border-b border-(--home-border) py-4"
                 >
-                  <span className="flex size-7 items-center justify-center rounded-full bg-[#1f1a16] text-[11px] font-semibold text-[#faf7f2]">
+                  <span className="flex size-7 items-center justify-center rounded-full bg-(--home-accent) text-[11px] font-semibold text-(--home-accent-ink)">
                     {index + 1}
                   </span>
                   <p className="text-sm leading-[1.72] text-(--home-text-muted)">{step}</p>

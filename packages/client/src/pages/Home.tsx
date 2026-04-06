@@ -20,11 +20,11 @@ const HomePage = () => {
       <HomeNavbar hasAuthSession={hasAuthSession} />
 
       <div aria-hidden className="pointer-events-none absolute inset-0 -z-10 overflow-hidden">
-        <div className="absolute inset-0 bg-[linear-gradient(180deg,#f6f0e6_0%,#f3ede3_28%,#f7f2ea_60%,#efe6d8_100%)]" />
-        <div className="absolute -left-18 top-12 h-88 w-88 rounded-full bg-[radial-gradient(circle,rgba(255,255,255,0.92),transparent_72%)] blur-3xl" />
-        <div className="absolute -right-12 top-0 h-96 w-96 rounded-full bg-[radial-gradient(circle,rgba(225,200,163,0.36),transparent_72%)] blur-3xl motion-reduce:animate-none animate-[home-drift_18s_ease-in-out_infinite]" />
-        <div className="absolute left-1/2 top-82 h-132 w-[68rem] -translate-x-1/2 rounded-full bg-[radial-gradient(circle,rgba(205,157,98,0.12),transparent_74%)] blur-3xl" />
-        <div className="absolute inset-0 bg-[linear-gradient(to_right,rgba(93,68,39,0.026)_1px,transparent_1px),linear-gradient(to_bottom,rgba(93,68,39,0.026)_1px,transparent_1px)] bg-size-[80px_80px] opacity-28" />
+        <div className="absolute inset-0 bg-[var(--home-backdrop-base)]" />
+        <div className="absolute -left-18 top-12 h-88 w-88 rounded-full bg-[var(--home-backdrop-glow-left)] blur-3xl" />
+        <div className="absolute -right-12 top-0 h-96 w-96 rounded-full bg-[var(--home-backdrop-glow-right)] blur-3xl motion-reduce:animate-none animate-[home-drift_18s_ease-in-out_infinite]" />
+        <div className="absolute left-1/2 top-82 h-132 w-272 -translate-x-1/2 rounded-full bg-[var(--home-backdrop-glow-center)] blur-3xl" />
+        <div className="absolute inset-0 bg-[linear-gradient(to_right,var(--home-backdrop-grid)_1px,transparent_1px),linear-gradient(to_bottom,var(--home-backdrop-grid)_1px,transparent_1px)] bg-size-[80px_80px] opacity-28" />
       </div>
 
       <main>

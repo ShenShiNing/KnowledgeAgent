@@ -1,5 +1,14 @@
 import { Link, useRouter } from '@tanstack/react-router';
-import { ChevronDown, LayoutDashboard, LogOut, Monitor, User } from 'lucide-react';
+import {
+  ChevronDown,
+  Languages,
+  LayoutDashboard,
+  LogOut,
+  Monitor,
+  Moon,
+  Sun,
+  User,
+} from 'lucide-react';
 import { useTranslation } from 'react-i18next';
 import { Avatar, AvatarFallback, AvatarImage } from '@/components/ui/avatar';
 import { Button } from '@/components/ui/button';
@@ -28,7 +37,7 @@ function getUserInitials(username?: string, email?: string): string {
 type HomePreferenceMenuProps = {
   ariaLabel: string;
   className?: string;
-  label: string;
+  icon: React.ReactNode;
   onValueChange: (value: string) => void;
   options: ReadonlyArray<{
     label: string;
@@ -40,7 +49,7 @@ type HomePreferenceMenuProps = {
 function HomePreferenceMenu({
   ariaLabel,
   className,
-  label,
+  icon,
   onValueChange,
   options,
   value,
@@ -48,24 +57,23 @@ function HomePreferenceMenu({
   return (
     <DropdownMenu modal={false}>
       <DropdownMenuTrigger asChild>
-        <Button
+        <button
           type="button"
-          variant="ghost"
           className={cn(
-            'hidden h-auto items-center gap-1 rounded-none border-0 bg-transparent p-0 text-[11px] font-semibold uppercase tracking-[0.22em] text-(--home-text-soft) shadow-none transition-colors hover:bg-transparent hover:text-(--home-text-strong) focus-visible:ring-0 sm:inline-flex',
+            'group hidden h-auto items-center gap-1.5 bg-transparent p-0 text-(--home-text-soft) transition-colors hover:text-(--home-text-strong) focus-visible:outline-none sm:inline-flex data-[state=open]:text-(--home-text-strong)',
             className
           )}
           aria-label={ariaLabel}
           title={ariaLabel}
         >
-          <span>{label}</span>
-          <ChevronDown className="size-3.5" />
-        </Button>
+          {icon}
+          <ChevronDown className="size-3 text-(--home-text-soft) transition-transform group-data-[state=open]:rotate-180 group-data-[state=open]:text-(--home-text-strong)" />
+        </button>
       </DropdownMenuTrigger>
 
       <DropdownMenuContent
         align="end"
-        className="w-40 border-(--home-border) bg-[rgba(255,250,244,0.98)] text-(--home-text-strong) shadow-(--home-shadow)"
+        className="w-40 border-(--home-border) bg-(--home-paper) text-(--home-text-strong) shadow-(--home-shadow)"
       >
         <DropdownMenuRadioGroup value={value} onValueChange={onValueChange}>
           {options.map((option) => (
@@ -96,12 +104,14 @@ function HomeUserMenu() {
     <DropdownMenu modal={false}>
       <DropdownMenuTrigger asChild>
         <button
-          className="group flex h-10 items-center gap-2 rounded-full border border-(--home-border) bg-[rgba(255,252,247,0.78)] px-2 py-1.5 text-(--home-text-strong) shadow-[0_12px_24px_rgba(61,43,24,0.05)] transition-colors hover:border-[rgba(95,67,38,0.18)] hover:bg-white/90 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[#1f1a16]"
+          className="group flex h-10 items-center gap-2 rounded-full border border-(--home-border) bg-(--home-surface) px-2 py-1.5 text-(--home-text-strong) shadow-(--home-shadow-soft) transition-colors hover:border-(--home-border-strong) hover:bg-(--home-paper) focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[#1f1a16]"
           aria-label={t('openUserMenu')}
         >
           <Avatar size="sm">
             <AvatarImage src={user?.avatarUrl ?? undefined} alt={displayName} />
-            <AvatarFallback className="bg-[#1f1a16] text-[#faf7f2]">{initials}</AvatarFallback>
+            <AvatarFallback className="bg-(--home-accent) text-(--home-accent-ink)">
+              {initials}
+            </AvatarFallback>
           </Avatar>
           <ChevronDown className="size-3.5 text-(--home-text-soft) transition-transform group-data-[state=open]:rotate-180" />
         </button>
@@ -109,7 +119,7 @@ function HomeUserMenu() {
 
       <DropdownMenuContent
         align="end"
-        className="w-56 border-(--home-border) bg-[rgba(255,250,244,0.98)] text-(--home-text-strong) shadow-(--home-shadow)"
+        className="w-56 border-(--home-border) bg-(--home-paper) text-(--home-text-strong) shadow-(--home-shadow)"
       >
         <DropdownMenuLabel className="font-normal">
           <div className="flex flex-col space-y-1">
@@ -123,7 +133,7 @@ function HomeUserMenu() {
         <DropdownMenuGroup>
           <DropdownMenuItem
             asChild
-            className="cursor-pointer text-(--home-text-strong) focus:bg-[rgba(31,26,22,0.06)] focus:text-(--home-text-strong)"
+            className="cursor-pointer text-(--home-text-strong) focus:bg-(--home-accent-soft) focus:text-(--home-text-strong)"
           >
             <Link to="/dashboard">
               <LayoutDashboard className="mr-2 size-4" />
@@ -132,7 +142,7 @@ function HomeUserMenu() {
           </DropdownMenuItem>
           <DropdownMenuItem
             asChild
-            className="cursor-pointer text-(--home-text-strong) focus:bg-[rgba(31,26,22,0.06)] focus:text-(--home-text-strong)"
+            className="cursor-pointer text-(--home-text-strong) focus:bg-(--home-accent-soft) focus:text-(--home-text-strong)"
           >
             <Link to="/profile">
               <User className="mr-2 size-4" />
@@ -141,7 +151,7 @@ function HomeUserMenu() {
           </DropdownMenuItem>
           <DropdownMenuItem
             asChild
-            className="cursor-pointer text-(--home-text-strong) focus:bg-[rgba(31,26,22,0.06)] focus:text-(--home-text-strong)"
+            className="cursor-pointer text-(--home-text-strong) focus:bg-(--home-accent-soft) focus:text-(--home-text-strong)"
           >
             <Link to="/sessions">
               <Monitor className="mr-2 size-4" />
@@ -189,6 +199,14 @@ export function HomeNavbar({ hasAuthSession }: HomeNavbarProps) {
     { label: 'Chinese', value: 'zh-CN' },
     { label: 'English', value: 'en-US' },
   ] as const;
+  const themeIcon =
+    theme === 'dark' ? (
+      <Moon className="size-4" />
+    ) : theme === 'light' ? (
+      <Sun className="size-4" />
+    ) : (
+      <Monitor className="size-4" />
+    );
 
   const handleThemeChange = (value: string) => {
     if (value === 'dark' || value === 'light' || value === 'system') {
@@ -204,7 +222,7 @@ export function HomeNavbar({ hasAuthSession }: HomeNavbarProps) {
   };
 
   return (
-    <header className="sticky top-0 z-50 border-b border-(--home-border) bg-[rgba(246,240,230,0.82)] backdrop-blur-xl">
+    <header className="sticky top-0 z-50 border-b border-(--home-border) bg-(--home-paper) backdrop-blur-xl">
       <div className="grid h-16 w-full grid-cols-[minmax(0,1fr)_auto] items-center gap-4 px-4 md:px-6 lg:grid-cols-[minmax(0,1fr)_auto_minmax(0,1fr)]">
         <Link
           to="/"
@@ -238,14 +256,14 @@ export function HomeNavbar({ hasAuthSession }: HomeNavbarProps) {
         <div className="flex items-center justify-end gap-3">
           <HomePreferenceMenu
             ariaLabel="Theme"
-            label={t('theme', { ns: 'common' })}
+            icon={themeIcon}
             onValueChange={handleThemeChange}
             options={themeOptions}
             value={theme}
           />
           <HomePreferenceMenu
             ariaLabel="Language"
-            label={t('language', { ns: 'common' })}
+            icon={<Languages className="size-4" />}
             onValueChange={handleLanguageChange}
             options={languageOptions}
             value={currentLanguage}

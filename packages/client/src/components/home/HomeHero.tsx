@@ -23,7 +23,7 @@ export function HomeHero({ hasAuthSession }: HomeHeroProps) {
     <section className="px-4 pb-14 pt-8 md:px-6 md:pb-18 md:pt-12 lg:pt-14">
       <div className="mx-auto max-w-290">
         <div className="mx-auto max-w-185 text-center motion-reduce:animate-none animate-[home-rise_720ms_ease-out_both]">
-          <p className="inline-flex items-center gap-3 rounded-full border border-(--home-border) bg-[rgba(255,252,247,0.76)] px-4 py-2 text-[10px] font-semibold uppercase tracking-[0.28em] text-(--home-text-soft)">
+          <p className="inline-flex items-center gap-3 rounded-full border border-(--home-border) bg-(--home-surface) px-4 py-2 text-[10px] font-semibold uppercase tracking-[0.28em] text-(--home-text-soft)">
             <span className="h-2 w-2 rounded-full bg-[#b78347]" />
             {t('hero.eyebrow')}
           </p>

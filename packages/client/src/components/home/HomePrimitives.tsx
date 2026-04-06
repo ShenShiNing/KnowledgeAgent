@@ -29,7 +29,7 @@ export function HomeSectionHeading({
       {eyebrow ? (
         <p
           className={cn(
-            'inline-flex items-center gap-3 rounded-full border border-(--home-border) bg-[rgba(255,252,248,0.72)] px-4 py-2 text-[10px] font-semibold uppercase tracking-[0.26em] text-(--home-text-soft)',
+            'inline-flex items-center gap-3 rounded-full border border-(--home-border) bg-(--home-surface) px-4 py-2 text-[10px] font-semibold uppercase tracking-[0.26em] text-(--home-text-soft)',
             isCentered && 'justify-center'
           )}
         >
@@ -69,7 +69,7 @@ type HomeSignalPillProps = {
 
 export function HomeSignalPill({ children }: HomeSignalPillProps) {
   return (
-    <span className="inline-flex items-center gap-2 rounded-full border border-(--home-border) bg-[rgba(255,252,247,0.68)] px-3.5 py-2 text-[11px] font-medium text-(--home-text-muted)">
+    <span className="inline-flex items-center gap-2 rounded-full border border-(--home-border) bg-(--home-surface) px-3.5 py-2 text-[11px] font-medium text-(--home-text-muted)">
       <span className="h-1.5 w-1.5 rounded-full bg-[#b78347]" />
       {children}
     </span>
@@ -83,7 +83,7 @@ type HomeMetricCardProps = {
 
 export function HomeMetricCard({ label, value }: HomeMetricCardProps) {
   return (
-    <article className="overflow-hidden rounded-[24px] border border-(--home-border) bg-[rgba(255,252,247,0.8)] p-4 shadow-(--home-shadow-soft) backdrop-blur-sm transition-[transform,border-color] duration-300 hover:-translate-y-1 hover:border-[rgba(95,67,38,0.2)]">
+    <article className="overflow-hidden rounded-[24px] border border-(--home-border) bg-(--home-surface) p-4 shadow-(--home-shadow-soft) backdrop-blur-sm transition-[transform,border-color] duration-300 hover:-translate-y-1 hover:border-(--home-border-strong)">
       <p className="text-[11px] font-semibold uppercase tracking-[0.22em] text-(--home-text-soft)">
         {label}
       </p>
@@ -108,7 +108,7 @@ export function HomeWorkflowCard({
   title,
 }: HomeWorkflowCardProps) {
   return (
-    <article className="group relative overflow-hidden rounded-[30px] border border-(--home-border) bg-[rgba(255,252,247,0.82)] p-6 shadow-(--home-shadow-soft) transition-[transform,border-color,box-shadow] duration-300 hover:-translate-y-1 hover:border-[rgba(95,67,38,0.2)] hover:shadow-[0_22px_44px_rgba(61,43,24,0.08)] sm:p-7">
+    <article className="group relative overflow-hidden rounded-[30px] border border-(--home-border) bg-(--home-surface) p-6 shadow-(--home-shadow-soft) transition-[transform,border-color,box-shadow] duration-300 hover:-translate-y-1 hover:border-(--home-border-strong) hover:shadow-(--home-shadow) sm:p-7">
       <div
         aria-hidden
         className="absolute inset-x-0 top-0 h-24 bg-[radial-gradient(circle_at_top,rgba(196,147,84,0.18),transparent_72%)] opacity-70"
@@ -116,10 +116,10 @@ export function HomeWorkflowCard({
 
       <div className="relative">
         <div className="flex items-start justify-between gap-4">
-          <span className="font-editorial text-[2.6rem] font-semibold italic leading-none tracking-[-0.08em] text-[rgba(31,26,22,0.38)]">
+          <span className="font-editorial text-[2.6rem] font-semibold italic leading-none tracking-[-0.08em] text-(--home-text-soft)">
             {number}
           </span>
-          <span className="flex size-12 items-center justify-center rounded-[18px] border border-(--home-border) bg-white/70 text-(--home-text-strong)">
+          <span className="flex size-12 items-center justify-center rounded-[18px] border border-(--home-border) bg-(--home-paper) text-(--home-text-strong)">
             <Icon className="size-4.5" />
           </span>
         </div>
@@ -153,7 +153,7 @@ export function HomeEvidenceCard({
   return (
     <article
       className={cn(
-        'group relative overflow-hidden rounded-[30px] border border-(--home-border) bg-[rgba(255,252,247,0.84)] p-6 shadow-(--home-shadow-soft) transition-[transform,border-color] duration-300 hover:-translate-y-1 hover:border-[rgba(95,67,38,0.2)] sm:p-7',
+        'group relative overflow-hidden rounded-[30px] border border-(--home-border) bg-(--home-surface) p-6 shadow-(--home-shadow-soft) transition-[transform,border-color] duration-300 hover:-translate-y-1 hover:border-(--home-border-strong) sm:p-7',
         className
       )}
     >
@@ -166,7 +166,7 @@ export function HomeEvidenceCard({
           <span className="text-[11px] font-semibold uppercase tracking-[0.24em] text-(--home-text-soft)">
             {value}
           </span>
-          <span className="flex size-10 items-center justify-center rounded-full border border-(--home-border) bg-white/72 text-(--home-text-strong)">
+          <span className="flex size-10 items-center justify-center rounded-full border border-(--home-border) bg-(--home-paper) text-(--home-text-strong)">
             <Icon className="size-4" />
           </span>
         </div>
@@ -200,11 +200,10 @@ const featureToneClasses = {
     text: 'text-[rgba(37,48,24,0.72)]',
   },
   pearl: {
-    badge: 'border-(--home-border) bg-white/72 text-(--home-text-strong)',
+    badge: 'border-(--home-border) bg-(--home-paper) text-(--home-text-strong)',
     cta: 'text-(--home-text-strong)',
     eyebrow: 'text-(--home-text-soft)',
-    panel:
-      'border-(--home-border) bg-[linear-gradient(180deg,#fffdf9_0%,#f8f3eb_100%)] text-(--home-text-strong)',
+    panel: 'border-(--home-border) bg-(--home-surface) text-(--home-text-strong)',
     text: 'text-(--home-text-muted)',
   },
   sand: {
@@ -252,7 +251,7 @@ export function HomeFeatureCard({
 
       <div className="relative flex h-full flex-col">
         <div className="flex items-start justify-between gap-4">
-          <div className="flex size-12 items-center justify-center rounded-[18px] border border-current/10 bg-white/55">
+          <div className="flex size-12 items-center justify-center rounded-[18px] border border-current/10 bg-(--home-paper)">
             <Icon className="size-4.5" />
           </div>
 
