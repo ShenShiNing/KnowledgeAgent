@@ -29,7 +29,7 @@ export function HomeSectionHeading({
       {eyebrow ? (
         <p
           className={cn(
-            'inline-flex items-center gap-3 rounded-full border border-(--home-border) bg-[rgba(255,252,248,0.86)] px-4 py-2 text-[10px] font-semibold uppercase tracking-[0.26em] text-(--home-text-soft) shadow-[0_10px_24px_rgba(61,43,24,0.05)]',
+            'inline-flex items-center gap-3 rounded-full border border-(--home-border) bg-[rgba(255,252,248,0.72)] px-4 py-2 text-[10px] font-semibold uppercase tracking-[0.26em] text-(--home-text-soft)',
             isCentered && 'justify-center'
           )}
         >
@@ -69,7 +69,7 @@ type HomeSignalPillProps = {
 
 export function HomeSignalPill({ children }: HomeSignalPillProps) {
   return (
-    <span className="inline-flex items-center gap-2 rounded-full border border-(--home-border) bg-[rgba(255,252,247,0.76)] px-3.5 py-2 text-[11px] font-medium text-(--home-text-muted) shadow-[0_12px_24px_rgba(61,43,24,0.05)] backdrop-blur-sm">
+    <span className="inline-flex items-center gap-2 rounded-full border border-(--home-border) bg-[rgba(255,252,247,0.68)] px-3.5 py-2 text-[11px] font-medium text-(--home-text-muted)">
       <span className="h-1.5 w-1.5 rounded-full bg-[#b78347]" />
       {children}
     </span>
@@ -300,16 +300,16 @@ type HomeFaqItemProps = {
 
 export function HomeFaqItem({ answer, question }: HomeFaqItemProps) {
   return (
-    <details className="group rounded-[26px] border border-(--home-border) bg-[rgba(255,252,247,0.8)] p-6 shadow-(--home-shadow-soft) transition-colors open:bg-white/90">
+    <details className="group border-b border-(--home-border) py-5">
       <summary className="flex list-none items-center justify-between gap-4 text-left">
         <span className="max-w-[28ch] font-display text-[1.25rem] font-semibold leading-[1.08] tracking-[-0.04em] text-(--home-text-strong)">
           {question}
         </span>
-        <span className="flex size-10 shrink-0 items-center justify-center rounded-full border border-(--home-border) bg-white/72 text-(--home-text-strong) transition-transform duration-300 group-open:rotate-180">
+        <span className="flex size-10 shrink-0 items-center justify-center rounded-full border border-(--home-border) bg-transparent text-(--home-text-strong) transition-transform duration-300 group-open:rotate-180">
           <ChevronDown className="size-4" />
         </span>
       </summary>
-      <p className="pt-5 text-sm leading-7 text-(--home-text-muted)">{answer}</p>
+      <p className="max-w-3xl pt-4 text-sm leading-7 text-(--home-text-muted)">{answer}</p>
     </details>
   );
 }
