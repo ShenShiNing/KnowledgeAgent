@@ -7,6 +7,8 @@ export function SignupPage() {
 
   return (
     <AuthPageLayout
+      backgroundVariant="home"
+      headerVariant="home"
       title={t('signup.pageTitle')}
       description={t('signup.pageDescription')}
       footer={

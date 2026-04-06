@@ -19,72 +19,18 @@ import {
   DropdownMenuGroup,
   DropdownMenuItem,
   DropdownMenuLabel,
-  DropdownMenuRadioGroup,
-  DropdownMenuRadioItem,
   DropdownMenuSeparator,
   DropdownMenuTrigger,
 } from '@/components/ui/dropdown-menu';
 import { cn } from '@/lib/utils';
 import { useAuthStore } from '@/stores';
 import { homeGhostButtonClass, homeNavItems, homePrimaryButtonClass } from './home-content';
+import { HomePreferenceMenu } from './HomePreferenceMenu';
 
 function getUserInitials(username?: string, email?: string): string {
   if (username) return username.slice(0, 2).toUpperCase();
   if (email) return email.slice(0, 2).toUpperCase();
   return 'U';
-}
-
-type HomePreferenceMenuProps = {
-  ariaLabel: string;
-  className?: string;
-  icon: React.ReactNode;
-  onValueChange: (value: string) => void;
-  options: ReadonlyArray<{
-    label: string;
-    value: string;
-  }>;
-  value: string;
-};
-
-function HomePreferenceMenu({
-  ariaLabel,
-  className,
-  icon,
-  onValueChange,
-  options,
-  value,
-}: HomePreferenceMenuProps) {
-  return (
-    <DropdownMenu modal={false}>
-      <DropdownMenuTrigger asChild>
-        <button
-          type="button"
-          className={cn(
-            'group hidden h-auto items-center gap-1.5 bg-transparent p-0 text-(--home-text-soft) transition-colors hover:text-(--home-text-strong) focus-visible:outline-none sm:inline-flex data-[state=open]:text-(--home-text-strong)',
-            className
-          )}
-          aria-label={ariaLabel}
-          title={ariaLabel}
-        >
-          {icon}
-          <ChevronDown className="size-3 text-(--home-text-soft) transition-transform group-data-[state=open]:rotate-180 group-data-[state=open]:text-(--home-text-strong)" />
-        </button>
-      </DropdownMenuTrigger>
-
-      <DropdownMenuContent
-        align="end"
-        className="w-40 border-(--home-border) bg-(--home-paper) text-(--home-text-strong) shadow-(--home-shadow)"
-      >
-        <DropdownMenuRadioGroup value={value} onValueChange={onValueChange}>
-          {options.map((option) => (
-            <DropdownMenuRadioItem key={option.value} value={option.value}>
-              {option.label}
-            </DropdownMenuRadioItem>
-          ))}
-        </DropdownMenuRadioGroup>
-      </DropdownMenuContent>
-    </DropdownMenu>
-  );
 }
 
 function HomeUserMenu() {
@@ -256,6 +202,7 @@ export function HomeNavbar({ hasAuthSession }: HomeNavbarProps) {
         <div className="flex items-center justify-end gap-3">
           <HomePreferenceMenu
             ariaLabel="Theme"
+            className="hidden sm:inline-flex"
             icon={themeIcon}
             onValueChange={handleThemeChange}
             options={themeOptions}
@@ -263,6 +210,7 @@ export function HomeNavbar({ hasAuthSession }: HomeNavbarProps) {
           />
           <HomePreferenceMenu
             ariaLabel="Language"
+            className="hidden sm:inline-flex"
             icon={<Languages className="size-4" />}
             onValueChange={handleLanguageChange}
             options={languageOptions}
