@@ -26,7 +26,6 @@ export const homeGhostButtonClass =
   'h-10 rounded-full border border-(--home-border) bg-[rgba(255,250,244,0.72)] px-4 text-sm font-semibold text-(--home-text-strong) shadow-none transition-colors hover:bg-white hover:text-(--home-text-strong) focus-visible:ring-[#1f1a16]';
 
 export const homeNavItems = [
-  { href: '#product', key: 'nav.product' },
   { href: '#workflow', key: 'nav.workflow' },
   { href: '#faq', key: 'nav.faq' },
   { key: 'nav.about', route: '/about' },
@@ -153,7 +152,6 @@ export const homeFaqItems = [
 export const homeFooterColumns = [
   {
     links: [
-      { key: 'footer.columns.product.product', href: '#product' },
       { key: 'footer.columns.product.workflow', href: '#workflow' },
       { key: 'footer.columns.product.faq', href: '#faq' },
       {
