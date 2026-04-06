@@ -61,7 +61,7 @@ function HomePreferenceMenu({
           type="button"
           variant="ghost"
           className={cn(
-            'hidden h-11 w-11 rounded-full border border-(--home-border) bg-[rgba(255,250,244,0.72)] p-0 text-(--home-text-strong) shadow-none transition-colors hover:bg-white hover:text-(--home-text-strong) focus-visible:ring-[#1f1a16] sm:inline-flex',
+            'hidden h-9 w-9 rounded-full bg-transparent p-0 text-(--home-text-strong) shadow-none transition-colors hover:bg-white/75 hover:text-(--home-text-strong) focus-visible:ring-[#1f1a16] sm:inline-flex',
             className
           )}
           aria-label={ariaLabel}
@@ -252,20 +252,23 @@ export function HomeNavbar({ hasAuthSession }: HomeNavbarProps) {
         </nav>
 
         <div className="flex items-center justify-end gap-3">
-          <HomePreferenceMenu
-            ariaLabel="Theme"
-            icon={themeIcon}
-            onValueChange={handleThemeChange}
-            options={themeOptions}
-            value={theme}
-          />
-          <HomePreferenceMenu
-            ariaLabel="Language"
-            icon={<Languages className="size-4.5" />}
-            onValueChange={handleLanguageChange}
-            options={languageOptions}
-            value={currentLanguage}
-          />
+          <div className="hidden items-center gap-1 rounded-full border border-(--home-border) bg-[rgba(255,250,244,0.7)] p-1 shadow-[0_10px_24px_rgba(61,43,24,0.04)] sm:inline-flex">
+            <HomePreferenceMenu
+              ariaLabel="Theme"
+              icon={themeIcon}
+              onValueChange={handleThemeChange}
+              options={themeOptions}
+              value={theme}
+            />
+            <span className="h-5 w-px bg-(--home-border)" />
+            <HomePreferenceMenu
+              ariaLabel="Language"
+              icon={<Languages className="size-4.5" />}
+              onValueChange={handleLanguageChange}
+              options={languageOptions}
+              value={currentLanguage}
+            />
+          </div>
           {hasAuthSession ? (
             <>
               <Button

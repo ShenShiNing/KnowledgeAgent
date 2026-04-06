@@ -29,20 +29,18 @@ export function HomeHero({ hasAuthSession }: HomeHeroProps) {
           </p>
 
           <h1
-            className={`mx-auto mt-7 flex max-w-[11ch] flex-col text-balance font-display text-[clamp(3.2rem,10vw,6.8rem)] font-semibold leading-none text-(--home-text-strong) ${isChineseHero ? 'gap-[0.14em] tracking-[-0.07em]' : 'gap-[0.08em] tracking-[-0.09em]'}`}
+            className={`mx-auto mt-7 max-w-[11ch] text-balance font-display text-[clamp(3.2rem,10vw,6.8rem)] font-semibold text-(--home-text-strong) ${isChineseHero ? 'space-y-2 leading-[1.08] tracking-[-0.05em]' : 'space-y-1.5 leading-[0.98] tracking-[-0.07em]'}`}
           >
-            <span className={`block ${isChineseHero ? 'leading-[1.02]' : 'leading-[0.9]'}`}>
-              {titleLineOne}
-            </span>
+            <span className="block">{titleLineOne}</span>
             <span className="block bg-[linear-gradient(135deg,#201914_0%,#8f6534_52%,#cf9b59_100%)] bg-clip-text text-transparent">
               {titleLineTwo}
             </span>
           </h1>
 
-          <p className="mx-auto mt-7 max-w-4xl text-[1.04rem] leading-8 text-(--home-text-muted) sm:text-[1.12rem]">
+          <p className="mx-auto mt-7 max-w-4xl text-[1.04rem] leading-[1.78] text-(--home-text-muted) sm:text-[1.12rem]">
             {t('hero.summary')}
           </p>
-          <p className="mx-auto mt-4 max-w-3xl text-sm leading-7 text-(--home-text-soft) sm:text-[0.98rem]">
+          <p className="mx-auto mt-4 max-w-3xl text-sm leading-[1.72] text-(--home-text-soft) sm:text-[0.98rem]">
             {t('hero.support')}
           </p>
 

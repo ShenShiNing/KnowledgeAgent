@@ -55,10 +55,10 @@ export function HomeProofSection() {
                 <p className="text-[10px] font-semibold uppercase tracking-[0.24em] text-(--home-text-soft)">
                   {t('proof.rail.label')}
                 </p>
-                <h3 className="mt-4 max-w-[14ch] font-display text-[clamp(2rem,4vw,3.2rem)] font-semibold leading-[0.96] tracking-[-0.06em] text-(--home-text-strong)">
+                <h3 className="mt-4 max-w-[14ch] font-display text-[clamp(2rem,4vw,3.2rem)] font-semibold leading-[1.02] tracking-[-0.05em] text-(--home-text-strong)">
                   {t('proof.rail.title')}
                 </h3>
-                <p className="mt-5 max-w-3xl text-[1rem] leading-8 text-(--home-text-muted)">
+                <p className="mt-5 max-w-3xl text-[1rem] leading-[1.76] text-(--home-text-muted)">
                   {t('proof.rail.description')}
                 </p>
               </div>
@@ -91,10 +91,10 @@ export function HomeProofSection() {
                   <p className="text-[10px] font-semibold uppercase tracking-[0.24em] text-(--home-text-soft)">
                     {card.value}
                   </p>
-                  <h4 className="mt-4 max-w-[12ch] font-display text-[1.65rem] font-semibold leading-[1.02] tracking-[-0.05em] text-(--home-text-strong)">
+                  <h4 className="mt-4 max-w-[12ch] font-display text-[1.65rem] font-semibold leading-[1.08] tracking-[-0.05em] text-(--home-text-strong)">
                     {card.title}
                   </h4>
-                  <p className="mt-4 max-w-[26ch] text-sm leading-7 text-(--home-text-muted)">
+                  <p className="mt-4 max-w-[26ch] text-sm leading-[1.72] text-(--home-text-muted)">
                     {card.description}
                   </p>
                 </article>
@@ -155,10 +155,10 @@ export function HomeWorkflowSection() {
                   <p className="font-editorial text-[2.7rem] font-semibold italic leading-none tracking-[-0.08em] text-[rgba(31,26,22,0.36)]">
                     {step.number}
                   </p>
-                  <h3 className="mt-5 max-w-[12ch] font-display text-[1.75rem] font-semibold leading-[1.02] tracking-[-0.05em] text-(--home-text-strong)">
+                  <h3 className="mt-5 max-w-[12ch] font-display text-[1.75rem] font-semibold leading-[1.08] tracking-[-0.05em] text-(--home-text-strong)">
                     {step.title}
                   </h3>
-                  <p className="mt-4 max-w-[28ch] text-sm leading-7 text-(--home-text-muted)">
+                  <p className="mt-4 max-w-[28ch] text-sm leading-[1.72] text-(--home-text-muted)">
                     {step.description}
                   </p>
                 </article>
@@ -185,7 +185,7 @@ export function HomeWorkflowSection() {
               <p className="text-[10px] font-semibold uppercase tracking-[0.24em] text-(--home-text-soft)">
                 {t('workflow.board.label')}
               </p>
-              <p className="mt-4 max-w-3xl text-sm leading-7 text-(--home-text-muted)">
+              <p className="mt-4 max-w-3xl text-sm leading-[1.72] text-(--home-text-muted)">
                 {t('workflow.board.description')}
               </p>
             </div>
@@ -241,10 +241,10 @@ export function HomeCapabilitiesSection({ hasAuthSession }: HomeCapabilitiesSect
                       </span>
                     </div>
 
-                    <h3 className="mt-4 max-w-[13ch] font-display text-[1.75rem] font-semibold leading-[1.02] tracking-[-0.05em] text-(--home-text-strong)">
+                    <h3 className="mt-4 max-w-[13ch] font-display text-[1.75rem] font-semibold leading-[1.06] tracking-[-0.05em] text-(--home-text-strong)">
                       {t(card.titleKey)}
                     </h3>
-                    <p className="mt-4 max-w-[32ch] text-sm leading-7 text-(--home-text-muted)">
+                    <p className="mt-4 max-w-[32ch] text-sm leading-[1.72] text-(--home-text-muted)">
                       {t(card.descriptionKey)}
                     </p>
 
@@ -283,7 +283,7 @@ export function HomeFaqSection() {
               <p className="text-[10px] font-semibold uppercase tracking-[0.24em] text-(--home-text-soft)">
                 {t('faq.aside.label')}
               </p>
-              <p className="mt-4 max-w-[32ch] text-sm leading-7 text-(--home-text-muted)">
+              <p className="mt-4 max-w-[32ch] text-sm leading-[1.72] text-(--home-text-muted)">
                 {t('faq.aside.body')}
               </p>
             </div>
@@ -327,10 +327,10 @@ export function HomeCtaSection({ hasAuthSession }: HomeCtaSectionProps) {
               {t('cta.eyebrow')}
             </p>
 
-            <h2 className="mt-6 max-w-[11ch] text-balance font-display text-[clamp(2.4rem,10vw,4.8rem)] font-semibold leading-[0.92] tracking-[-0.08em] text-(--home-text-strong)">
+            <h2 className="mt-6 max-w-[11ch] text-balance font-display text-[clamp(2.4rem,10vw,4.8rem)] font-semibold leading-[0.99] tracking-[-0.06em] text-(--home-text-strong)">
               {t('cta.title')}
             </h2>
-            <p className="mt-5 max-w-3xl text-base leading-8 text-(--home-text-muted) sm:text-lg">
+            <p className="mt-5 max-w-3xl text-base leading-[1.74] text-(--home-text-muted) sm:text-lg">
               {t('cta.description')}
             </p>
 
@@ -356,7 +356,7 @@ export function HomeCtaSection({ hasAuthSession }: HomeCtaSectionProps) {
             <p className="text-[10px] font-semibold uppercase tracking-[0.24em] text-(--home-text-soft)">
               {t('cta.board.label')}
             </p>
-            <h3 className="mt-4 max-w-[14ch] font-display text-[2rem] font-semibold leading-[0.96] tracking-[-0.06em] text-(--home-text-strong)">
+            <h3 className="mt-4 max-w-[14ch] font-display text-[2rem] font-semibold leading-[1.02] tracking-[-0.05em] text-(--home-text-strong)">
               {t('cta.board.title')}
             </h3>
 
@@ -369,7 +369,7 @@ export function HomeCtaSection({ hasAuthSession }: HomeCtaSectionProps) {
                   <span className="flex size-7 items-center justify-center rounded-full bg-[#1f1a16] text-[11px] font-semibold text-[#faf7f2]">
                     {index + 1}
                   </span>
-                  <p className="text-sm leading-7 text-(--home-text-muted)">{step}</p>
+                  <p className="text-sm leading-[1.72] text-(--home-text-muted)">{step}</p>
                 </div>
               ))}
             </div>

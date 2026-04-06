@@ -40,7 +40,7 @@ export function HomeSectionHeading({
 
       <h2
         className={cn(
-          'mt-5 max-w-[13ch] text-balance font-display text-[clamp(2.4rem,5vw,4.8rem)] font-semibold leading-[0.94] tracking-[-0.07em] text-(--home-text-strong)',
+          'mt-5 max-w-[13ch] text-balance font-display text-[clamp(2.4rem,5vw,4.8rem)] font-semibold leading-[1.01] tracking-[-0.06em] text-(--home-text-strong)',
           isCentered && 'mx-auto',
           titleClassName
         )}
@@ -51,7 +51,7 @@ export function HomeSectionHeading({
       {description ? (
         <p
           className={cn(
-            'mt-5 max-w-152 text-[0.98rem] leading-8 text-(--home-text-muted) sm:text-[1.02rem]',
+            'mt-5 max-w-152 text-[0.98rem] leading-[1.76] text-(--home-text-muted) sm:text-[1.02rem]',
             isCentered && 'mx-auto',
             descriptionClassName
           )}
@@ -124,10 +124,10 @@ export function HomeWorkflowCard({
           </span>
         </div>
 
-        <h3 className="mt-8 max-w-[14ch] font-display text-[clamp(1.45rem,2vw,2rem)] font-semibold leading-[1.02] tracking-[-0.05em] text-(--home-text-strong)">
+        <h3 className="mt-8 max-w-[14ch] font-display text-[clamp(1.45rem,2vw,2rem)] font-semibold leading-[1.08] tracking-[-0.05em] text-(--home-text-strong)">
           {title}
         </h3>
-        <p className="mt-4 max-w-[32ch] text-sm leading-7 text-(--home-text-muted)">
+        <p className="mt-4 max-w-[32ch] text-sm leading-[1.72] text-(--home-text-muted)">
           {description}
         </p>
       </div>
@@ -171,10 +171,10 @@ export function HomeEvidenceCard({
           </span>
         </div>
 
-        <h3 className="mt-10 max-w-[14ch] text-balance font-display text-[clamp(1.55rem,2vw,2rem)] font-semibold leading-[0.98] tracking-[-0.06em] text-(--home-text-strong)">
+        <h3 className="mt-10 max-w-[14ch] text-balance font-display text-[clamp(1.55rem,2vw,2rem)] font-semibold leading-[1.04] tracking-[-0.05em] text-(--home-text-strong)">
           {title}
         </h3>
-        <p className="mt-4 max-w-[32ch] text-sm leading-7 text-(--home-text-muted)">
+        <p className="mt-4 max-w-[32ch] text-sm leading-[1.72] text-(--home-text-muted)">
           {description}
         </p>
       </div>
@@ -274,10 +274,12 @@ export function HomeFeatureCard({
         >
           {eyebrow}
         </p>
-        <h3 className="mt-4 max-w-[12ch] font-display text-[clamp(1.65rem,2.4vw,2.3rem)] font-semibold leading-[0.98] tracking-[-0.06em]">
+        <h3 className="mt-4 max-w-[12ch] font-display text-[clamp(1.65rem,2.4vw,2.3rem)] font-semibold leading-[1.04] tracking-[-0.05em]">
           {title}
         </h3>
-        <p className={cn('mt-5 max-w-[34ch] text-sm leading-7', toneClasses.text)}>{description}</p>
+        <p className={cn('mt-5 max-w-[34ch] text-sm leading-[1.72]', toneClasses.text)}>
+          {description}
+        </p>
 
         <span
           className={cn(
@@ -302,14 +304,14 @@ export function HomeFaqItem({ answer, question }: HomeFaqItemProps) {
   return (
     <details className="group border-b border-(--home-border) py-5">
       <summary className="flex list-none items-center justify-between gap-4 text-left">
-        <span className="max-w-[28ch] font-display text-[1.25rem] font-semibold leading-[1.08] tracking-[-0.04em] text-(--home-text-strong)">
+        <span className="max-w-[28ch] font-display text-[1.25rem] font-semibold leading-[1.14] tracking-[-0.04em] text-(--home-text-strong)">
           {question}
         </span>
         <span className="flex size-10 shrink-0 items-center justify-center rounded-full border border-(--home-border) bg-transparent text-(--home-text-strong) transition-transform duration-300 group-open:rotate-180">
           <ChevronDown className="size-4" />
         </span>
       </summary>
-      <p className="max-w-3xl pt-4 text-sm leading-7 text-(--home-text-muted)">{answer}</p>
+      <p className="max-w-3xl pt-4 text-sm leading-[1.72] text-(--home-text-muted)">{answer}</p>
     </details>
   );
 }
