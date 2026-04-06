@@ -7,95 +7,175 @@
   "getStarted": "立即开始",
   "nav": {
     "kicker": "Traceable Knowledge Workspace",
-    "workflow": "方案",
-    "capabilities": "功能",
+    "workflow": "流程",
+    "capabilities": "能力",
     "about": "关于"
   },
   "hero": {
-    "eyebrow": "面向团队的可溯源答案",
+    "eyebrow": "面向团队的证据驱动答案",
     "title": {
       "lineOne": "追溯来源。",
       "lineTwo": "直达答案。"
     },
-    "summary": "Groundpath 将分散知识整理成可追溯的答案层，为重视清晰度、速度与可信度的团队而设计。",
-    "support": "连接文档、保留引用，并在同一工作面里把检索、回答与执行串起来。",
+    "summary": "Groundpath 把分散资料收束成可引用、可审阅、可执行的答案工作流，给真正要拿答案进入业务的团队使用。",
+    "support": "接入文档，限定知识范围，让回答始终带着引用、权限边界和来源新鲜度出现，而不是在输出后再补救。",
     "primary": {
       "auth": "进入工作台",
       "guest": "立即开始"
     },
-    "secondary": "查看工作方式",
+    "secondary": "了解 Groundpath",
     "signals": {
-      "sources": "引用跟随回答",
-      "scope": "范围先于生成",
-      "review": "审阅信号可见"
+      "sources": "引用跟随回答出现",
+      "scope": "先限定范围再生成",
+      "review": "审阅状态始终可见"
+    },
+    "metrics": {
+      "trace": {
+        "label": "答案状态",
+        "value": "100% 带来源"
+      },
+      "scope": {
+        "label": "工作方式",
+        "value": "范围优先"
+      },
+      "review": {
+        "label": "交付信号",
+        "value": "审阅就绪"
+      }
+    },
+    "console": {
+      "eyebrow": "Evidence Console",
+      "status": "实时来源链路",
+      "answerLabel": "回答草稿",
+      "answerBody": "采购审批可以沿用现有 SLA，但需要在回复里保留合同版本差异与更新时间。",
+      "citations": {
+        "scope": "范围已锁定",
+        "freshness": "24h 内更新",
+        "access": "权限边界通过"
+      },
+      "scopeLabel": "检索范围",
+      "scopeTitle": "采购规范 · 合同档案",
+      "scopeBody": "只在当前组织与知识范围内召回，避免越权拼接与无关上下文混入。",
+      "reviewLabel": "审阅信号",
+      "reviewTitle": "执行前检查",
+      "reviewBody": "来源新鲜度、权限边界和引用状态在进入真实动作前同时暴露。",
+      "floatingFresh": "Source freshness",
+      "floatingFreshValue": "最近更新少于 24h",
+      "floatingScope": "Retrieval scope",
+      "floatingScopeValue": "仅采购与合同档案"
+    }
+  },
+  "proof": {
+    "eyebrow": "Evidence beats vibes",
+    "title": "不是更会说，而是更能被核验。",
+    "description": "Groundpath 把团队最容易失真的三件事重新收回系统里：来源、边界和审阅，让答案不再只是漂亮的输出。",
+    "rail": {
+      "label": "运营原则",
+      "title": "把回答从文本输出，变成可执行对象。",
+      "description": "当知识被组织成范围明确的档案对象，检索、回答和下一步动作就能沿着同一条证据链闭环。",
+      "points": {
+        "scope": "先限定知识范围，再放开生成能力。",
+        "version": "保留来源版本、更新时间与引用入口。",
+        "audit": "在交付动作前暴露审阅状态与潜在缺口。"
+      }
+    },
+    "cards": {
+      "trace": {
+        "value": "01",
+        "title": "答案总带来源",
+        "description": "引用不是附件，而是回答的一部分，始终跟着问题一起出现。"
+      },
+      "boundary": {
+        "value": "02",
+        "title": "边界先于能力",
+        "description": "权限、知识范围和工作对象先被收束，再允许模型展开。"
+      },
+      "review": {
+        "value": "03",
+        "title": "审阅信号可见",
+        "description": "让团队在真正执行前看到来源新鲜度、冲突和缺口。"
+      }
     }
   },
   "workflow": {
-    "label": "Clarity drives action",
-    "title": "清晰，才能行动。",
-    "description": "一条紧凑而可靠的工作流，让每个答案在进入真实业务前都始终带着来源。",
+    "label": "Source-grounded flow",
+    "title": "先限定范围，再让答案发生。",
+    "description": "一条紧凑但足够可靠的工作流，把知识、引用和审阅信号压进同一个系统表面。",
     "steps": {
       "connect": {
-        "title": "接入",
-        "description": "把文档和资料接入同一工作面，别让上下文散落在多个工具里。"
+        "title": "接入资料",
+        "description": "把文档、规范和归档资料接入同一工作面，结束上下文散落在多个工具里的状态。"
       },
       "index": {
-        "title": "索引",
-        "description": "为每份资料建立稳定身份、更新时间和可检索边界。"
+        "title": "建立身份",
+        "description": "为每份来源建立稳定身份、更新时间和可检索边界，避免回答失去出处。"
       },
       "query": {
-        "title": "查询",
-        "description": "先限定范围，再生成仍然带着引用的答案。"
+        "title": "收束后查询",
+        "description": "先限定作用范围，再让模型在受控上下文中返回带引用的答案。"
       },
       "act": {
-        "title": "执行",
-        "description": "带着证据和审阅信号进入下一步真实动作。"
+        "title": "带证据执行",
+        "description": "把引用、权限和审阅信号一起带入下一步动作，而不是靠人工补救。"
       }
     }
   },
   "capabilities": {
-    "label": "Built for business",
-    "title": "为业务而建。",
-    "description": "把源资料变成可落地答案所需的一切能力，收束在一个安全工作区里。",
+    "label": "Built for operating teams",
+    "title": "把档案、检索和执行，压到一个工作面里。",
+    "description": "Groundpath 不是把模型再包一层，而是把团队真正需要的来源管理、回答约束和工作流动作收束到一起。",
     "cards": {
       "rag": {
         "eyebrow": "即时 RAG",
-        "title": "即时答案",
-        "description": "连接资料后马上获得带来源上下文的检索增强回答。",
-        "cta": "了解更多"
+        "title": "接入后，立刻得到带来源答案",
+        "description": "文档进入系统后就能变成带引用上下文的检索增强回答，不需要另起一套拼接流程。",
+        "signal": "接入后即可得到带引用回答",
+        "cta": "查看知识库"
       },
       "secure": {
         "eyebrow": "私有且安全",
-        "title": "默认受保护",
-        "description": "访问边界、来源范围和回答引用都保留在可审计系统内部。",
-        "cta": "了解更多"
+        "title": "访问边界默认留在系统内部",
+        "description": "权限、范围和引用跟回答一起留在可审计的工作流内，而不是散落在模型外侧。",
+        "signal": "审计边界、访问范围和引用同处一面",
+        "cta": "了解安全设计"
       },
       "multimodal": {
-        "eyebrow": "多模型",
-        "title": "一套界面，多种模型",
-        "description": "在同一工作面里切换模型、补充上下文并持续追问。",
-        "cta": "进入工作台"
+        "eyebrow": "多模型工作面",
+        "title": "同一界面里切模型，也切上下文",
+        "description": "在一个连续工作面中切换模型、补充上下文并继续追问，不打断证据链。",
+        "signal": "一套工作面切换模型与上下文",
+        "cta": "打开工作台"
       },
       "search": {
         "eyebrow": "神经检索",
-        "title": "保持精准的检索",
-        "description": "让召回、匹配与回答始终围绕同一份证据链展开。",
+        "title": "让召回、匹配和回答指向同一证据链",
+        "description": "从档案组织到最终答案，保持检索、引用和回答指向同一组来源对象。",
+        "signal": "召回与回答围绕同一证据链",
         "cta": "开始检索"
       }
     }
   },
   "cta": {
-    "eyebrow": "Ready to reach the answer?",
-    "title": "准备直达答案了吗？",
-    "description": "加入下一代以来源为中心构建的团队工作流。",
+    "eyebrow": "准备进入证据驱动的答案流？",
+    "title": "把第一个档案，变成第一个可执行答案。",
+    "description": "从一组文档开始，把它们收束成团队能真正拿去做事的答案工作流。",
     "primary": {
       "auth": "打开工作台",
       "guest": "免费开始使用"
     },
-    "secondary": "查看关于"
+    "secondary": "查看关于",
+    "board": {
+      "label": "从首个档案开始",
+      "title": "三步把答案变成团队标准动作",
+      "items": {
+        "connect": "接入资料并建立明确的知识范围。",
+        "review": "让引用、权限和来源新鲜度一起可见。",
+        "deploy": "把可审阅答案带入真实业务执行。"
+      }
+    }
   },
   "footer": {
-    "description": "Groundpath 让知识工作从检索到回答都保持可追溯。",
+    "description": "Groundpath 让知识工作从档案接入、检索到回答交付都保持可追溯与可审阅。",
     "copyright": "保留所有权利。",
     "about": "关于",
     "console": "工作台",
@@ -103,14 +183,14 @@
       "product": {
         "title": "产品",
         "workspace": "工作台",
-        "knowledge": "Knowledge Bases",
-        "workflow": "方案",
-        "features": "功能"
+        "knowledge": "知识库",
+        "workflow": "流程",
+        "features": "能力"
       },
       "company": {
         "title": "公司",
         "about": "关于",
-        "capabilities": "Capabilities",
+        "capabilities": "能力",
         "login": "登录",
         "getStarted": "开始使用"
       },
