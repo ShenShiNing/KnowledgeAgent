@@ -19,33 +19,31 @@ function AuthHeader() {
   const hasAuthSession = isAuthenticated || !!accessToken;
 
   return (
-    <header className="relative z-10 border-b border-border/60 bg-background/88 px-4 backdrop-blur-md">
-      <div className="container">
-        <div className="mx-auto flex h-16 w-full max-w-6xl items-center justify-between gap-3">
-          <Link
-            to={hasAuthSession ? '/dashboard' : '/'}
-            className="min-w-0 font-display text-lg font-semibold tracking-tight text-foreground transition-opacity hover:opacity-85"
-          >
-            <span className="truncate">{t('brand', { ns: 'common' })}</span>
-          </Link>
+    <header className="relative z-10 border-b border-border/60 bg-background/88 backdrop-blur-md">
+      <div className="flex h-16 w-full items-center justify-between gap-3 px-4">
+        <Link
+          to={hasAuthSession ? '/dashboard' : '/'}
+          className="min-w-0 font-display text-lg font-semibold tracking-tight text-foreground transition-opacity hover:opacity-85"
+        >
+          <span className="truncate">{t('brand', { ns: 'common' })}</span>
+        </Link>
 
-          <div className="flex items-center gap-2">
-            <Button
-              variant="ghost"
-              size="sm"
-              className="hidden cursor-pointer sm:inline-flex"
-              asChild
-            >
-              <Link to="/">{t('header.home')}</Link>
+        <div className="flex items-center gap-2">
+          <Button
+            variant="ghost"
+            size="sm"
+            className="hidden cursor-pointer sm:inline-flex"
+            asChild
+          >
+            <Link to="/">{t('header.home')}</Link>
+          </Button>
+          {hasAuthSession && (
+            <Button size="sm" className="hidden cursor-pointer sm:inline-flex" asChild>
+              <Link to="/dashboard">{t('header.console')}</Link>
             </Button>
-            {hasAuthSession && (
-              <Button size="sm" className="hidden cursor-pointer sm:inline-flex" asChild>
-                <Link to="/dashboard">{t('header.console')}</Link>
-              </Button>
-            )}
-            <LanguageToggle />
-            <ModeToggle />
-          </div>
+          )}
+          <LanguageToggle />
+          <ModeToggle />
         </div>
       </div>
     </header>

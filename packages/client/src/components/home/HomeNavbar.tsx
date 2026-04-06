@@ -118,8 +118,8 @@ export function HomeNavbar({ hasAuthSession }: HomeNavbarProps) {
   const workspaceTarget = hasAuthSession ? '/dashboard' : '/auth/signup';
 
   return (
-    <header className="sticky top-0 z-50 border-b border-(--home-border) bg-[rgba(246,240,230,0.82)] px-4 backdrop-blur-xl md:px-6">
-      <div className="mx-auto flex h-16 max-w-290 items-center justify-between gap-4">
+    <header className="sticky top-0 z-50 border-b border-(--home-border) bg-[rgba(246,240,230,0.82)] backdrop-blur-xl">
+      <div className="flex h-16 w-full items-center justify-between gap-4 px-4 md:px-6">
         <Link
           to="/"
           className="min-w-0 font-display text-lg font-semibold tracking-[-0.05em] text-(--home-text-strong) transition-opacity hover:opacity-85"
