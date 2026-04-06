@@ -13,8 +13,20 @@ import { useAuthStore } from '@/stores';
 import { initiateGitHubLogin, initiateGoogleLogin } from '@/api';
 import { translateApiError } from '@/lib/http/translate-error';
 import { resolveZodIssueMessage } from '@/lib/validation/resolve-zod-issue-message';
+import { cn } from '@/lib/utils';
 import { FormField } from './FormField';
 import { GitHubIcon, GoogleIcon } from './SocialIcons';
+import {
+  authCardClass,
+  authCardHeaderClass,
+  authDescriptionClass,
+  authInlineLinkClass,
+  authPrimaryButtonClass,
+  authSeparatorClass,
+  authSeparatorLabelClass,
+  authSocialButtonClass,
+  authTitleClass,
+} from './auth-theme';
 
 export function LoginForm() {
   const { t } = useTranslation(['auth', 'common']);
@@ -55,10 +67,12 @@ export function LoginForm() {
   });
 
   return (
-    <Card>
-      <CardHeader className="text-center">
-        <CardTitle className="text-xl">{t('login.form.title')}</CardTitle>
-        <CardDescription>{t('login.form.description')}</CardDescription>
+    <Card className={authCardClass}>
+      <CardHeader className={cn('text-center', authCardHeaderClass)}>
+        <CardTitle className={authTitleClass}>{t('login.form.title')}</CardTitle>
+        <CardDescription className={authDescriptionClass}>
+          {t('login.form.description')}
+        </CardDescription>
       </CardHeader>
       <CardContent>
         <form
@@ -96,6 +110,7 @@ export function LoginForm() {
                 disabled={form.state.isSubmitting}
                 required
                 errors={field.state.meta.errors as string[]}
+                appearance="auth"
               />
             )}
           </form.Field>
@@ -130,16 +145,14 @@ export function LoginForm() {
                 showPasswordToggle
                 showPassword={showPassword}
                 onTogglePassword={() => setShowPassword(!showPassword)}
+                appearance="auth"
               />
             )}
           </form.Field>
 
           {/* Forgot Password Link */}
           <div className="flex justify-end">
-            <Link
-              to="/auth/forgot-password"
-              className="text-sm text-muted-foreground hover:text-primary cursor-pointer"
-            >
+            <Link to="/auth/forgot-password" className={authInlineLinkClass}>
               {t('login.forgotPassword')}
             </Link>
           </div>
@@ -151,17 +164,17 @@ export function LoginForm() {
           <form.Subscribe selector={(state) => state.isSubmitting}>
             {(isSubmitting) => (
               <>
-                <Button type="submit" className="w-full cursor-pointer" disabled={isSubmitting}>
+                <Button type="submit" className={authPrimaryButtonClass} disabled={isSubmitting}>
                   {isSubmitting ? t('login.submitting') : t('login.submit')}
                 </Button>
 
                 {/* Divider */}
                 <div className="relative">
                   <div className="absolute inset-0 flex items-center">
-                    <Separator />
+                    <Separator className={authSeparatorClass} />
                   </div>
                   <div className="relative flex justify-center text-xs uppercase">
-                    <span className="bg-card px-2 text-muted-foreground">
+                    <span className={authSeparatorLabelClass}>
                       {t('common:orContinueWith')}
                     </span>
                   </div>
@@ -172,7 +185,7 @@ export function LoginForm() {
                   <Button
                     type="button"
                     variant="outline"
-                    className="cursor-pointer"
+                    className={authSocialButtonClass}
                     disabled={isSubmitting}
                     onClick={() => initiateGitHubLogin()}
                   >
@@ -182,7 +195,7 @@ export function LoginForm() {
                   <Button
                     type="button"
                     variant="outline"
-                    className="cursor-pointer"
+                    className={authSocialButtonClass}
                     disabled={isSubmitting}
                     onClick={() => initiateGoogleLogin()}
                   >

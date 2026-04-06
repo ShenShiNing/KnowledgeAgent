@@ -10,6 +10,7 @@ import { FormField } from './FormField';
 import { emailApi } from '@/api';
 import { translateApiError } from '@/lib/http/translate-error';
 import { resolveZodIssueMessage } from '@/lib/validation/resolve-zod-issue-message';
+import { authMutedTextClass, authPrimaryButtonClass } from './auth-theme';
 
 interface SignupStepEmailProps {
   onNext: (email: string) => void;
@@ -57,7 +58,7 @@ export function SignupStepEmail({ onNext, defaultEmail = '' }: SignupStepEmailPr
       className="space-y-4"
     >
       <div className="text-center space-y-1">
-        <p className="text-sm text-muted-foreground">{t('signup.email.helper')}</p>
+        <p className={authMutedTextClass}>{t('signup.email.helper')}</p>
       </div>
 
       <form.Field
@@ -86,6 +87,7 @@ export function SignupStepEmail({ onNext, defaultEmail = '' }: SignupStepEmailPr
             disabled={form.state.isSubmitting}
             required
             errors={field.state.meta.errors as string[]}
+            appearance="auth"
           />
         )}
       </form.Field>
@@ -94,7 +96,7 @@ export function SignupStepEmail({ onNext, defaultEmail = '' }: SignupStepEmailPr
 
       <form.Subscribe selector={(state) => state.isSubmitting}>
         {(isSubmitting) => (
-          <Button type="submit" className="w-full cursor-pointer" disabled={isSubmitting}>
+          <Button type="submit" className={authPrimaryButtonClass} disabled={isSubmitting}>
             {isSubmitting ? t('signup.email.sending') : t('signup.email.sendCode')}
           </Button>
         )}

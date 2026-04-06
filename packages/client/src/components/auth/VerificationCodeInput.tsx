@@ -1,6 +1,7 @@
 import { REGEXP_ONLY_DIGITS } from 'input-otp';
 import { InputOTP, InputOTPGroup, InputOTPSlot } from '@/components/ui/input-otp';
 import { cn } from '@/lib/utils';
+import { authOTPGroupClass, authOTPSlotClass } from './auth-theme';
 
 interface VerificationCodeInputProps {
   length?: number;
@@ -9,6 +10,7 @@ interface VerificationCodeInputProps {
   disabled?: boolean;
   autoFocus?: boolean;
   error?: boolean;
+  appearance?: 'default' | 'auth';
 }
 
 export function VerificationCodeInput({
@@ -18,7 +20,13 @@ export function VerificationCodeInput({
   disabled = false,
   autoFocus = false,
   error = false,
+  appearance = 'default',
 }: VerificationCodeInputProps) {
+  const slotClassName =
+    appearance === 'auth'
+      ? authOTPSlotClass
+      : 'h-11 w-10 text-lg font-semibold sm:h-12 sm:w-12 sm:text-xl';
+
   return (
     <InputOTP
       maxLength={length}
@@ -29,15 +37,12 @@ export function VerificationCodeInput({
       pattern={REGEXP_ONLY_DIGITS}
       containerClassName="justify-center"
     >
-      <InputOTPGroup>
+      <InputOTPGroup className={cn(appearance === 'auth' && authOTPGroupClass)}>
         {Array.from({ length }, (_, index) => (
           <InputOTPSlot
             key={index}
             index={index}
-            className={cn(
-              'h-11 w-10 text-lg font-semibold sm:h-12 sm:w-12 sm:text-xl',
-              error && 'border-destructive'
-            )}
+            className={cn(slotClassName, error && 'border-destructive')}
           />
         ))}
       </InputOTPGroup>

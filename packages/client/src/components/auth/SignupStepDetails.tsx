@@ -8,6 +8,11 @@ import { Button } from '@/components/ui/button';
 import { useTranslation } from 'react-i18next';
 import { FormField } from './FormField';
 import { translateApiError } from '@/lib/http/translate-error';
+import {
+  authMutedTextClass,
+  authPrimaryButtonClass,
+  authSecondaryButtonClass,
+} from './auth-theme';
 
 interface SignupStepDetailsProps {
   email: string;
@@ -53,7 +58,7 @@ export function SignupStepDetails({ email, onSubmit, onBack }: SignupStepDetails
       className="space-y-4"
     >
       <div className="text-center space-y-1">
-        <p className="text-sm text-muted-foreground">{t('signup.details.setupFor', { email })}</p>
+        <p className={authMutedTextClass}>{t('signup.details.setupFor', { email })}</p>
       </div>
 
       {/* Username Field */}
@@ -80,6 +85,7 @@ export function SignupStepDetails({ email, onSubmit, onBack }: SignupStepDetails
             disabled={form.state.isSubmitting}
             required
             errors={field.state.meta.errors as string[]}
+            appearance="auth"
           />
         )}
       </form.Field>
@@ -111,6 +117,7 @@ export function SignupStepDetails({ email, onSubmit, onBack }: SignupStepDetails
             showPasswordToggle
             showPassword={showPassword}
             onTogglePassword={() => setShowPassword(!showPassword)}
+            appearance="auth"
           />
         )}
       </form.Field>
@@ -142,6 +149,7 @@ export function SignupStepDetails({ email, onSubmit, onBack }: SignupStepDetails
             showPasswordToggle
             showPassword={showConfirmPassword}
             onTogglePassword={() => setShowConfirmPassword(!showConfirmPassword)}
+            appearance="auth"
           />
         )}
       </form.Field>
@@ -151,20 +159,14 @@ export function SignupStepDetails({ email, onSubmit, onBack }: SignupStepDetails
       <div className="space-y-3">
         <form.Subscribe selector={(state) => state.isSubmitting}>
           {(isSubmitting) => (
-            <Button type="submit" className="w-full cursor-pointer" disabled={isSubmitting}>
+            <Button type="submit" className={authPrimaryButtonClass} disabled={isSubmitting}>
               {isSubmitting ? t('signup.details.creating') : t('signup.details.createAccount')}
             </Button>
           )}
         </form.Subscribe>
 
         <div className="flex items-center">
-          <Button
-            type="button"
-            variant="ghost"
-            size="sm"
-            className="cursor-pointer"
-            onClick={onBack}
-          >
+          <Button type="button" variant="ghost" className={authSecondaryButtonClass} onClick={onBack}>
             {t('common:back')}
           </Button>
         </div>

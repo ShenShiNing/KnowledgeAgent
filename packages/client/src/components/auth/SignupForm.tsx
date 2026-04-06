@@ -10,6 +10,20 @@ import { SignupStepEmail } from './SignupStepEmail';
 import { SignupStepCode } from './SignupStepCode';
 import { SignupStepDetails } from './SignupStepDetails';
 import { GitHubIcon, GoogleIcon } from './SocialIcons';
+import { cn } from '@/lib/utils';
+import {
+  authCardClass,
+  authCardHeaderClass,
+  authDescriptionClass,
+  authSeparatorClass,
+  authSeparatorLabelClass,
+  authSocialButtonClass,
+  authStepDotActiveClass,
+  authStepDotInactiveClass,
+  authStepLineActiveClass,
+  authStepLineInactiveClass,
+  authTitleClass,
+} from './auth-theme';
 
 type SignupStep = 'email' | 'code' | 'details';
 
@@ -40,13 +54,13 @@ function StepIndicator({ currentStep }: { currentStep: SignupStep }) {
         <div key={step} className="flex items-center">
           <div
             className={`w-2 h-2 rounded-full transition-colors ${
-              index <= currentIndex ? 'bg-primary' : 'bg-muted'
+              index <= currentIndex ? authStepDotActiveClass : authStepDotInactiveClass
             }`}
           />
           {index < steps.length - 1 && (
             <div
               className={`w-8 h-0.5 transition-colors ${
-                index < currentIndex ? 'bg-primary' : 'bg-muted'
+                index < currentIndex ? authStepLineActiveClass : authStepLineInactiveClass
               }`}
             />
           )}
@@ -108,11 +122,13 @@ export function SignupForm() {
   };
 
   return (
-    <Card>
-      <CardHeader className="text-center">
+    <Card className={authCardClass}>
+      <CardHeader className={cn('text-center', authCardHeaderClass)}>
         <StepIndicator currentStep={step} />
-        <CardTitle className="text-xl">{t(getStepTitle(step))}</CardTitle>
-        <CardDescription>{t(getStepDescription(step))}</CardDescription>
+        <CardTitle className={authTitleClass}>{t(getStepTitle(step))}</CardTitle>
+        <CardDescription className={authDescriptionClass}>
+          {t(getStepDescription(step))}
+        </CardDescription>
       </CardHeader>
       <CardContent>
         {step === 'email' && (
@@ -123,10 +139,10 @@ export function SignupForm() {
             <div className="mt-4">
               <div className="relative">
                 <div className="absolute inset-0 flex items-center">
-                  <Separator />
+                  <Separator className={authSeparatorClass} />
                 </div>
                 <div className="relative flex justify-center text-xs uppercase">
-                  <span className="bg-card px-2 text-muted-foreground">
+                  <span className={authSeparatorLabelClass}>
                     {t('common:orContinueWith')}
                   </span>
                 </div>
@@ -136,7 +152,7 @@ export function SignupForm() {
                 <Button
                   type="button"
                   variant="outline"
-                  className="cursor-pointer"
+                  className={authSocialButtonClass}
                   onClick={() => initiateGitHubLogin()}
                 >
                   <GitHubIcon className="mr-2 h-4 w-4" />
@@ -145,7 +161,7 @@ export function SignupForm() {
                 <Button
                   type="button"
                   variant="outline"
-                  className="cursor-pointer"
+                  className={authSocialButtonClass}
                   onClick={() => initiateGoogleLogin()}
                 >
                   <GoogleIcon className="mr-2 h-4 w-4" />

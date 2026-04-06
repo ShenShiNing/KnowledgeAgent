@@ -6,6 +6,7 @@ import { useTranslation } from 'react-i18next';
 import { VerificationCodeInput } from './VerificationCodeInput';
 import { emailApi } from '@/api';
 import { translateApiError } from '@/lib/http/translate-error';
+import { authMutedTextClass, authSecondaryButtonClass } from './auth-theme';
 
 interface SignupStepCodeProps {
   email: string;
@@ -96,12 +97,15 @@ export function SignupStepCode({ email, onNext, onBack }: SignupStepCodeProps) {
   return (
     <div className="space-y-6">
       <div className="text-center space-y-2">
-        <p className="text-sm text-muted-foreground">{t('signup.code.sentTo')}</p>
-        <p className="font-medium">{email}</p>
+        <p className={authMutedTextClass}>{t('signup.code.sentTo')}</p>
+        <p className="font-display text-base font-semibold tracking-[-0.04em] text-(--home-text-strong)">
+          {email}
+        </p>
       </div>
 
       <div className="space-y-4">
         <VerificationCodeInput
+          appearance="auth"
           value={code}
           onChange={handleCodeChange}
           disabled={isVerifying}
@@ -113,15 +117,19 @@ export function SignupStepCode({ email, onNext, onBack }: SignupStepCodeProps) {
       </div>
 
       <div className="flex items-center justify-between">
-        <Button type="button" variant="ghost" size="sm" className="cursor-pointer" onClick={onBack}>
+        <Button
+          type="button"
+          variant="ghost"
+          className={authSecondaryButtonClass}
+          onClick={onBack}
+        >
           {t('common:back')}
         </Button>
 
         <Button
           type="button"
           variant="ghost"
-          size="sm"
-          className="cursor-pointer"
+          className={authSecondaryButtonClass}
           onClick={handleResend}
           disabled={resendCooldown > 0 || isResending}
         >
