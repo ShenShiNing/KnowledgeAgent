@@ -6,6 +6,8 @@ export function ForgotPasswordPage() {
 
   return (
     <AuthPageLayout
+      headerVariant="home"
+      headerMode="forgot"
       title={t('forgot.pageTitle')}
       description={t('forgot.pageDescription')}
       footer={

@@ -1,6 +1,7 @@
 import { Link } from '@tanstack/react-router';
-import { ArrowRight, Brain, Database, FileSearch, ShieldCheck } from 'lucide-react';
+import { ArrowRight, Database, FileSearch, ShieldCheck } from 'lucide-react';
 import { useTranslation } from 'react-i18next';
+import { HomeNavbar } from '@/components/home/HomeNavbar';
 import { Button } from '@/components/ui/button';
 import { useAuthStore } from '@/stores';
 
@@ -30,36 +31,13 @@ export default function AboutPage() {
 
   return (
     <div className="relative min-h-screen overflow-x-clip bg-background">
+      <HomeNavbar hasAuthSession={hasAuthSession} mode="home" />
+
       <div aria-hidden className="pointer-events-none absolute inset-0 -z-10">
         <div className="absolute left-1/2 top-0 h-80 w-176 -translate-x-1/2 rounded-full bg-primary/10 blur-3xl" />
       </div>
 
-      <header className="fixed inset-x-0 top-4 z-50 px-4">
-        <div className="container">
-          <div className="mx-auto flex h-14 w-full max-w-6xl items-center justify-between rounded-2xl border bg-background/85 px-4 shadow-sm backdrop-blur-md">
-            <Link to={hasAuthSession ? '/dashboard' : '/'} className="flex items-center gap-2.5">
-              <div className="flex size-8 items-center justify-center rounded-lg bg-primary text-primary-foreground">
-                <Brain className="size-4" />
-              </div>
-              <span className="font-display text-base font-semibold tracking-tight">
-                {t('brand', { ns: 'common' })}
-              </span>
-            </Link>
-            <div className="flex items-center gap-2">
-              <Button variant="ghost" size="sm" className="cursor-pointer" asChild>
-                <Link to="/">{t('about.nav.home')}</Link>
-              </Button>
-              <Button size="sm" className="cursor-pointer" asChild>
-                <Link to={hasAuthSession ? '/dashboard' : '/auth/signup'}>
-                  {hasAuthSession ? t('about.nav.dashboard') : t('about.nav.getStarted')}
-                </Link>
-              </Button>
-            </div>
-          </div>
-        </div>
-      </header>
-
-      <main className="container pt-36 pb-16 md:pt-44 md:pb-24">
+      <main className="container pt-20 pb-16 md:pt-24 md:pb-24">
         <section className="mx-auto max-w-5xl">
           <h1 className="font-display text-4xl font-bold tracking-tight sm:text-5xl md:text-6xl">
             {t('about.hero.title')}

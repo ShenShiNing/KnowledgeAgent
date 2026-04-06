@@ -6,6 +6,8 @@ export function LoginPage() {
 
   return (
     <AuthPageLayout
+      headerVariant="home"
+      headerMode="login"
       title={t('login.pageTitle')}
       description={t('login.pageDescription')}
       footer={

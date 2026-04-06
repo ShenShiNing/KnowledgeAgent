@@ -24,7 +24,12 @@ import {
 } from '@/components/ui/dropdown-menu';
 import { cn } from '@/lib/utils';
 import { useAuthStore } from '@/stores';
-import { homeGhostButtonClass, homeNavItems, homePrimaryButtonClass } from './home-content';
+import {
+  homeGhostButtonClass,
+  homeNavItems,
+  homePrimaryButtonClass,
+  type HomeRoute,
+} from './home-content';
 import { HomePreferenceMenu } from './HomePreferenceMenu';
 
 function getUserInitials(username?: string, email?: string): string {
@@ -125,16 +130,63 @@ function HomeUserMenu() {
 
 type HomeNavbarProps = {
   hasAuthSession: boolean;
+  mode?: HomeNavbarMode;
 };
 
-export function HomeNavbar({ hasAuthSession }: HomeNavbarProps) {
-  const { t, i18n } = useTranslation(['home', 'common', 'app', 'language']);
+export type HomeNavbarMode = 'home' | 'login' | 'signup' | 'forgot';
+
+type GuestActionConfig = {
+  primaryLabel: string;
+  primaryTo: HomeRoute;
+  secondaryLabel: string;
+  secondaryTo: HomeRoute;
+};
+
+function getGuestActions(
+  mode: HomeNavbarMode,
+  t: ReturnType<typeof useTranslation>['t']
+): GuestActionConfig {
+  switch (mode) {
+    case 'login':
+      return {
+        primaryLabel: String(t('login.footerLink', { ns: 'auth' })),
+        primaryTo: '/auth/signup',
+        secondaryLabel: String(t('header.home', { ns: 'auth' })),
+        secondaryTo: '/',
+      };
+    case 'signup':
+      return {
+        primaryLabel: String(t('signup.footerLink', { ns: 'auth' })),
+        primaryTo: '/auth/login',
+        secondaryLabel: String(t('header.home', { ns: 'auth' })),
+        secondaryTo: '/',
+      };
+    case 'forgot':
+      return {
+        primaryLabel: String(t('forgot.footerLink', { ns: 'auth' })),
+        primaryTo: '/auth/login',
+        secondaryLabel: String(t('header.home', { ns: 'auth' })),
+        secondaryTo: '/',
+      };
+    case 'home':
+    default:
+      return {
+        primaryLabel: String(t('getStarted')),
+        primaryTo: '/auth/signup',
+        secondaryLabel: String(t('login')),
+        secondaryTo: '/auth/login',
+      };
+  }
+}
+
+export function HomeNavbar({ hasAuthSession, mode = 'home' }: HomeNavbarProps) {
+  const { t, i18n } = useTranslation(['home', 'common', 'app', 'language', 'auth']);
   const { theme, setTheme } = useTheme();
-  const workspaceTarget = hasAuthSession ? '/dashboard' : '/auth/signup';
   const currentLanguage =
     i18n.resolvedLanguage === 'en-US' || i18n.language === 'en-US' ? 'en-US' : 'zh-CN';
   const headerActionButtonClass =
     'h-11 min-w-[8.75rem] justify-center rounded-full px-5 text-sm font-semibold';
+  const guestActions = getGuestActions(mode, t);
   const themeOptions = [
     { label: t('userMenu.themeDark', { ns: 'app' }), value: 'dark' },
     { label: t('userMenu.themeLight', { ns: 'app' }), value: 'light' },
@@ -225,7 +277,7 @@ export function HomeNavbar({ hasAuthSession }: HomeNavbarProps) {
                 )}
                 asChild
               >
-                <Link to={workspaceTarget}>{t('dashboard', { ns: 'common' })}</Link>
+                <Link to="/dashboard">{t('dashboard', { ns: 'common' })}</Link>
               </Button>
               <HomeUserMenu />
             </>
@@ -240,10 +292,10 @@ export function HomeNavbar({ hasAuthSession }: HomeNavbarProps) {
                 )}
                 asChild
               >
-                <Link to="/auth/login">{t('login')}</Link>
+                <Link to={guestActions.secondaryTo}>{guestActions.secondaryLabel}</Link>
               </Button>
               <Button className={cn(homePrimaryButtonClass, headerActionButtonClass)} asChild>
-                <Link to={workspaceTarget}>{t('getStarted')}</Link>
+                <Link to={guestActions.primaryTo}>{guestActions.primaryLabel}</Link>
               </Button>
             </>
           )}

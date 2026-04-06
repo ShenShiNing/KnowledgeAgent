@@ -13,6 +13,7 @@ import {
 } from 'lucide-react';
 
 export type HomeRoute =
+  | '/'
   | '/about'
   | '/auth/login'
   | '/auth/signup'
@@ -26,8 +27,8 @@ export const homeGhostButtonClass =
   'h-10 rounded-full border border-(--home-border) bg-(--home-surface) px-4 text-sm font-semibold text-(--home-text-strong) shadow-none transition-colors hover:bg-(--home-paper) hover:text-(--home-text-strong) focus-visible:ring-[#1f1a16]';
 
 export const homeNavItems = [
-  { href: '#workflow', key: 'nav.workflow' },
-  { href: '#faq', key: 'nav.faq' },
+  { href: '/#workflow', key: 'nav.workflow' },
+  { href: '/#faq', key: 'nav.faq' },
   { key: 'nav.about', route: '/about' },
 ] as const;
 

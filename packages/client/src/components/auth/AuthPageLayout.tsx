@@ -1,11 +1,8 @@
 import { Link } from '@tanstack/react-router';
-import { Languages, Monitor, Moon, Sun } from 'lucide-react';
-import { HomePreferenceMenu } from '@/components/home/HomePreferenceMenu';
-import { homeGhostButtonClass, homePrimaryButtonClass } from '@/components/home/home-content';
+import { HomeNavbar, type HomeNavbarMode } from '@/components/home/HomeNavbar';
 import { LanguageToggle } from '@/components/i18n/LanguageToggle';
 import { cn } from '@/lib/utils';
 import { ModeToggle } from '@/components/theme/mode-toggle';
-import { useTheme } from '@/components/theme/theme-provider';
 import { Button } from '@/components/ui/button';
 import { useTranslation } from 'react-i18next';
 import { useAuthStore } from '@/stores';
@@ -20,101 +17,14 @@ interface AuthPageLayoutProps {
   description: string;
   footer: React.ReactNode;
   headerVariant?: AuthHeaderVariant;
+  headerMode?: HomeNavbarMode;
 }
 
-function AuthHeader({ variant = 'default' }: { variant?: AuthHeaderVariant }) {
-  const { t, i18n } = useTranslation(['auth', 'common', 'app', 'language']);
-  const { theme, setTheme } = useTheme();
+function DefaultAuthHeader() {
+  const { t } = useTranslation(['auth', 'common']);
   const accessToken = useAuthStore((s) => s.accessToken);
   const isAuthenticated = useAuthStore((s) => s.isAuthenticated);
   const hasAuthSession = isAuthenticated || !!accessToken;
-  const currentLanguage =
-    i18n.resolvedLanguage === 'en-US' || i18n.language === 'en-US' ? 'en-US' : 'zh-CN';
-  const themeOptions = [
-    { label: t('userMenu.themeDark', { ns: 'app' }), value: 'dark' },
-    { label: t('userMenu.themeLight', { ns: 'app' }), value: 'light' },
-    { label: t('userMenu.themeSystem', { ns: 'app' }), value: 'system' },
-  ] as const;
-  const languageOptions = [
-    { label: t('zh', { ns: 'language' }), value: 'zh-CN' },
-    { label: t('en', { ns: 'language' }), value: 'en-US' },
-  ] as const;
-  const themeIcon =
-    theme === 'dark' ? (
-      <Moon className="size-4" />
-    ) : theme === 'light' ? (
-      <Sun className="size-4" />
-    ) : (
-      <Monitor className="size-4" />
-    );
-
-  const handleThemeChange = (value: string) => {
-    if (value === 'dark' || value === 'light' || value === 'system') {
-      setTheme(value);
-    }
-  };
-
-  const handleLanguageChange = (value: string) => {
-    if (value !== 'zh-CN' && value !== 'en-US') return;
-
-    void i18n.changeLanguage(value);
-    localStorage.setItem('groundpath.language', value);
-    document.documentElement.lang = value;
-  };
-
-  if (variant === 'home') {
-    const headerActionButtonClass =
-      'hidden sm:inline-flex min-w-[6rem] justify-center rounded-full px-5 text-sm font-semibold';
-
-    return (
-      <header className="relative z-10 border-b border-(--home-border) bg-[var(--home-navbar-bg)] backdrop-blur-md">
-        <div className="flex h-16 w-full items-center justify-between gap-3 px-4 md:px-6">
-          <Link
-            to={hasAuthSession ? '/dashboard' : '/'}
-            className="min-w-0 font-display text-lg font-semibold tracking-[-0.05em] text-(--home-text-strong) transition-opacity hover:opacity-85"
-          >
-            <span className="block truncate">{t('brand', { ns: 'common' })}</span>
-          </Link>
-
-          <div className="flex items-center justify-end gap-3">
-            <HomePreferenceMenu
-              ariaLabel="Theme"
-              icon={themeIcon}
-              onValueChange={handleThemeChange}
-              options={themeOptions}
-              value={theme}
-            />
-            <HomePreferenceMenu
-              ariaLabel="Language"
-              icon={<Languages className="size-4" />}
-              onValueChange={handleLanguageChange}
-              options={languageOptions}
-              value={currentLanguage}
-            />
-            <Button
-              variant="ghost"
-              className={cn(homeGhostButtonClass, headerActionButtonClass)}
-              asChild
-            >
-              <Link to="/">{t('header.home')}</Link>
-            </Button>
-            {hasAuthSession && (
-              <Button
-                className={cn(
-                  homePrimaryButtonClass,
-                  'hidden sm:inline-flex min-w-[8.75rem] justify-center rounded-full px-5 text-sm font-semibold'
-                )}
-                asChild
-              >
-                <Link to="/dashboard">{t('header.console')}</Link>
-              </Button>
-            )}
-          </div>
-        </div>
-      </header>
-    );
-  }
-
   return (
     <header className="relative z-10 border-b border-border/60 bg-background/88 backdrop-blur-md">
       <div className="flex h-16 w-full items-center justify-between gap-3 px-4">
@@ -154,8 +64,12 @@ export function AuthPageLayout({
   description,
   footer,
   headerVariant = 'default',
+  headerMode = 'home',
 }: AuthPageLayoutProps) {
   const isHomeBackground = backgroundVariant === 'home';
+  const accessToken = useAuthStore((s) => s.accessToken);
+  const isAuthenticated = useAuthStore((s) => s.isAuthenticated);
+  const hasAuthSession = isAuthenticated || !!accessToken;
 
   return (
     <div
@@ -164,7 +78,11 @@ export function AuthPageLayout({
         isHomeBackground ? 'bg-(--home-app-bg) text-(--home-text-strong)' : 'bg-background'
       )}
     >
-      <AuthHeader variant={headerVariant} />
+      {headerVariant === 'home' ? (
+        <HomeNavbar hasAuthSession={hasAuthSession} mode={headerMode} />
+      ) : (
+        <DefaultAuthHeader />
+      )}
 
       {isHomeBackground ? (
         <div aria-hidden className="pointer-events-none absolute inset-0 -z-10 overflow-hidden">

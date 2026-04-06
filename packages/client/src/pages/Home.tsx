@@ -17,7 +17,7 @@ const HomePage = () => {
 
   return (
     <div className="relative min-h-screen overflow-x-clip bg-(--home-app-bg) text-(--home-text-strong)">
-      <HomeNavbar hasAuthSession={hasAuthSession} />
+      <HomeNavbar hasAuthSession={hasAuthSession} mode="home" />
 
       <div aria-hidden className="pointer-events-none absolute inset-0 -z-10 overflow-hidden">
         <div className="absolute inset-0 bg-[var(--home-backdrop-base)]" />
